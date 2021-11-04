@@ -1,6 +1,6 @@
 classdef node < matlab.system
     properties(private) %not tunable properties 
-        %ie cannot be changed during run time
+        %ie cannot be changed during run time (temp just to check)
        persistance;
        strength;
     end
