@@ -1,29 +1,18 @@
 classdef node 
     properties %not tunable properties 
         %ie cannot be changed during run time
-       row;
-       column;
+       nodeNum;
        gamma%persistance
        beta;%strength
        state;
     end
      methods
          %Constructor
-         function obj = node(row,column)
-            obj.row = row;
-            obj.column = column;
+        function obj = node(nodeNum)
+            obj.nodeNum=nodeNum;
         end
          %Probability
-         function p1 = SIIS(t,beta,gamma,row,column)
-           for i = -1:1
-               for j = -1:1
-                   zeta1 = zeta *( 1 - p1(t-1,beta,gamma,row,column));
-                   zeta2 = zeta *( 1 - p2(t-1,beta,gamma,row,column));     
-               end
-           end
-           T1 = (1-zeta1)*zeta1;
-           T2= (1-zeta1)*zeta1;
-           S = (1-T1 - T2)
+         function p = SIIS(t,p,)
             
          end
     end

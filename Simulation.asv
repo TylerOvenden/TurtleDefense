@@ -1,19 +1,16 @@
-N = 100;
-temp= zeros(N,N);
+N=100;
 %Create Array of nodes
-network1 = ObjectArray(N);
-network2 = ObjectArray(N);
+network1 = ObjectArray(N,N);
+network2 = Obje
 %First network occupies the first N nodes
 for k = 1:N
-    for j = 1:N
-    network1(k,j) = node(k,j);
-    end
+    network1(k,) = node(k);
+    %nodes(k).nodeNum = k;
 end
 %Second network occupies the second N nodes
-for k = 1:N
-    for j = 1:N
-        network2(k,j) = node(k,j);
-    end
+for k = N+1:2*N
+    nodes(k) = node(k-N);
+    %nodes(k).nodeNum = k-N;
 end
 %create adjaceny matrixes of both networks
 A1 = randi([0,1],[N,N]);
