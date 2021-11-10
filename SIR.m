@@ -2,11 +2,11 @@
 %%Adapted from Kurt Owen yt vid
 %%State var of  SIR
 %%Pararmeters
-I0 = .001; %Initial proportion infected
+I0 = .01; %Initial proportion infected
 a = 1.1; % I coefficient in t -1
-b = 0.5; % R coefficient
+b = 0.01; % R coefficient
 
-tmax = 30; %number of iterations
+tmax = 50; %number of iterations
 dt = 1; % size of time step in t
 Imax = 1.1; % Max number infected for graph 
 %%Initiliaze vectors
@@ -28,12 +28,16 @@ I(1)=I0;
  S(Nt)= 1 -I(Nt)-R(Nt);
 %%plots
  
-        plot(t,S,I,R'-b','-g','-,'LineWidth',2)
-        
+        plot(t,S,'-b','LineWidth',2)
+        hold on
+        plot(t,I,'-r','LineWidth',2)
+        plot(t,R,'-g','LineWidth',2)
+        legend('Susceptible','Infected','Recovered')
+        hold off
         axis([0 tmax 0 Imax])
         grid on
         grid minor
         xlabel('t')
-        ylabel('Proportion susceptible')
-        title('Susceptible')
+        ylabel('Proportion')
+        title('Number of susceptible,infected or recovered')
 
