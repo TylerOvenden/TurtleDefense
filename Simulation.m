@@ -1,3 +1,4 @@
+t = linspace(0,10);
 N = 100;
 temp= zeros(N,N);
 %Create Array of nodes
@@ -18,3 +19,9 @@ end
 %create adjaceny matrixes of both networks
 A1 = randi([0,1],[N,N]);
 A2 = randi([0,1],[N,N]);
+
+for i = 0:N
+    for j =0:N
+    network1[i].state = network1(i).SIIS()
+    end
+end
