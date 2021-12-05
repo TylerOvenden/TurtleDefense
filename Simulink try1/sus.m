@@ -1,4 +1,6 @@
-function s = sus(p,t,prev_sus)
+function s = sus(input)
+p=input(1);
+prev_sus = input(2);
 delta1=.50;
 delta2=.50;
 t1= t(1);
