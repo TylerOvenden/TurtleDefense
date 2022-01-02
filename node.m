@@ -17,13 +17,13 @@ classdef node
          function p1 = SIIS(t,beta,gamma,row,column)
            for i = -1:1
                for j = -1:1
-                   zeta1 = zeta *( 1 - p1(t-1,beta,gamma,row,column));
-                   zeta2 = zeta *( 1 - p2(t-1,beta,gamma,row,column));     
+                   zeta1 = zeta *( 1 - p1(t-1,beta,gamma,row+i,column+j));
+                   zeta2 = zeta *( 1 - p2(t-1,beta,gamma,row+i,column+j));     
                end
            end
            T1 = (1-zeta1)*zeta1;
-           T2= (1-zeta1)*zeta1;
-           S = (1-T1 - T2)
+           T2= (1-zeta2)*zeta2;
+           t.state = (1-T1 - T2);
             
          end
     end
