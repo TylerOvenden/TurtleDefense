@@ -26,14 +26,15 @@ class State(enum.Enum):
 class Node:
     count = 0
     def __init__(self):
-        id = Node.count
+        self.id = Node.count
         Node.count+=1
         self.neighbors = []#List of neighbors of node
         self.state = State.S #State of nodes
         allNodes.append(self)
     def addNeighbors(self):#method to add neighbors to node
         if allNodes: #if this not the first node add random number of neighbors from list of all nodes 
-           self.neighbors.append(random.sample(allNodes,random.randint(1,int(len(allNodes)/2)+1)))
+           self.neighbors = random.sample(allNodes,random.randint(1,int(len(allNodes)/2)+1))
+           #print(len(self.neighbors)," ",len(allNodes))
     #def isInf(self):#helper method to determine if node is infected
     #    if self.State == State.S:
     #        return False
@@ -46,19 +47,10 @@ class Node:
        global tot_inf2
        C1=0
        C2=0
-       #correct way but its not working so need to debug this
-       #for i in range(0,len(self.neighbors)):
-       #    print(self.neighbors[i].id)
-       #    if self.neighbors[i].state == State.I1 and random.random()<beta1:
-       #        C1 = C1 + 1
-       #    if self.neighbors[i].state == State.I2 and random.random()<beta2:
-       #        C2 = C2 + 1
-       ##################################
-       #This is for debugging and checking other logic
-       for i in range(0,len(self.neighbors)):
-           if random.random()<beta1:
+       for i in self.neighbors:
+           if i.state == State.I1 and random.random()<beta1:
                C1 = C1 + 1
-           if random.random()<beta2:
+           if i.state == State.I2 and random.random()<beta2:
                C2 = C2 + 1
        if C1 > C2:
             self.state = State.I1
@@ -72,7 +64,7 @@ class Node:
         if self.state == State.I2 and random.random()<delta2:
             self.state = State.S
 
-for i in range(0,100): #fill list of nodes
+for i in range(0,1000): #fill list of nodes
     node = Node()
     node.addNeighbors()
 #for i in range(0,len(allNodes)):
@@ -93,6 +85,8 @@ for i in range(0,len(infected2)):
 #    print(infected[i].state)
 
 for t in range(0,1000):
+    if t % 100 == 0:
+        print("Time:",t)
     for i in range(0,len(allNodes)):
         allNodes[i].recover()
         allNodes[i].attack()
