@@ -3,19 +3,19 @@
 import enum
 import random 
 import simpy
+import matlab
 import matplotlib.pyplot as plt
 beta1 =.5
 beta2 =.5
-delta1 = .5
-delta2 = .5
+delta1 = .1
+delta2 = .1
 #maybe add list of all nodes to have each node on creation pick neighbors from
 #what to do with C1 == C2
-
 allNodes = [] #list of  all nodes
 tot_inf1 = 0 #total number of infections by meme 1
 tot_inf2 = 0 #total number of infections by meme 2
-total_M1 = 0#total number of nodes in state I1 (for end)
-total_M2 = 0#total number of nodes in state I2 (for end)
+total_M1 = 0#total number of nodes in state I1 (for plot)
+total_M2 = 0#total number of nodes in state I2 (for plot)
 total_S = 0 #total number of nodes in state S 
 class State(enum.Enum):
     S = 0
@@ -43,8 +43,10 @@ class Node:
     def attack(self):#Method to see if the node becomes infected, assuming if C1 == C2 then not infected by either   
        if self.state != State.S:
             return
-       global tot_inf1
-       global tot_inf2
+       global tot_inf1 #total of infections made by nodes infected with meme 1
+       global tot_inf2 #total of infections made by nodes infected with meme 2
+       global total_M1 #current # of nodes infected with meme 1
+       global total_M2 #current # of nodes infected with meme 1
        C1=0
        C2=0
        for i in self.neighbors:
@@ -55,15 +57,25 @@ class Node:
        if C1 > C2:
             self.state = State.I1
             tot_inf1 = tot_inf1 + 1
+            total_M1 = total_M1 + 1
        elif C2 > C1:
            self.state = State.I2
            tot_inf2 = tot_inf2 + 1
+           total_M2 =  total_M2 + 1
     def recover(self): #Method to see if node recovers assuming node cannot be infected by the other meme
+        global total_M1 #current # of nodes infected with meme 1
+        global total_M2 #current # of nodes infected with meme 1
         if self.state == State.I1 and random.random()<delta1:
+            #print("Infected with I1")
             self.state = State.S
+            total_M1 =  total_M1 - 1
+            #print("Recovered")
         if self.state == State.I2 and random.random()<delta2:
+            #print("Infected with I1")
             self.state = State.S
-
+            total_M2 =  total_M2 - 1
+            #print("Recovered")
+#Create Nodes
 for i in range(0,1000): #fill list of nodes
     node = Node()
     node.addNeighbors()
@@ -71,25 +83,39 @@ for i in range(0,1000): #fill list of nodes
 #    print(allNodes[i].state)
 
 infected = random.sample(allNodes,random.randint(1,len(allNodes)))#randomly choose how many nodes start infected with no more than half being infected
-
+print("Len of infected:",len(infected))
+total_M1 = total_M1 + len(infected)
 for i in range(0,len(infected)):
     infected[i].state = State.I1
+    
  
 
 ##infected2 = random.sample(infected,random.randint(1,int(len(infected)/2)))#randomly choose how many nodes start infected  by meme 2 
 infected2 = random.sample(infected,int(len(infected)/2)) #eqaul number of starting I2 and I1
 for i in range(0,len(infected2)):
-    infected2[i].state = State.I2
-#print("Infected:")
-#for i in range(0,len(infected)):
-#    print(infected[i].state)
+    infected[i].state = State.I2
+total_M2 = total_M2 + len(infected2)
+print("Len of infected2:",len(infected2))
 
+time_inf1 = []#array of  number of infected with meme 1, to plot
+time_inf2 = []#array of  number of infected with meme 1, to plot
+time = []#time for x axis
 for t in range(0,1000):
+    print("Current Infections by Meme 1:")
+    print(total_M1)
+    print("Current Infections by Meme 2:")
+    print(total_M2)
     if t % 100 == 0:
         print("Time:",t)
     for i in range(0,len(allNodes)):
-        allNodes[i].recover()
+        #print("Current State:",allNodes[i].state)
         allNodes[i].attack()
+        allNodes[i].recover()
+    time_inf1.append(total_M1)
+    time_inf2.append(total_M2)
+    time.append(t)
+
+  
 
 print("Total Infections by Meme 1:")
 print(tot_inf1)
@@ -100,6 +126,13 @@ fig =plt.figure()
 plt.bar('Meme1',tot_inf1,color="red", width = 1)
 plt.bar('Meme2',tot_inf2,color="blue", width = 1)
 plt.xlabel("Meme")
+plt.ylabel("No. Total infections")
+plt.title("Total infections by meme")
+plt.show()
+
+plt.plot(time_inf1,time,color="red", label ="Meme 1")
+plt.plot(time_inf2,time,color="blue", label ="Meme 2")
+plt.xlabel("Time,t")
 plt.ylabel("No. Total infections")
 plt.title("Total infections by meme")
 plt.show()
