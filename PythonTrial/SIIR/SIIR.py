@@ -1,10 +1,17 @@
 #TurtleDefense 
-#Python trial 
+#Python
+#In this simulation we assume adj matrix is matrix of all nodes infected with that meme, so it does
+#not include nodes in state S or the other plane
+#need a way to update adjacency matrix
+###add and remove node number adj
+###make infected list global and update as infections happen
+####check math/stat keeping!!!!!!
 import enum
 import random 
 import simpy
-import matlab
+import matlab.engine
 import matplotlib.pyplot as plt
+import numpy as np
 beta1 =.5
 beta2 =.5
 delta1 = .1
@@ -17,6 +24,7 @@ tot_inf2 = 0 #total number of infections by meme 2
 total_M1 = 0#total number of nodes in state I1 (for plot)
 total_M2 = 0#total number of nodes in state I2 (for plot)
 total_S = 0 #total number of nodes in state S 
+
 class State(enum.Enum):
     S = 0
     I1 = 1
@@ -34,12 +42,7 @@ class Node:
     def addNeighbors(self):#method to add neighbors to node
         if allNodes: #if this not the first node add random number of neighbors from list of all nodes 
            self.neighbors = random.sample(allNodes,random.randint(1,int(len(allNodes)/2)+1))
-           #print(len(self.neighbors)," ",len(allNodes))
-    #def isInf(self):#helper method to determine if node is infected
-    #    if self.State == State.S:
-    #        return False
-    #    else:
-    #        return True
+
     def attack(self):#Method to see if the node becomes infected, assuming if C1 == C2 then not infected by either   
        if self.state != State.S:
             return
@@ -65,22 +68,26 @@ class Node:
     def recover(self): #Method to see if node recovers assuming node cannot be infected by the other meme
         global total_M1 #current # of nodes infected with meme 1
         global total_M2 #current # of nodes infected with meme 1
+        if self.state == State.S:
+            return
         if self.state == State.I1 and random.random()<delta1:
             #print("Infected with I1")
             self.state = State.S
             total_M1 =  total_M1 - 1
-            #print("Recovered")
+            
         if self.state == State.I2 and random.random()<delta2:
-            #print("Infected with I1")
+            #print("Infected with I2")
             self.state = State.S
             total_M2 =  total_M2 - 1
-            #print("Recovered")
+def updateAdj(adjacency_matrix):#current way to update adjaceny matrix after every t, therer may be a better way to do this
+   for ind, i in np.denuenumerate(adjacency_matrix):
+
+
 #Create Nodes
 for i in range(0,1000): #fill list of nodes
     node = Node()
     node.addNeighbors()
-#for i in range(0,len(allNodes)):
-#    print(allNodes[i].state)
+
 
 infected = random.sample(allNodes,random.randint(1,len(allNodes)))#randomly choose how many nodes start infected with no more than half being infected
 print("Len of infected:",len(infected))
@@ -94,29 +101,37 @@ for i in range(0,len(infected)):
 infected2 = random.sample(infected,int(len(infected)/2)) #eqaul number of starting I2 and I1
 for i in range(0,len(infected2)):
     infected[i].state = State.I2
+
 total_M2 = total_M2 + len(infected2)
 print("Len of infected2:",len(infected2))
 
+#A1 = matlab.double([[np.zeros(total_M1)],[np.zeros(total_M1)]]) #adjacency matrix for meme1
+#A2 = matlab.double([[np.zeros(total_M2)],[np.zeros(total_M2)]]) #adjacency matrix for meme1
+
+#S1 = matlab.double([[np.zeros(total_M1)],[np.zeros(total_M1)]]) #system matrix for meme1
+#S2 = matlab.double([[np.zeros(total_M2)],[np.zeros(total_M2)]]) #system matrix for meme1
+
+A1 = np.zeros([total_M1,total_M1])#adjacency matrix for meme1
+A2 = np.zeros([total_M2,total_M2])#adjacency matrix for meme1
 time_inf1 = []#array of  number of infected with meme 1, to plot
 time_inf2 = []#array of  number of infected with meme 1, to plot
 time = []#time for x axis
 for t in range(0,1000):
-    print("Current Infections by Meme 1:")
-    print(total_M1)
-    print("Current Infections by Meme 2:")
-    print(total_M2)
     if t % 100 == 0:
         print("Time:",t)
-    for i in range(0,len(allNodes)):
-        #print("Current State:",allNodes[i].state)
-        allNodes[i].attack()
-        allNodes[i].recover()
+    
+    for i in allNodes:
+        if i.state == State.S: ##check for state therefore cutting down on how many runs of each method happen
+            i.attack()
+        else:
+            i.recover()
     time_inf1.append(total_M1)
     time_inf2.append(total_M2)
     time.append(t)
 
   
-
+#################################################################################################################################################################################################
+#Showing Plots
 print("Total Infections by Meme 1:")
 print(tot_inf1)
 print("Total Infections by Meme 2:")
