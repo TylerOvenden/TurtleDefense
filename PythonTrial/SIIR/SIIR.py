@@ -37,11 +37,13 @@ class Node:
         self.id = Node.count
         Node.count+=1
         self.neighbors = []#List of neighbors of node
+        self.neighborsID = []#list of neighbors of node IDs
         self.state = State.S #State of nodes
         allNodes.append(self)
     def addNeighbors(self):#method to add neighbors to node
         if allNodes: #if this not the first node add random number of neighbors from list of all nodes 
            self.neighbors = random.sample(allNodes,random.randint(1,int(len(allNodes)/2)+1))
+        self.neighborsID = self.neighbors.id
 
     def attack(self):#Method to see if the node becomes infected, assuming if C1 == C2 then not infected by either   
        if self.state != State.S:
@@ -79,8 +81,25 @@ class Node:
             #print("Infected with I2")
             self.state = State.S
             total_M2 =  total_M2 - 1
-def updateAdj(adjacency_matrix):#current way to update adjaceny matrix after every t, therer may be a better way to do this
-   for ind, i in np.denuenumerate(adjacency_matrix):
+def updateAdj():#current way to update adjaceny matrix after every t, therer may be a better way to do this
+    ##create list of node numbers for each nodes neighbors
+    ##for node in matrix check if node number is "in" the array
+    ##maybe add row/col        to hold ids
+    ##if so set to 1
+    i =0
+    for node in infected:
+        A1[i][0] = node.id
+        A1[0][i] = node.id
+        i+=1
+    i=0
+    for node in infected2:
+        A2[i][0] = node.id
+        A2[0][i] = node.id
+        i+=1
+        
+
+
+
 
 
 #Create Nodes
@@ -105,14 +124,10 @@ for i in range(0,len(infected2)):
 total_M2 = total_M2 + len(infected2)
 print("Len of infected2:",len(infected2))
 
-#A1 = matlab.double([[np.zeros(total_M1)],[np.zeros(total_M1)]]) #adjacency matrix for meme1
-#A2 = matlab.double([[np.zeros(total_M2)],[np.zeros(total_M2)]]) #adjacency matrix for meme1
 
-#S1 = matlab.double([[np.zeros(total_M1)],[np.zeros(total_M1)]]) #system matrix for meme1
-#S2 = matlab.double([[np.zeros(total_M2)],[np.zeros(total_M2)]]) #system matrix for meme1
 
-A1 = np.zeros([total_M1,total_M1])#adjacency matrix for meme1
-A2 = np.zeros([total_M2,total_M2])#adjacency matrix for meme1
+A1 = np.zeros([total_M1+1,total_M1+1])#adjacency matrix for meme1 with the 0 row and 0 column have ids of infected nodes
+A2 = np.zeros([total_M2+1,total_M2]+1)#adjacency matrix for meme1 with the 0 row and 0 column have ids of infected nodes 
 time_inf1 = []#array of  number of infected with meme 1, to plot
 time_inf2 = []#array of  number of infected with meme 1, to plot
 time = []#time for x axis
