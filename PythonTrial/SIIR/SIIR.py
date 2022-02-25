@@ -43,8 +43,8 @@ class Node:
     def addNeighbors(self):#method to add neighbors to node
         if allNodes: #if this not the first node add random number of neighbors from list of all nodes 
            self.neighbors = random.sample(allNodes,random.randint(1,int(len(allNodes)/2)+1))
-        self.neighborsID = self.neighbors.id
-
+           for node in self.neighbors:
+               self.neighborsID.append(node.id)
     def attack(self):#Method to see if the node becomes infected, assuming if C1 == C2 then not infected by either   
        if self.state != State.S:
             return
@@ -62,11 +62,11 @@ class Node:
        if C1 > C2:
             self.state = State.I1
             tot_inf1 = tot_inf1 + 1
-            total_M1 = total_M1 + 1
+            total_M1 += 1
        elif C2 > C1:
            self.state = State.I2
            tot_inf2 = tot_inf2 + 1
-           total_M2 =  total_M2 + 1
+           total_M2 += 1
     def recover(self): #Method to see if node recovers assuming node cannot be infected by the other meme
         global total_M1 #current # of nodes infected with meme 1
         global total_M2 #current # of nodes infected with meme 1
@@ -110,7 +110,7 @@ for i in range(0,1000): #fill list of nodes
 
 infected = random.sample(allNodes,random.randint(1,len(allNodes)))#randomly choose how many nodes start infected with no more than half being infected
 print("Len of infected:",len(infected))
-total_M1 = total_M1 + len(infected)
+total_M1 += len(infected)
 for i in range(0,len(infected)):
     infected[i].state = State.I1
     
@@ -121,17 +121,20 @@ infected2 = random.sample(infected,int(len(infected)/2)) #eqaul number of starti
 for i in range(0,len(infected2)):
     infected[i].state = State.I2
 
-total_M2 = total_M2 + len(infected2)
+total_M2 += len(infected2)
 print("Len of infected2:",len(infected2))
 
 
 
 A1 = np.zeros([total_M1+1,total_M1+1])#adjacency matrix for meme1 with the 0 row and 0 column have ids of infected nodes
-A2 = np.zeros([total_M2+1,total_M2]+1)#adjacency matrix for meme1 with the 0 row and 0 column have ids of infected nodes 
+A2 = np.zeros([total_M2+1,total_M2+1])#adjacency matrix for meme1 with the 0 row and 0 column have ids of infected nodes 
 time_inf1 = []#array of  number of infected with meme 1, to plot
 time_inf2 = []#array of  number of infected with meme 1, to plot
 time = []#time for x axis
+
+########################MAIN LOOP################################################################################################################################################################################
 for t in range(0,1000):
+    time.append(t)### add time to array to use for plot
     if t % 100 == 0:
         print("Time:",t)
     
@@ -142,15 +145,17 @@ for t in range(0,1000):
             i.recover()
     time_inf1.append(total_M1)
     time_inf2.append(total_M2)
-    time.append(t)
+  
 
   
 #################################################################################################################################################################################################
 #Showing Plots
 print("Total Infections by Meme 1:")
 print(tot_inf1)
+
 print("Total Infections by Meme 2:")
 print(tot_inf2)
+
 fig =plt.figure()
 
 plt.bar('Meme1',tot_inf1,color="red", width = 1)
@@ -160,8 +165,8 @@ plt.ylabel("No. Total infections")
 plt.title("Total infections by meme")
 plt.show()
 
-plt.plot(time_inf1,time,color="red", label ="Meme 1")
-plt.plot(time_inf2,time,color="blue", label ="Meme 2")
+plt.plot(time,time_inf1,color="red", label ="Meme 1")
+plt.plot(time,time_inf2,color="blue", label ="Meme 2")
 plt.xlabel("Time,t")
 plt.ylabel("No. Total infections")
 plt.title("Total infections by meme")
