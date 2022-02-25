@@ -1,5 +1,5 @@
 #TurtleDefense 
-#Python
+#Python #git test
 #In this simulation we assume adj matrix is matrix of all nodes infected with that meme, so it does
 #not include nodes in state S or the other plane
 #need a way to update adjacency matrix
