@@ -15,8 +15,8 @@ import numpy as np
 
 beta1 =.40
 beta2 =.25
-delta1 = .15
-delta2 = .5
+delta1 = .01
+delta2 = .01
 #maybe add list of all nodes to have each node on creation pick neighbors from
 #what to do with C1 == C2
 allNodes = [] #list of  all nodes
@@ -38,14 +38,14 @@ class Node:
         self.id = Node.count
         Node.count+=1
         self.neighbors = []#List of neighbors of node
-        self.neighborsID = []#list of neighbors of node IDs
         self.state = State.S #State of nodes
         allNodes.append(self)
+    #Neighbors not always neighbor 
     def addNeighbors(self):#method to add neighbors to node
         if allNodes: #if this not the first node add random number of neighbors from list of all nodes 
-           self.neighbors = random.sample(allNodes,random.randint(1,int(len(allNodes)/2)+1))
-           for node in self.neighbors:
-               self.neighborsID.append(node.id)
+           self.neighbors = random.sample(allNodes,random.randint(1,min(10,len(allNodes))))
+        #for node in self.neighbors:
+        #    node.neighbors.append(self)
     def attack(self):#Method to see if the node becomes infected, assuming if C1 == C2 then not infected by either   
        if self.state != State.S:
             return
@@ -91,11 +91,11 @@ def updateAdj():#current way to update adjaceny matrix after every t, there may 
     for x in range(0,len(infected)):
         for y in range(0,len(infected[x].neighbors)):
             if infected[x].neighbors[y] in infected:
-                A1[x][y]=1
+                A1[x][infected.index(infected[x].neighbors[y])]=1
     for x in range(0,len(infected2)):
         for y in range(0,len(infected2[x].neighbors)):
             if infected2[x].neighbors[y] in infected2:
-                A1[x][y]=1
+                A2[x][infected2.index(infected2[x].neighbors[y])]=1
 
         
 
@@ -120,8 +120,7 @@ for i in range(0,len(infected)):
     
  
 
-##infected2 = random.sample(infected,random.randint(1,int(len(infected)/2)))#randomly choose how many nodes start infected  by meme 2 
-infected2 = random.sample(infected,int(len(infected)/2)) #eqaul number of starting I2 and I1
+infected2 = random.sample(infected,random.randint(1,int(len(infected))))#randomly choose how many nodes start infected  by meme 2 
 for i in range(0,len(infected2)):
     infected[i].state = State.I2
 
@@ -131,7 +130,7 @@ print("Len of infected2:",len(infected2))
 
 
 A1 = np.zeros([total_M1,total_M1],dtype=np.int8)#adjacency matrix for meme1 with the 0 row and 0 column have ids of infected nodes
-A2 = np.zeros([total_M2+1,total_M2+1],dtype=np.int8)#adjacency matrix for meme1 with the 0 row and 0 column have ids of infected nodes 
+A2 = np.zeros([total_M2,total_M2],dtype=np.int8)#adjacency matrix for meme1 with the 0 row and 0 column have ids of infected nodes 
 time_inf1 = []#array of  number of infected with meme 1, to plot
 time_inf2 = []#array of  number of infected with meme 1, to plot
 time = []#time for x axis
@@ -163,7 +162,7 @@ for t in range(0,1000):
     time_inf2.append(total_M2)
   
 
-#test for push  
+
 #################################################################################################################################################################################################
 #Showing Plots
 print("Total Infections by Meme 1:")
