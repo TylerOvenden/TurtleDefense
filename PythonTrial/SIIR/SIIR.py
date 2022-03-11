@@ -1,4 +1,4 @@
-#TurtleDefense 
+#TurtleDefense    
 #Python #git test
 #In this simulation we assume adj matrix is matrix of all nodes infected with that meme, so it does
 #not include nodes in state S or the other plane
@@ -12,10 +12,11 @@ import simpy
 import matlab.engine
 import matplotlib.pyplot as plt
 import numpy as np
-beta1 =.5
-beta2 =.5
-delta1 = .1
-delta2 = .1
+
+beta1 =.40
+beta2 =.25
+delta1 = .15
+delta2 = .5
 #maybe add list of all nodes to have each node on creation pick neighbors from
 #what to do with C1 == C2
 allNodes = [] #list of  all nodes
@@ -63,10 +64,12 @@ class Node:
             self.state = State.I1
             tot_inf1 = tot_inf1 + 1
             total_M1 += 1
+            infected.append(i)
        elif C2 > C1:
            self.state = State.I2
            tot_inf2 = tot_inf2 + 1
            total_M2 += 1
+           infected2.append(i)
     def recover(self): #Method to see if node recovers assuming node cannot be infected by the other meme
         global total_M1 #current # of nodes infected with meme 1
         global total_M2 #current # of nodes infected with meme 1
@@ -81,21 +84,19 @@ class Node:
             #print("Infected with I2")
             self.state = State.S
             total_M2 =  total_M2 - 1
-def updateAdj():#current way to update adjaceny matrix after every t, therer may be a better way to do this
-    ##create list of node numbers for each nodes neighbors
-    ##for node in matrix check if node number is "in" the array
-    ##maybe add row/col        to hold ids
-    ##if so set to 1
-    i =0
-    for node in infected:
-        A1[i][0] = node.id
-        A1[0][i] = node.id
-        i+=1
-    i=0
-    for node in infected2:
-        A2[i][0] = node.id
-        A2[0][i] = node.id
-        i+=1
+
+
+def updateAdj():#current way to update adjaceny matrix after every t, there may be a better way to do this
+    ##A1 works but A2 does not idk why
+    for x in range(0,len(infected)):
+        for y in range(0,len(infected[x].neighbors)):
+            if infected[x].neighbors[y] in infected:
+                A1[x][y]=1
+    for x in range(0,len(infected2)):
+        for y in range(0,len(infected2[x].neighbors)):
+            if infected2[x].neighbors[y] in infected2:
+                A1[x][y]=1
+
         
 
 
@@ -107,7 +108,10 @@ for i in range(0,1000): #fill list of nodes
     node = Node()
     node.addNeighbors()
 
+##sort nodes by ID number
+allNodes.sort(key= lambda x: x.id, reverse = False)
 
+##create first list of infected nodes
 infected = random.sample(allNodes,random.randint(1,len(allNodes)))#randomly choose how many nodes start infected with no more than half being infected
 print("Len of infected:",len(infected))
 total_M1 += len(infected)
@@ -126,11 +130,23 @@ print("Len of infected2:",len(infected2))
 
 
 
-A1 = np.zeros([total_M1+1,total_M1+1])#adjacency matrix for meme1 with the 0 row and 0 column have ids of infected nodes
-A2 = np.zeros([total_M2+1,total_M2+1])#adjacency matrix for meme1 with the 0 row and 0 column have ids of infected nodes 
+A1 = np.zeros([total_M1,total_M1],dtype=np.int8)#adjacency matrix for meme1 with the 0 row and 0 column have ids of infected nodes
+A2 = np.zeros([total_M2+1,total_M2+1],dtype=np.int8)#adjacency matrix for meme1 with the 0 row and 0 column have ids of infected nodes 
 time_inf1 = []#array of  number of infected with meme 1, to plot
 time_inf2 = []#array of  number of infected with meme 1, to plot
 time = []#time for x axis
+
+infected.sort(key= lambda x: x.id, reverse = False)##sort infected by id numbers 
+infected2.sort(key= lambda x: x.id, reverse = False)##sort infected 2 by id numbers
+
+##Testing Adjacency matrix
+updateAdj()
+print(A1)
+ 
+
+print("###########################################################################################################\n#######################################")
+print(A2)
+
 
 ########################MAIN LOOP################################################################################################################################################################################
 for t in range(0,1000):
