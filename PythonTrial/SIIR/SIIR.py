@@ -1,10 +1,7 @@
 #TurtleDefense    
-#Python #git test
-#In this simulation we assume adj matrix is matrix of all nodes infected with that meme, so it does
-#not include nodes in state S or the other plane
-#need a way to update adjacency matrix
-###add and remove node number adj
-###make infected list global and update as infections happen
+#SIIR Model through python
+#last updated 3/15/22 
+#Created the two edge sets
 ####check math/stat keeping!!!!!!
 import enum
 import random 
@@ -12,7 +9,7 @@ import simpy
 import matlab.engine
 import matplotlib.pyplot as plt
 import numpy as np
-
+N = 1000 #N number of nodes
 beta1 =.40
 beta2 =.25
 delta1 = .01
@@ -44,16 +41,15 @@ class Node:
     #Neighbors not always neighbor 
     def addNeighbors(self):#method to add neighbors to node, call after Adj matrix mad
     ####WARNING: Make sure to sort Nodes before using#####
-        if A1:
-            for x in range(0,total_M1):
-                if A1[self.id][x] == 1:
-                    self.e1_Neighbors.append(allNodes[x])
-                    allNodes[x].e1_Neighbors.append(allNodes[self.id])
-        if A2:
-            for x in range(0,total_M2):
-                if A2[self.id][x] == 1:
-                    self.e2_Neighbors.append(allNodes[x])
-                    allNodes[x].e2_Neighbors.append(allNodes[self.id])
+     for x in range(0,N):
+         if A1[self.id][x] == 1:
+            self.e1_Neighbors.append(allNodes[x])
+            allNodes[x].e1_Neighbors.append(allNodes[self.id])
+     for x in range(0,N):
+        if A2[self.id][x] == 1:
+            self.e2_Neighbors.append(allNodes[x])
+            allNodes[x].e2_Neighbors.append(allNodes[self.id])
+
     def attack(self):#Method to see if the node becomes infected, assuming if C1 == C2 then not infected by either   
        if self.state != State.S:
             return
@@ -63,9 +59,10 @@ class Node:
        global total_M2 #current # of nodes infected with meme 1
        C1=0
        C2=0
-       for i in self.neighbors:
+       for i in self.e1_Neighbors:# attacks from meme 1 that can only spread on edge 1
            if i.state == State.I1 and random.random()<beta1:
                C1 = C1 + 1
+       for i in self.e2_Neighbors:# attacks from meme 1 that can only spread on edge 2
            if i.state == State.I2 and random.random()<beta2:
                C2 = C2 + 1
        if C1 > C2:
@@ -94,33 +91,22 @@ class Node:
             total_M2 =  total_M2 - 1
 
 
-def updateAdj():#current way to update adjaceny matrix after every t, there may be a better way to do this
-    ##A1 works but A2 does not idk why
-    for x in range(0,len(infected)):
-        for y in range(0,len(infected[x].neighbors)):
-            if infected[x].neighbors[y] in infected:
-                A1[x][infected.index(infected[x].neighbors[y])]=1
-
-    for x in range(0,len(infected2)):
-        for y in range(0,len(infected2[x].neighbors)):
-            if infected2[x].neighbors[y] in infected2:
-                A2[x][infected2.index(infected2[x].neighbors[y])]=1
-
-        
-
-
 
 #create adjacency matrix
-A1 = np.random.randint(2,size = (total_M1,total_M1),dtype=np.int8)#adjacency matrix for meme1 with the 0 row and 0 column have ids of infected nodes
-A2 = np.random.randint(2,size = (total_M2,total_M2),dtype=np.int8)#adjacency matrix for meme1 with the 0 row and 0 column have ids of infected nodes 
+A1 = np.random.randint(2,size = (N,N),dtype=np.int8)#adjacency matrix for edge 1, filled with random 0s and 1s
+np.fill_diagonal(A1,0)#make A1 diagonal 0's
+A2 = np.random.randint(2,size = (N,N),dtype=np.int8)#adjacency matrix for edge 2, filled with random 0s and 1s 
+np.fill_diagonal(A2,0)#make A2 diagonal 0's
 
 #Create Nodes
-for i in range(0,1000): #fill list of nodes
+for i in range(0,N): #fill list of nodes
     node = Node()
-    node.addNeighbors()
-
 ##sort nodes by ID number
 allNodes.sort(key= lambda x: x.id, reverse = False)
+#add neighbors to nodes from adjacency matrices
+for i in allNodes: 
+    i.addNeighbors()
+
 
 ##create first list of infected nodes
 infected = random.sample(allNodes,random.randint(1,len(allNodes)))#randomly choose how many nodes start infected with no more than half being infected
