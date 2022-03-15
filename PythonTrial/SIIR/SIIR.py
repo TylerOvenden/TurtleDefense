@@ -37,15 +37,23 @@ class Node:
     def __init__(self):
         self.id = Node.count
         Node.count+=1
-        self.neighbors = []#List of neighbors of node
+        self.e1_Neighbors = []#List of neighbors of node in edge 1
+        self.e2_Neighbors = []#List of neighbors of node in edge 2
         self.state = State.S #State of nodes
         allNodes.append(self)
     #Neighbors not always neighbor 
-    def addNeighbors(self):#method to add neighbors to node
-        if allNodes: #if this not the first node add random number of neighbors from list of all nodes 
-           self.neighbors = random.sample(allNodes,random.randint(1,min(10,len(allNodes))))
-        #for node in self.neighbors:
-        #    node.neighbors.append(self)
+    def addNeighbors(self):#method to add neighbors to node, call after Adj matrix mad
+    ####WARNING: Make sure to sort Nodes before using#####
+        if A1:
+            for x in range(0,total_M1):
+                if A1[self.id][x] == 1:
+                    self.e1_Neighbors.append(allNodes[x])
+                    allNodes[x].e1_Neighbors.append(allNodes[self.id])
+        if A2:
+            for x in range(0,total_M2):
+                if A2[self.id][x] == 1:
+                    self.e2_Neighbors.append(allNodes[x])
+                    allNodes[x].e2_Neighbors.append(allNodes[self.id])
     def attack(self):#Method to see if the node becomes infected, assuming if C1 == C2 then not infected by either   
        if self.state != State.S:
             return
@@ -92,6 +100,7 @@ def updateAdj():#current way to update adjaceny matrix after every t, there may 
         for y in range(0,len(infected[x].neighbors)):
             if infected[x].neighbors[y] in infected:
                 A1[x][infected.index(infected[x].neighbors[y])]=1
+
     for x in range(0,len(infected2)):
         for y in range(0,len(infected2[x].neighbors)):
             if infected2[x].neighbors[y] in infected2:
@@ -101,7 +110,9 @@ def updateAdj():#current way to update adjaceny matrix after every t, there may 
 
 
 
-
+#create adjacency matrix
+A1 = np.random.randint(2,size = (total_M1,total_M1),dtype=np.int8)#adjacency matrix for meme1 with the 0 row and 0 column have ids of infected nodes
+A2 = np.random.randint(2,size = (total_M2,total_M2),dtype=np.int8)#adjacency matrix for meme1 with the 0 row and 0 column have ids of infected nodes 
 
 #Create Nodes
 for i in range(0,1000): #fill list of nodes
@@ -129,22 +140,10 @@ print("Len of infected2:",len(infected2))
 
 
 
-A1 = np.zeros([total_M1,total_M1],dtype=np.int8)#adjacency matrix for meme1 with the 0 row and 0 column have ids of infected nodes
-A2 = np.zeros([total_M2,total_M2],dtype=np.int8)#adjacency matrix for meme1 with the 0 row and 0 column have ids of infected nodes 
+
 time_inf1 = []#array of  number of infected with meme 1, to plot
 time_inf2 = []#array of  number of infected with meme 1, to plot
 time = []#time for x axis
-
-infected.sort(key= lambda x: x.id, reverse = False)##sort infected by id numbers 
-infected2.sort(key= lambda x: x.id, reverse = False)##sort infected 2 by id numbers
-
-##Testing Adjacency matrix
-updateAdj()
-print(A1)
- 
-
-print("###########################################################################################################\n#######################################")
-print(A2)
 
 
 ########################MAIN LOOP################################################################################################################################################################################
