@@ -1,4 +1,4 @@
-#TurtleDefense 
+#TurtleDefense    
 #Python #git test
 #In this simulation we assume adj matrix is matrix of all nodes infected with that meme, so it does
 #not include nodes in state S or the other plane
@@ -12,10 +12,11 @@ import simpy
 import matlab.engine
 import matplotlib.pyplot as plt
 import numpy as np
-beta1 =.5
-beta2 =.5
-delta1 = .1
-delta2 = .1
+
+beta1 =.40
+beta2 =.25
+delta1 = .01
+delta2 = .01
 #maybe add list of all nodes to have each node on creation pick neighbors from
 #what to do with C1 == C2
 allNodes = [] #list of  all nodes
@@ -36,15 +37,23 @@ class Node:
     def __init__(self):
         self.id = Node.count
         Node.count+=1
-        self.neighbors = []#List of neighbors of node
-        self.neighborsID = []#list of neighbors of node IDs
+        self.e1_Neighbors = []#List of neighbors of node in edge 1
+        self.e2_Neighbors = []#List of neighbors of node in edge 2
         self.state = State.S #State of nodes
         allNodes.append(self)
-    def addNeighbors(self):#method to add neighbors to node
-        if allNodes: #if this not the first node add random number of neighbors from list of all nodes 
-           self.neighbors = random.sample(allNodes,random.randint(1,int(len(allNodes)/2)+1))
-           for node in self.neighbors:
-               self.neighborsID.append(node.id)
+    #Neighbors not always neighbor 
+    def addNeighbors(self):#method to add neighbors to node, call after Adj matrix mad
+    ####WARNING: Make sure to sort Nodes before using#####
+        if A1:
+            for x in range(0,total_M1):
+                if A1[self.id][x] == 1:
+                    self.e1_Neighbors.append(allNodes[x])
+                    allNodes[x].e1_Neighbors.append(allNodes[self.id])
+        if A2:
+            for x in range(0,total_M2):
+                if A2[self.id][x] == 1:
+                    self.e2_Neighbors.append(allNodes[x])
+                    allNodes[x].e2_Neighbors.append(allNodes[self.id])
     def attack(self):#Method to see if the node becomes infected, assuming if C1 == C2 then not infected by either   
        if self.state != State.S:
             return
@@ -63,10 +72,12 @@ class Node:
             self.state = State.I1
             tot_inf1 = tot_inf1 + 1
             total_M1 += 1
+            infected.append(i)
        elif C2 > C1:
            self.state = State.I2
            tot_inf2 = tot_inf2 + 1
            total_M2 += 1
+           infected2.append(i)
     def recover(self): #Method to see if node recovers assuming node cannot be infected by the other meme
         global total_M1 #current # of nodes infected with meme 1
         global total_M2 #current # of nodes infected with meme 1
@@ -81,33 +92,37 @@ class Node:
             #print("Infected with I2")
             self.state = State.S
             total_M2 =  total_M2 - 1
-def updateAdj():#current way to update adjaceny matrix after every t, therer may be a better way to do this
-    ##create list of node numbers for each nodes neighbors
-    ##for node in matrix check if node number is "in" the array
-    ##maybe add row/col        to hold ids
-    ##if so set to 1
-    i =0
-    for node in infected:
-        A1[i][0] = node.id
-        A1[0][i] = node.id
-        i+=1
-    i=0
-    for node in infected2:
-        A2[i][0] = node.id
-        A2[0][i] = node.id
-        i+=1
+
+
+def updateAdj():#current way to update adjaceny matrix after every t, there may be a better way to do this
+    ##A1 works but A2 does not idk why
+    for x in range(0,len(infected)):
+        for y in range(0,len(infected[x].neighbors)):
+            if infected[x].neighbors[y] in infected:
+                A1[x][infected.index(infected[x].neighbors[y])]=1
+
+    for x in range(0,len(infected2)):
+        for y in range(0,len(infected2[x].neighbors)):
+            if infected2[x].neighbors[y] in infected2:
+                A2[x][infected2.index(infected2[x].neighbors[y])]=1
+
         
 
 
 
-
+#create adjacency matrix
+A1 = np.random.randint(2,size = (total_M1,total_M1),dtype=np.int8)#adjacency matrix for meme1 with the 0 row and 0 column have ids of infected nodes
+A2 = np.random.randint(2,size = (total_M2,total_M2),dtype=np.int8)#adjacency matrix for meme1 with the 0 row and 0 column have ids of infected nodes 
 
 #Create Nodes
 for i in range(0,1000): #fill list of nodes
     node = Node()
     node.addNeighbors()
 
+##sort nodes by ID number
+allNodes.sort(key= lambda x: x.id, reverse = False)
 
+##create first list of infected nodes
 infected = random.sample(allNodes,random.randint(1,len(allNodes)))#randomly choose how many nodes start infected with no more than half being infected
 print("Len of infected:",len(infected))
 total_M1 += len(infected)
@@ -116,8 +131,7 @@ for i in range(0,len(infected)):
     
  
 
-##infected2 = random.sample(infected,random.randint(1,int(len(infected)/2)))#randomly choose how many nodes start infected  by meme 2 
-infected2 = random.sample(infected,int(len(infected)/2)) #eqaul number of starting I2 and I1
+infected2 = random.sample(infected,random.randint(1,int(len(infected))))#randomly choose how many nodes start infected  by meme 2 
 for i in range(0,len(infected2)):
     infected[i].state = State.I2
 
@@ -126,11 +140,11 @@ print("Len of infected2:",len(infected2))
 
 
 
-A1 = np.zeros([total_M1+1,total_M1+1])#adjacency matrix for meme1 with the 0 row and 0 column have ids of infected nodes
-A2 = np.zeros([total_M2+1,total_M2+1])#adjacency matrix for meme1 with the 0 row and 0 column have ids of infected nodes 
+
 time_inf1 = []#array of  number of infected with meme 1, to plot
 time_inf2 = []#array of  number of infected with meme 1, to plot
 time = []#time for x axis
+
 
 ########################MAIN LOOP################################################################################################################################################################################
 for t in range(0,1000):
@@ -147,7 +161,7 @@ for t in range(0,1000):
     time_inf2.append(total_M2)
   
 
-#test for push  
+
 #################################################################################################################################################################################################
 #Showing Plots
 print("Total Infections by Meme 1:")
