@@ -6,7 +6,7 @@
 import enum
 import random 
 import simpy
-import matlab.engine
+#import matlab.engine
 import matplotlib.pyplot as plt
 import numpy as np
 N = 1000 #N number of nodes
@@ -90,6 +90,8 @@ class Node:
             self.state = State.S
             total_M2 =  total_M2 - 1
 
+   
+
 
 
 #create adjacency matrix
@@ -132,12 +134,17 @@ time_inf2 = []#array of  number of infected with meme 1, to plot
 time = []#time for x axis
 
 
+
+   
+
 ########################MAIN LOOP################################################################################################################################################################################
 for t in range(0,1000):
     time.append(t)### add time to array to use for plot
     if t % 100 == 0:
         print("Time:",t)
-    
+       # check(infected)
+        
+
     for i in allNodes:
         if i.state == State.S: ##check for state therefore cutting down on how many runs of each method happen
             i.attack()
@@ -145,6 +152,7 @@ for t in range(0,1000):
             i.recover()
     time_inf1.append(total_M1)
     time_inf2.append(total_M2)
+
   
 
 
@@ -171,3 +179,11 @@ plt.xlabel("Time,t")
 plt.ylabel("No. Total infections")
 plt.title("Total infections by meme")
 plt.show()
+
+
+def check(a):
+        x = 0
+        for node in a:
+          if node.state == State.S:
+            a.pop(x)
+        x = x+1 
