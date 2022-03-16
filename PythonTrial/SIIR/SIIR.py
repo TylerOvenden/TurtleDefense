@@ -28,6 +28,19 @@ class State(enum.Enum):
     I1 = 1
     I2 = 2
    
+def check():
+        x = 0
+        for node in infected:
+          if node.state == State.S:
+            infected.pop(x)
+        x = x+1
+        
+        x = 0
+        for node in infected2:
+          if node.state == State.S:
+            infected2.pop(x)
+        x = x+1
+
 
 class Node:
     count = 0
@@ -142,7 +155,7 @@ for t in range(0,1000):
     time.append(t)### add time to array to use for plot
     if t % 100 == 0:
         print("Time:",t)
-       # check(infected)
+        check()
         
 
     for i in allNodes:
@@ -181,9 +194,3 @@ plt.title("Total infections by meme")
 plt.show()
 
 
-def check(a):
-        x = 0
-        for node in a:
-          if node.state == State.S:
-            a.pop(x)
-        x = x+1 
