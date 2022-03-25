@@ -9,9 +9,10 @@ import simpy
 import matlab.engine
 import matplotlib.pyplot as plt
 import numpy as np
+import numpy.linalg as linalg
 N = 1000 #N number of nodes
-beta1 =.40
-beta2 =.25
+beta1 =.5
+beta2 =.5
 delta1 = .01
 delta2 = .01
 #maybe add list of all nodes to have each node on creation pick neighbors from
@@ -22,7 +23,7 @@ tot_inf2 = 0 #total number of infections by meme 2
 total_M1 = 0#total number of nodes in state I1 (for plot)
 total_M2 = 0#total number of nodes in state I2 (for plot)
 total_S = 0 #total number of nodes in state S 
-
+#Classes and Function Definition
 class State(enum.Enum):
     S = 0
     I1 = 1
@@ -92,12 +93,33 @@ class Node:
 
 
 
+###SETUP#################################################################################################################################################################################################
+
+
 #create adjacency matrix
 A1 = np.random.randint(2,size = (N,N),dtype=np.int8)#adjacency matrix for edge 1, filled with random 0s and 1s
 np.fill_diagonal(A1,0)#make A1 diagonal 0's
 A2 = np.random.randint(2,size = (N,N),dtype=np.int8)#adjacency matrix for edge 2, filled with random 0s and 1s 
 np.fill_diagonal(A2,0)#make A2 diagonal 0's
 
+##create System Matrices
+S1 = (1- delta1)* np.identity(N,dtype = np.int8) + beta1 * A1
+S2 = (1- delta2)* np.identity(N,dtype = np.int8) + beta2 * A2
+##get Eigen Values
+eigenValues1,eigenVectors1 = linalg.eig(S1)
+eigenValues2,eigenVectors2 = linalg.eig(S2)
+##sort eigen values
+idx = eigenValues1.argsort()[::-1]
+eigenValues1 = eigenValues1[idx]
+eigenVectors1 = eigenVectors1[:,idx]
+
+idx = eigenValues2.argsort()[::-1]
+eigenValues2 = eigenValues2[idx]
+eigenVectors2 = eigenVectors2[:,idx]
+
+##Print eigen Values
+print("Eigen Value of S1",eigenValues1[0:2])
+print("Eigen Value of S2",eigenValues2[0:2])
 #Create Nodes
 for i in range(0,N): #fill list of nodes
     node = Node()
