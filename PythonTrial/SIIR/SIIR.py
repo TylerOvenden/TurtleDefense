@@ -9,9 +9,10 @@ import simpy
 #import matlab.engine
 import matplotlib.pyplot as plt
 import numpy as np
-N = 1000 #N number of nodes
-beta1 =.40
-beta2 =.25
+import numpy.linalg as linalg
+N = 50 #N number of nodes
+beta1 =.5
+beta2 =.5
 delta1 = .01
 delta2 = .01
 #maybe add list of all nodes to have each node on creation pick neighbors from
@@ -22,7 +23,7 @@ tot_inf2 = 0 #total number of infections by meme 2
 total_M1 = 0#total number of nodes in state I1 (for plot)
 total_M2 = 0#total number of nodes in state I2 (for plot)
 total_S = 0 #total number of nodes in state S 
-
+#Classes and Function Definition
 class State(enum.Enum):
     S = 0
     I1 = 1
@@ -31,6 +32,7 @@ class State(enum.Enum):
 def check():
         x = 0
         for node in infected:
+
           if node.state == State.S:
             infected.pop(x)
         x = x+1
@@ -40,6 +42,12 @@ def check():
           if node.state == State.S:
             infected2.pop(x)
         x = x+1
+
+def removeNode():
+        #p = randrange(len(nodes))
+        print("before: ", len(allNodes))
+        allNodes.remove(random.choice(allNodes))
+    
 
 
 class Node:
@@ -103,8 +111,9 @@ class Node:
             self.state = State.S
             total_M2 =  total_M2 - 1
 
-   
 
+
+###SETUP#################################################################################################################################################################################################
 
 
 #create adjacency matrix
@@ -113,6 +122,24 @@ np.fill_diagonal(A1,0)#make A1 diagonal 0's
 A2 = np.random.randint(2,size = (N,N),dtype=np.int8)#adjacency matrix for edge 2, filled with random 0s and 1s 
 np.fill_diagonal(A2,0)#make A2 diagonal 0's
 
+##create System Matrices
+S1 = (1- delta1)* np.identity(N,dtype = np.int8) + beta1 * A1
+S2 = (1- delta2)* np.identity(N,dtype = np.int8) + beta2 * A2
+##get Eigen Values
+eigenValues1,eigenVectors1 = linalg.eig(S1)
+eigenValues2,eigenVectors2 = linalg.eig(S2)
+##sort eigen values
+idx = eigenValues1.argsort()[::-1]
+eigenValues1 = eigenValues1[idx]
+eigenVectors1 = eigenVectors1[:,idx]
+
+idx = eigenValues2.argsort()[::-1]
+eigenValues2 = eigenValues2[idx]
+eigenVectors2 = eigenVectors2[:,idx]
+
+##Print eigen Values
+print("Eigen Value of S1",eigenValues1[0:2])
+print("Eigen Value of S2",eigenValues2[0:2])
 #Create Nodes
 for i in range(0,N): #fill list of nodes
     node = Node()
@@ -147,16 +174,20 @@ time_inf2 = []#array of  number of infected with meme 1, to plot
 time = []#time for x axis
 
 
-
-   
-
 ########################MAIN LOOP################################################################################################################################################################################
+#for t in range(0,10000):
 for t in range(0,1000):
     time.append(t)### add time to array to use for plot
     if t % 100 == 0:
+        #print("size before:", len(infected))
         print("Time:",t)
+        #print("size after:", len(infected))
         check()
-        
+
+    if t == 32:
+        #allNodes.pop(3)
+        removeNode()
+        print("after: ", len(allNodes))
 
     for i in allNodes:
         if i.state == State.S: ##check for state therefore cutting down on how many runs of each method happen
@@ -165,7 +196,6 @@ for t in range(0,1000):
             i.recover()
     time_inf1.append(total_M1)
     time_inf2.append(total_M2)
-
   
 
 
@@ -192,5 +222,3 @@ plt.xlabel("Time,t")
 plt.ylabel("No. Total infections")
 plt.title("Total infections by meme")
 plt.show()
-
-
