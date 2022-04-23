@@ -45,9 +45,27 @@ def check():
 
 def removeNode():
         #p = randrange(len(nodes))
-        print("before: ", len(allNodes))
-        allNodes.remove(random.choice(allNodes))
-    
+        #print("before: ", len(allNodes))
+        nodea = random.choice(allNodes)
+        #for i in range(len)
+
+        #print("test: ", len(nodea.e1_Neighbors))
+        allNodes.remove(nodea)
+        
+        for i in range(len(allNodes)): 
+        #check if the removed node is a neighbor for all the nodes in the list
+        #remove it, if so
+            if(nodea in allNodes[i].e1_Neighbors):    
+                #print("found at node ", i)
+                #print("test before : ", len(allNodes[i].e1_Neighbors))
+                allNodes[i].e1_Neighbors.remove(nodea)
+                #print("test after : ", len(allNodes[i].e1_Neighbors))
+            if(nodea in allNodes[i].e2_Neighbors):
+                allNodes[i].e2_Neighbors.remove(nodea)    
+
+
+
+                  
 
 
 class Node:
