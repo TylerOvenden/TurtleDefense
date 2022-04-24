@@ -43,12 +43,26 @@ def check():
             infected2.pop(x)
         x = x+1
 
-def removeNode():
-        #p = randrange(len(nodes))
-        #print("before: ", len(allNodes))
+#picks a random node        
+def randomRem():
         nodea = random.choice(allNodes)
-        #for i in range(len)
+        removeNode(nodea)
 
+#picks a random neighbor of a random node
+def randomNeigh():
+         nodea = random.choice(allNodes)
+         pick = random.randint(0, 1)
+         temp = nodea
+         if pick == 1:
+            temp =  random.choice(nodea.e1_Neighbors)
+         if pick == 0:
+            temp =  random.choice(nodea.e2_Neighbors)
+         
+         removeNode(temp)          
+        
+#removes the node being passed
+def removeNode(nodea):
+        
         #print("test: ", len(nodea.e1_Neighbors))
         allNodes.remove(nodea)
         
@@ -204,8 +218,9 @@ for t in range(0,1000):
 
     if t == 32:
         #allNodes.pop(3)
-        removeNode()
-        print("after: ", len(allNodes))
+        #randomRem()
+        randomNeigh()
+        #print("after: ", len(allNodes))
 
     for i in allNodes:
         if i.state == State.S: ##check for state therefore cutting down on how many runs of each method happen
