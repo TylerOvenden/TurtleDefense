@@ -10,26 +10,31 @@ import matlab.engine
 import matplotlib.pyplot as plt
 import numpy as np
 import numpy.linalg as linalg
-N = 1000 #N number of nodes
-beta1 =.5
-beta2 =.5
-delta1 = .01
-delta2 = .01
+take_sample  = True #If false one run last run printed 
+smp_size = 50 # sample size
+count = 0       # used to hold value of how many times out come matches
+theta = .10     #
+N = 75          # N number of nodes
+tm = 1000      # time of simulation
+beta1 =.90
+beta2 =.75
+delta1 = .30
+delta2 = .10
 #maybe add list of all nodes to have each node on creation pick neighbors from
 #what to do with C1 == C2
 allNodes = [] #list of  all nodes
 tot_inf1 = 0 #total number of infections by meme 1
 tot_inf2 = 0 #total number of infections by meme 2
-total_M1 = 0#total number of nodes in state I1 (for plot)
-total_M2 = 0#total number of nodes in state I2 (for plot)
-total_S = 0 #total number of nodes in state S 
+total_M1 = 0 #total number of nodes in state I1 (for plot)
+total_M2 = 0 #total number of nodes in state I2 (for plot)
+total_S = 0  #total number of nodes in state S 
 #Classes and Function Definition
 class State(enum.Enum):
     S = 0
     I1 = 1
     I2 = 2
    
-
+#Node Object
 class Node:
     count = 0
     def __init__(self):
@@ -70,12 +75,12 @@ class Node:
             self.state = State.I1
             tot_inf1 = tot_inf1 + 1
             total_M1 += 1
-            infected.append(i)
+            infected_meme1.append(i)
        elif C2 > C1:
            self.state = State.I2
            tot_inf2 = tot_inf2 + 1
            total_M2 += 1
-           infected2.append(i)
+           infected_meme2.append(i)
     def recover(self): #Method to see if node recovers assuming node cannot be infected by the other meme
         global total_M1 #current # of nodes infected with meme 1
         global total_M2 #current # of nodes infected with meme 1
@@ -91,7 +96,25 @@ class Node:
             self.state = State.S
             total_M2 =  total_M2 - 1
 
+##sets up infected lists for infection
+def set_simulation():
+    global infected_meme1
+    infected_meme1 = original_inf_meme1
+    global infected_meme2 
+    infected_meme2 = original_inf_meme2
+    #print("Len of infected:",len(infected_meme1))
+    total_M1 = len(infected_meme1)
+    for i in range(0,len(infected_meme1)):
+        infected_meme1[i].state = State.I1
+    
+ 
 
+    for i in range(0,len(infected_meme2)):
+        #infected_meme1.remove(infected_meme2[i])
+        infected_meme2[i].state = State.I2
+
+    total_M2 = len(infected_meme2)
+   # print("Len of infected_meme2:",len(infected_meme2))
 
 ###SETUP#################################################################################################################################################################################################
 
@@ -109,17 +132,19 @@ S2 = (1- delta2)* np.identity(N,dtype = np.int8) + beta2 * A2
 eigenValues1,eigenVectors1 = linalg.eig(S1)
 eigenValues2,eigenVectors2 = linalg.eig(S2)
 ##sort eigen values
-idx = eigenValues1.argsort()[::-1]
-eigenValues1 = eigenValues1[idx]
-eigenVectors1 = eigenVectors1[:,idx]
+#idx = eigenValues1.argsort()[::-1]
+#eigenValues1 = eigenValues1[idx]
+#eigenVectors1 = eigenVectors1[:,idx]
 
-idx = eigenValues2.argsort()[::-1]
-eigenValues2 = eigenValues2[idx]
-eigenVectors2 = eigenVectors2[:,idx]
+#idx = eigenValues2.argsort()[::-1]
+#eigenValues2 = eigenValues2[idx]
+#eigenVectors2 = eigenVectors2[:,idx]
+
+
 
 ##Print eigen Values
-print("Eigen Value of S1",eigenValues1[0:2])
-print("Eigen Value of S2",eigenValues2[0:2])
+print("Eigen Value of S1",eigenValues1[0])
+print("Eigen Value of S2",eigenValues2[0])
 #Create Nodes
 for i in range(0,N): #fill list of nodes
     node = Node()
@@ -131,21 +156,10 @@ for i in allNodes:
 
 
 ##create first list of infected nodes
-infected = random.sample(allNodes,random.randint(1,len(allNodes)))#randomly choose how many nodes start infected with no more than half being infected
-print("Len of infected:",len(infected))
-total_M1 += len(infected)
-for i in range(0,len(infected)):
-    infected[i].state = State.I1
-    
- 
-
-infected2 = random.sample(infected,random.randint(1,int(len(infected))))#randomly choose how many nodes start infected  by meme 2 
-for i in range(0,len(infected2)):
-    infected[i].state = State.I2
-
-total_M2 += len(infected2)
-print("Len of infected2:",len(infected2))
-
+#holds org sets to use for multiple lists
+original_inf_meme1 = random.sample(allNodes,random.randint(1,len(allNodes)))#randomly choose how many nodes start infected with no more than half being infected
+original_inf_meme2 = random.sample(original_inf_meme1,random.randint(1,int(len(original_inf_meme1))))#randomly choose how many nodes start infected  by meme 2 
+set_simulation()
 
 
 
@@ -154,42 +168,70 @@ time_inf2 = []#array of  number of infected with meme 1, to plot
 time = []#time for x axis
 
 
+M1_Wins = 0 #number of samples that M1 wins
+M2_Wins = 0 #number of samples M2 Wins
+No_win = 0  #number of samples with no clear winner 
+
 ########################MAIN LOOP################################################################################################################################################################################
-for t in range(0,1000):
-    time.append(t)### add time to array to use for plot
-    if t % 100 == 0:
-        print("Time:",t)
+
+for i in  range(0,smp_size):
+    set_simulation()
+    if i % 10 == 0:
+            print("Sample:",i)
+    for t in range(0,tm):
+        time.append(t)### add time to array to use for plot
+    #    if t % 100 == 0:
+        #       print("Time:",t)
     
-    for i in allNodes:
-        if i.state == State.S: ##check for state therefore cutting down on how many runs of each method happen
-            i.attack()
-        else:
-            i.recover()
-    time_inf1.append(total_M1)
-    time_inf2.append(total_M2)
-  
+        for i in allNodes:
+            if i.state == State.S: ##check for state therefore cutting down on how many runs of each method happen
+                i.attack()
+            else:
+                i.recover()
+        time_inf1.append(total_M1)
+        time_inf2.append(total_M2)
+    if total_M1 > total_M2 and ((total_M1-total_M2)/N) > theta: 
+        M1_Wins+= 1
+    elif total_M2 > total_M1 and ((total_M2-total_M1)/N) > theta: 
+        M2_Wins+= 1
+    else:
+        No_win += 1
 
 
 #################################################################################################################################################################################################
-#Showing Plots
+print("Number of Meme 1 wins:")
+print(M1_Wins)
+print("Number of Meme 2 wins:")
+print(M2_Wins)
+print("Number of  no clear winner:")
+print(No_win)
+
+
+
+
+#Showing Plots for one run
 print("Total Infections by Meme 1:")
 print(tot_inf1)
 
 print("Total Infections by Meme 2:")
 print(tot_inf2)
+if take_sample == False:
+    fig =plt.figure()
 
-fig =plt.figure()
+    plt.bar('Meme1',tot_inf1,color="red", width = 1)
+    plt.bar('Meme2',tot_inf2,color="blue", width = 1)
+    plt.xlabel("Meme")
+    plt.ylabel("No. Total infections")
+    plt.title("Total infections by meme")
+    plt.show()
 
-plt.bar('Meme1',tot_inf1,color="red", width = 1)
-plt.bar('Meme2',tot_inf2,color="blue", width = 1)
-plt.xlabel("Meme")
-plt.ylabel("No. Total infections")
-plt.title("Total infections by meme")
-plt.show()
+    plt.plot(time,time_inf1,color="red", label ="Meme 1")
+    plt.plot(time,time_inf2,color="blue", label ="Meme 2")
+    plt.xlabel("Time,t")
+    plt.ylabel("No. Total infections")
+    plt.title("Total infections by meme")
+    plt.show()
+##Sample plot
+#x = np.linspace(0,10,smp_size)
+#plt.plot(M1)
 
-plt.plot(time,time_inf1,color="red", label ="Meme 1")
-plt.plot(time,time_inf2,color="blue", label ="Meme 2")
-plt.xlabel("Time,t")
-plt.ylabel("No. Total infections")
-plt.title("Total infections by meme")
-plt.show()
