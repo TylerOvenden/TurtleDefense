@@ -10,16 +10,16 @@ import matlab.engine
 import matplotlib.pyplot as plt
 import numpy as np
 import numpy.linalg as linalg
-take_sample  = True #If false one run last run printed 
+take_sample  = False #If false one run last run printed 
 smp_size = 50 # sample size
 count = 0       # used to hold value of how many times out come matches
 theta = .10     #
 N = 75          # N number of nodes
 tm = 1000      # time of simulation
-beta1 =.90
-beta2 =.75
-delta1 = .30
-delta2 = .10
+beta1 =.10
+beta2 =.05
+delta1 = .10
+delta2 = .05
 #maybe add list of all nodes to have each node on creation pick neighbors from
 #what to do with C1 == C2
 allNodes = [] #list of  all nodes
@@ -102,6 +102,10 @@ def set_simulation():
     infected_meme1 = original_inf_meme1
     global infected_meme2 
     infected_meme2 = original_inf_meme2
+    global time,time_inf1,time_inf2 
+    time = []#time for x axis
+    time_inf1 = []#array of  number of infected with meme 1, to plot
+    time_inf2 = []#array of  number of infected with meme 1, to plot
     #print("Len of infected:",len(infected_meme1))
     total_M1 = len(infected_meme1)
     for i in range(0,len(infected_meme1)):
@@ -163,9 +167,8 @@ set_simulation()
 
 
 
-time_inf1 = []#array of  number of infected with meme 1, to plot
-time_inf2 = []#array of  number of infected with meme 1, to plot
-time = []#time for x axis
+
+
 
 
 M1_Wins = 0 #number of samples that M1 wins
@@ -173,15 +176,32 @@ M2_Wins = 0 #number of samples M2 Wins
 No_win = 0  #number of samples with no clear winner 
 
 ########################MAIN LOOP################################################################################################################################################################################
-
-for i in  range(0,smp_size):
-    set_simulation()
-    if i % 10 == 0:
-            print("Sample:",i)
+if take_sample == True:
+    for i in  range(0,smp_size):
+        set_simulation()
+        if i % 10 == 0:
+                print("Sample:",i)
+        for t in range(0,tm):
+            time.append(t)### add time to array to use for plot
+    
+            for i in allNodes:
+                if i.state == State.S: ##check for state therefore cutting down on how many runs of each method happen
+                    i.attack()
+                else:
+                    i.recover()
+            time_inf1.append(total_M1)
+            time_inf2.append(total_M2)
+        if total_M1 > total_M2 and ((total_M1-total_M2)/N) > theta: 
+            M1_Wins+= 1
+        elif total_M2 > total_M1 and ((total_M2-total_M1)/N) > theta: 
+            M2_Wins+= 1
+        else:
+            No_win += 1
+else:
     for t in range(0,tm):
         time.append(t)### add time to array to use for plot
-    #    if t % 100 == 0:
-        #       print("Time:",t)
+        if t % 100 == 0:
+               print("Time:",t)
     
         for i in allNodes:
             if i.state == State.S: ##check for state therefore cutting down on how many runs of each method happen
