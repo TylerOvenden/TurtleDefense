@@ -10,12 +10,13 @@ import matlab.engine
 import matplotlib.pyplot as plt
 import numpy as np
 import numpy.linalg as linalg
+from collections import Counter
 take_sample  = False #If false one run last run printed 
 smp_size = 50 # sample size
 count = 0       # used to hold value of how many times out come matches
 theta = .10     #
 N = 75          # N number of nodes
-tm = 1000      # time of simulation
+tm = 1000       # time of simulation
 beta1 =.10
 beta2 =.05
 delta1 = .10
@@ -98,10 +99,11 @@ class Node:
 
 ##sets up infected lists for infection
 def set_simulation():
-    global infected_meme1
+    global infected_meme1,infected_meme2,tot_inf1,tot_inf2
     infected_meme1 = original_inf_meme1
-    global infected_meme2 
     infected_meme2 = original_inf_meme2
+    tot_inf1 = 0
+    tot_inf2 = 0
     global time,time_inf1,time_inf2 
     time = []#time for x axis
     time_inf1 = []#array of  number of infected with meme 1, to plot
@@ -144,11 +146,23 @@ eigenValues2,eigenVectors2 = linalg.eig(S2)
 #eigenValues2 = eigenValues2[idx]
 #eigenVectors2 = eigenVectors2[:,idx]
 
+eigenValuesReal1 = [0]*N
+eigenValuesReal2 = [0]*N
 
+for i in range (0,N):
+    eigenValuesReal1[i] = round(np.real(abs(eigenValues1[i])),4)
+    eigenValuesReal2[i] = round(np.real(abs(eigenValues2[i])),4)
+
+eigenValueMaxDegreeValue1 = Counter(eigenValuesReal1)
+eigenValueMaxDegreeValue2 = Counter(eigenValuesReal2)
 
 ##Print eigen Values
-print("Eigen Value of S1",eigenValues1[0])
-print("Eigen Value of S2",eigenValues2[0])
+#print("Eigen Value of S1", eigenValues1[0])
+#print("Eigen Value of S2", eigenValues2[0])
+
+print("Eigenvalue1", eigenValueMaxDegreeValue1.most_common(1))
+print("Eigenvalue2", eigenValueMaxDegreeValue2.most_common(1))
+
 #Create Nodes
 for i in range(0,N): #fill list of nodes
     node = Node()
@@ -210,12 +224,6 @@ else:
                 i.recover()
         time_inf1.append(total_M1)
         time_inf2.append(total_M2)
-    if total_M1 > total_M2 and ((total_M1-total_M2)/N) > theta: 
-        M1_Wins+= 1
-    elif total_M2 > total_M1 and ((total_M2-total_M1)/N) > theta: 
-        M2_Wins+= 1
-    else:
-        No_win += 1
 
 
 #################################################################################################################################################################################################
@@ -235,8 +243,9 @@ print(tot_inf1)
 
 print("Total Infections by Meme 2:")
 print(tot_inf2)
+fig =plt.figure()
 if take_sample == False:
-    fig =plt.figure()
+   
 
     plt.bar('Meme1',tot_inf1,color="red", width = 1)
     plt.bar('Meme2',tot_inf2,color="blue", width = 1)
@@ -251,7 +260,6 @@ if take_sample == False:
     plt.ylabel("No. Total infections")
     plt.title("Total infections by meme")
     plt.show()
-##Sample plot
-#x = np.linspace(0,10,smp_size)
-#plt.plot(M1)
+
+
 
