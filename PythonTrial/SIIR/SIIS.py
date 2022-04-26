@@ -11,8 +11,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import numpy.linalg as linalg
 from collections import Counter
-take_sample  = False #If false one run last run printed 
-smp_size = 50 # sample size
+take_sample  = 2  # 0 - Single Run, 1 - Same Matrix multiple runs , 2 - Different Matrix each run/holds eigen values
+smp_size = 10 # sample size
 count = 0       # used to hold value of how many times out come matches
 theta = .10     #
 N = 75          # N number of nodes
@@ -96,10 +96,64 @@ class Node:
             #print("Infected with I2")
             self.state = State.S
             total_M2 =  total_M2 - 1
+def set_up():
+    global allNodes, A1,A2,S1,S2,eigenValues1,eigenValues2,eigenVectors1,eigenVectors2,eigenValuesReal1
+    global eigenValuesReal2,eigenValueMaxDegreeValue2, allNodes, original_inf_meme1, original_inf_meme2
+    #create adjacency matrix
+    A1 = np.random.randint(2,size = (N,N),dtype=np.int8)#adjacency matrix for edge 1, filled with random 0s and 1s
+    np.fill_diagonal(A1,0)#make A1 diagonal 0's
+    A2 = np.random.randint(2,size = (N,N),dtype=np.int8)#adjacency matrix for edge 2, filled with random 0s and 1s 
+    np.fill_diagonal(A2,0)#make A2 diagonal 0's
 
+    ##create System Matrices
+    S1 = (1- delta1)* np.identity(N,dtype = np.int8) + beta1 * A1
+    S2 = (1- delta2)* np.identity(N,dtype = np.int8) + beta2 * A2
+    ##get Eigen Values
+    eigenValues1,eigenVectors1 = linalg.eig(S1)
+    eigenValues2,eigenVectors2 = linalg.eig(S2)
+    ##sort eigen values
+    #idx = eigenValues1.argsort()[::-1]
+    #eigenValues1 = eigenValues1[idx]
+    #eigenVectors1 = eigenVectors1[:,idx]
+
+    #idx = eigenValues2.argsort()[::-1]
+    #eigenValues2 = eigenValues2[idx]
+    #eigenVectors2 = eigenVectors2[:,idx]
+
+    eigenValuesReal1 = [0]*N
+    eigenValuesReal2 = [0]*N
+
+    for i in range (0,N):
+        eigenValuesReal1[i] = round(np.real(abs(eigenValues1[i])),4)
+        eigenValuesReal2[i] = round(np.real(abs(eigenValues2[i])),4)
+
+    eigenValueMaxDegreeValue1 = Counter(eigenValuesReal1)
+    eigenValueMaxDegreeValue2 = Counter(eigenValuesReal2)
+
+    ##Print eigen Values
+    #print("Eigen Value of S1", eigenValues1[0])
+    #print("Eigen Value of S2", eigenValues2[0])
+
+    print("Eigenvalue1", eigenValueMaxDegreeValue1.most_common(1))
+    print("Eigenvalue2", eigenValueMaxDegreeValue2.most_common(1))
+
+    #Create Nodes
+    for i in range(0,N): #fill list of nodes
+        node = Node()
+    ##sort nodes by ID number
+    allNodes.sort(key= lambda x: x.id, reverse = False)
+    #add neighbors to nodes from adjacency matrices
+    for i in allNodes: 
+        i.addNeighbors()
+
+
+    ##create first list of infected nodes
+    #holds org sets to use for multiple lists
+    original_inf_meme1 = random.sample(allNodes,random.randint(1,len(allNodes)))#randomly choose how many nodes start infected with no more than half being infected
+    original_inf_meme2 = random.sample(original_inf_meme1,random.randint(1,int(len(original_inf_meme1))))#randomly choose how many nodes start infected  by meme 2 
 ##sets up infected lists for infection
 def set_simulation():
-    global infected_meme1,infected_meme2,tot_inf1,tot_inf2
+    global infected_meme1,infected_meme2,tot_inf1,tot_inf2,original_inf_meme1,original_inf_meme2
     infected_meme1 = original_inf_meme1
     infected_meme2 = original_inf_meme2
     tot_inf1 = 0
@@ -122,64 +176,17 @@ def set_simulation():
     total_M2 = len(infected_meme2)
    # print("Len of infected_meme2:",len(infected_meme2))
 
+
 ###SETUP#################################################################################################################################################################################################
 
 
-#create adjacency matrix
-A1 = np.random.randint(2,size = (N,N),dtype=np.int8)#adjacency matrix for edge 1, filled with random 0s and 1s
-np.fill_diagonal(A1,0)#make A1 diagonal 0's
-A2 = np.random.randint(2,size = (N,N),dtype=np.int8)#adjacency matrix for edge 2, filled with random 0s and 1s 
-np.fill_diagonal(A2,0)#make A2 diagonal 0's
-
-##create System Matrices
-S1 = (1- delta1)* np.identity(N,dtype = np.int8) + beta1 * A1
-S2 = (1- delta2)* np.identity(N,dtype = np.int8) + beta2 * A2
-##get Eigen Values
-eigenValues1,eigenVectors1 = linalg.eig(S1)
-eigenValues2,eigenVectors2 = linalg.eig(S2)
-##sort eigen values
-#idx = eigenValues1.argsort()[::-1]
-#eigenValues1 = eigenValues1[idx]
-#eigenVectors1 = eigenVectors1[:,idx]
-
-#idx = eigenValues2.argsort()[::-1]
-#eigenValues2 = eigenValues2[idx]
-#eigenVectors2 = eigenVectors2[:,idx]
-
-eigenValuesReal1 = [0]*N
-eigenValuesReal2 = [0]*N
-
-for i in range (0,N):
-    eigenValuesReal1[i] = round(np.real(abs(eigenValues1[i])),4)
-    eigenValuesReal2[i] = round(np.real(abs(eigenValues2[i])),4)
-
-eigenValueMaxDegreeValue1 = Counter(eigenValuesReal1)
-eigenValueMaxDegreeValue2 = Counter(eigenValuesReal2)
-
-##Print eigen Values
-#print("Eigen Value of S1", eigenValues1[0])
-#print("Eigen Value of S2", eigenValues2[0])
-
-print("Eigenvalue1", eigenValueMaxDegreeValue1.most_common(1))
-print("Eigenvalue2", eigenValueMaxDegreeValue2.most_common(1))
-
-#Create Nodes
-for i in range(0,N): #fill list of nodes
-    node = Node()
-##sort nodes by ID number
-allNodes.sort(key= lambda x: x.id, reverse = False)
-#add neighbors to nodes from adjacency matrices
-for i in allNodes: 
-    i.addNeighbors()
-
-
-##create first list of infected nodes
-#holds org sets to use for multiple lists
-original_inf_meme1 = random.sample(allNodes,random.randint(1,len(allNodes)))#randomly choose how many nodes start infected with no more than half being infected
-original_inf_meme2 = random.sample(original_inf_meme1,random.randint(1,int(len(original_inf_meme1))))#randomly choose how many nodes start infected  by meme 2 
+set_up()
 set_simulation()
 
 
+sampled_M1_Wins = np.empty([2,50])
+sampled_M2_Wins = np.empty([2,50])
+sampled_No_Wins = np.empty([2,50])
 
 
 
@@ -190,7 +197,35 @@ M2_Wins = 0 #number of samples M2 Wins
 No_win = 0  #number of samples with no clear winner 
 
 ########################MAIN LOOP################################################################################################################################################################################
-if take_sample == True:
+if take_sample == 2:
+    for i in  range(0,smp_size):
+            set_up()
+            set_simulation()
+            if i % 10 == 0:
+                    print("Sample:",i)
+            for t in range(0,tm):
+                time.append(t)### add time to array to use for plot
+    
+                for i in allNodes:
+                    if i.state == State.S: ##check for state therefore cutting down on how many runs of each method happen
+                        i.attack()
+                    else:
+                        i.recover()
+                time_inf1.append(total_M1)
+                time_inf2.append(total_M2)
+            if total_M1 > total_M2 and ((total_M1-total_M2)/N) > theta: 
+                sampled_M1_Wins[0][M1_Wins] =  eigenValueMaxDegreeValue1.most_common(1)
+                sampled_M1_Wins[1][M1_Wins] =  eigenValueMaxDegreeValue2.most_common(1)
+                M1_Wins+= 1
+            elif total_M2 > total_M1 and ((total_M2-total_M1)/N) > theta:
+                sampled_M2_Wins[0][M1_Wins] =  eigenValueMaxDegreeValue1.most_common(1)
+                sampled_M2_Wins[1][M1_Wins] =  eigenValueMaxDegreeValue2.most_common(1)
+                M2_Wins+= 1
+            else:
+                sampled_M2_Wins[0][M1_Wins] =  eigenValueMaxDegreeValue1.most_common(1)
+                sampled_M2_Wins[1][M1_Wins] =  eigenValueMaxDegreeValue2.most_common(1)
+                No_win += 1
+elif take_sample == 1:
     for i in  range(0,smp_size):
         set_simulation()
         if i % 10 == 0:
@@ -244,7 +279,7 @@ print(tot_inf1)
 print("Total Infections by Meme 2:")
 print(tot_inf2)
 fig =plt.figure()
-if take_sample == False:
+if take_sample != 2:
    
 
     plt.bar('Meme1',tot_inf1,color="red", width = 1)
@@ -260,6 +295,8 @@ if take_sample == False:
     plt.ylabel("No. Total infections")
     plt.title("Total infections by meme")
     plt.show()
-
-
-
+else:
+    plt.scatter(M1_Wins[0,:],M1_Wins[1,:], c ='r')
+    plt.scatter(M2_Wins[0,:],M2_Wins[1,:], c ='b')
+    plt.scatter(No_Wins[0,:],No_Wins[1,:], c ='g')
+    plt.show()
