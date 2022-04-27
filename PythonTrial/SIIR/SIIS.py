@@ -13,14 +13,14 @@ import numpy.linalg as linalg
 from collections import Counter
 take_sample  = False #If false one run last run printed 
 smp_size = 50 # sample size
-count = 0       # used to hold value of how many times out come matches
+#count = 0       # used to hold value of how many times out come matches
 theta = .10     #
-N = 75          # N number of nodes
+N = 1000        # N number of nodes
 tm = 1000       # time of simulation
-beta1 =.10
-beta2 =.05
-delta1 = .10
-delta2 = .05
+beta1 =.678
+beta2 =.427
+delta1 = .50
+delta2 = .50
 #maybe add list of all nodes to have each node on creation pick neighbors from
 #what to do with C1 == C2
 allNodes = [] #list of  all nodes
