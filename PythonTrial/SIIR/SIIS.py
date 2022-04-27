@@ -6,7 +6,7 @@
 import enum
 import random 
 import simpy
-import matlab.engine
+#import matlab.engine
 import matplotlib.pyplot as plt
 import numpy as np
 import numpy.linalg as linalg
@@ -15,7 +15,7 @@ take_sample  = False #If false one run last run printed
 smp_size = 50 # sample size
 #count = 0       # used to hold value of how many times out come matches
 theta = .10     #
-N = 1000        # N number of nodes
+N = 75       # N number of nodes
 tm = 1000       # time of simulation
 beta1 =.678
 beta2 =.427
@@ -35,6 +35,41 @@ class State(enum.Enum):
     I1 = 1
     I2 = 2
    
+
+#picks a random node        
+def randomRem():
+        nodea = random.choice(allNodes)
+        removeNode(nodea)
+
+#picks a random neighbor of a random node
+def randomNeigh():
+         nodea = random.choice(allNodes)
+         pick = random.randint(0, 1)
+         temp = nodea
+         if pick == 1:
+            temp =  random.choice(nodea.e1_Neighbors)
+         if pick == 0:
+            temp =  random.choice(nodea.e2_Neighbors)
+         
+         removeNode(temp)          
+        
+#removes the node being passed
+def removeNode(nodea):
+        
+        #print("test: ", len(nodea.e1_Neighbors))
+        allNodes.remove(nodea)
+        
+        for i in range(len(allNodes)): 
+        #check if the removed node is a neighbor for all the nodes in the list
+        #remove it, if so
+            if(nodea in allNodes[i].e1_Neighbors):    
+                #print("found at node ", i)
+                #print("test before : ", len(allNodes[i].e1_Neighbors))
+                allNodes[i].e1_Neighbors.remove(nodea)
+                #print("test after : ", len(allNodes[i].e1_Neighbors))
+            if(nodea in allNodes[i].e2_Neighbors):
+                allNodes[i].e2_Neighbors.remove(nodea) 
+
 #Node Object
 class Node:
     count = 0
@@ -179,7 +214,10 @@ original_inf_meme1 = random.sample(allNodes,random.randint(1,len(allNodes)))#ran
 original_inf_meme2 = random.sample(original_inf_meme1,random.randint(1,int(len(original_inf_meme1))))#randomly choose how many nodes start infected  by meme 2 
 set_simulation()
 
-
+#method for removing random node
+#randomRem()
+#method for removing random neigbor        
+randomNeigh()
 
 
 
@@ -260,6 +298,3 @@ if take_sample == False:
     plt.ylabel("No. Total infections")
     plt.title("Total infections by meme")
     plt.show()
-
-
-
