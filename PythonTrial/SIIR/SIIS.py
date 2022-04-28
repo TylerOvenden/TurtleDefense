@@ -11,8 +11,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import numpy.linalg as linalg
 from collections import Counter
-take_sample  = 1 # 0 - Single Run, 1 - Same Matrix multiple runs , 2 - Different Matrix each run/holds eigen values
-smp_size = 100 # sample size
+take_sample  = 1# 0 - Single Run, 1 - Same Matrix multiple runs , 2 - Different Matrix each run/holds eigen values
+smp_size = 10 # sample size
 count = 0       # used to hold value of how many times out come matches
 theta = .10     #
 N = 25# N number of nodes
@@ -21,6 +21,9 @@ beta1 =.01
 beta2 =.02
 delta1 = .005
 delta2 = .005
+M1_Wins = 0 #number of samples that M1 wins
+M2_Wins = 0 #number of samples M2 Wins
+No_win = 0  #number of samples with no clear winner 
 #maybe add list of all nodes to have each node on creation pick neighbors from
 #what to do with C1 == C2
 allNodes = [] #list of  all nodes
@@ -161,6 +164,44 @@ def set_simulation():
     total_M2 = len(infected_meme2)
    # print("Len of infected_meme2:",len(infected_meme2))
 
+def run_sim():
+    global take_sample, allNodes , smp_size , total_M1 , total_M2 , tot_inf1 , tot_inf2
+    global infected_meme1, infected_meme2 , M1_Wins , M2_Wins , No_win 
+    if take_sample == 1:
+        for i in  range(0,smp_size):
+            set_simulation()
+            if i % 10 == 0:
+                    print("Sample:",i)
+            for t in range(0,tm):
+                time.append(t)### add time to array to use for plot
+    
+                for i in allNodes:
+                    if i.state == State.S: ##check for state therefore cutting down on how many runs of each method happen
+                        i.attack()
+                    else:
+                        i.recover()
+                time_inf1.append(total_M1)
+                time_inf2.append(total_M2)
+            if total_M1 > total_M2 and ((total_M1-total_M2)/N) > theta: 
+                M1_Wins+= 1
+            elif total_M2 > total_M1 and ((total_M2-total_M1)/N) > theta: 
+                M2_Wins+= 1
+            else:
+                No_win += 1
+    else:
+        for t in range(0,tm):
+            time.append(t)### add time to array to use for plot
+            if t % 100 == 0:
+                   print("Time:",t)
+    
+            for i in allNodes:
+                if i.state == State.S: ##check for state therefore cutting down on how many runs of each method happen
+                    i.attack()
+                else:
+                    i.recover()
+            time_inf1.append(len(infected_meme1))
+            time_inf2.append(len(infected_meme2))
+
 
 ###SETUP#################################################################################################################################################################################################
 
@@ -213,7 +254,7 @@ set_simulation()
 #method for removing random node
 #randomRem()
 #method for removing random neigbor        
-randomNeigh()
+
 
 sampled_M1_Wins = np.empty([2,50])
 sampled_M2_Wins = np.empty([2,50])
@@ -223,9 +264,7 @@ sampled_No_Wins = np.empty([2,50])
 
 
 
-M1_Wins = 0 #number of samples that M1 wins
-M2_Wins = 0 #number of samples M2 Wins
-No_win = 0  #number of samples with no clear winner 
+
 
 ########################MAIN LOOP################################################################################################################################################################################
 ##currently sampling to see how many times expected output is matched does not work
@@ -257,43 +296,10 @@ No_win = 0  #number of samples with no clear winner
 #                sampled_M2_Wins[0][M1_Wins] =  eigenValueMaxDegreeValue1.most_common(1)
 #                sampled_M2_Wins[1][M1_Wins] =  eigenValueMaxDegreeValue2.most_common(1)
 #                No_win += 1
-if take_sample == 1:
-    for i in  range(0,smp_size):
-        set_simulation()
-        if i % 10 == 0:
-                print("Sample:",i)
-        for t in range(0,tm):
-            time.append(t)### add time to array to use for plot
-    
-            for i in allNodes:
-                if i.state == State.S: ##check for state therefore cutting down on how many runs of each method happen
-                    i.attack()
-                else:
-                    i.recover()
-            time_inf1.append(total_M1)
-            time_inf2.append(total_M2)
-        if total_M1 > total_M2 and ((total_M1-total_M2)/N) > theta: 
-            M1_Wins+= 1
-        elif total_M2 > total_M1 and ((total_M2-total_M1)/N) > theta: 
-            M2_Wins+= 1
-        else:
-            No_win += 1
-else:
-    for t in range(0,tm):
-        time.append(t)### add time to array to use for plot
-        if t % 100 == 0:
-               print("Time:",t)
-    
-        for i in allNodes:
-            if i.state == State.S: ##check for state therefore cutting down on how many runs of each method happen
-                i.attack()
-            else:
-                i.recover()
-        time_inf1.append(len(infected_meme1))
-        time_inf2.append(len(infected_meme2))
 
 
 #################################################################################################################################################################################################
+run_sim()
 print("Number of Meme 1 wins:")
 print(M1_Wins)
 print("Number of Meme 2 wins:")
@@ -341,3 +347,45 @@ if take_sample ==1:
 #    plt.scatter(M2_Wins[0,:],M2_Wins[1,:], c ='b')
 #    plt.scatter(No_Wins[0,:],No_Wins[1,:], c ='g')
 #    plt.show()
+
+######################################################################################################################################
+#Suppression Methods
+#####################################################################################################################################
+
+#############################
+randomNeigh()
+set_simulation()
+run_sim()
+
+        #Showing Plots for one run
+print("After suppression\nTotal Infections by Meme 1:")
+print(tot_inf1)
+
+print("Total Infections by Meme 2:")
+print(tot_inf2)
+fig =plt.figure()
+if take_sample != 2:
+   
+
+    plt.bar('Meme1',tot_inf1,color="red", width = 1)
+    plt.bar('Meme2',tot_inf2,color="blue", width = 1)
+    plt.xlabel("Meme")
+    plt.ylabel("No. Total infections")
+    plt.title("Total infections by meme")
+    plt.show()
+
+    plt.plot(time,time_inf1,color="red", label ="Meme 1")
+    plt.plot(time,time_inf2,color="blue", label ="Meme 2")
+    plt.xlabel("Time,t")
+    plt.ylabel("No. Total infections")
+    plt.title("Total infections by meme")
+    plt.show()
+
+if take_sample ==1:
+    plt.bar('Meme1 wins',M1_Wins,color="red", width = 1)
+    plt.bar('Meme2 wins ',M2_Wins,color="blue", width = 1)
+    plt.bar('No Decisive winner',No_win,color="green", width = 1)
+    plt.xlabel("Meme")
+    plt.ylabel("No. Wins")
+    plt.title("Wins by Meme")
+    plt.show()
