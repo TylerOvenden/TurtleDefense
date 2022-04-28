@@ -11,16 +11,16 @@ import matplotlib.pyplot as plt
 import numpy as np
 import numpy.linalg as linalg
 from collections import Counter
-take_sample  = 1# 0 - Single Run, 1 - Same Matrix multiple runs , 2 - Different Matrix each run/holds eigen values
+take_sample  = 0# 0 - Single Run, 1 - Same Matrix multiple runs , 2 - Different Matrix each run/holds eigen values
 smp_size = 10 # sample size
 count = 0       # used to hold value of how many times out come matches
 theta = .10     #
-N = 25# N number of nodes
+N = 1000# N number of nodes
 tm = 1000     # time of simulation
-beta1 =.01
-beta2 =.02
-delta1 = .005
-delta2 = .005
+beta1 =.05
+beta2 =.05
+delta1 = .04
+delta2 = .04
 M1_Wins = 0 #number of samples that M1 wins
 M2_Wins = 0 #number of samples M2 Wins
 No_win = 0  #number of samples with no clear winner 
@@ -113,28 +113,22 @@ class Node:
        if C1 > C2:
             self.state = State.I1
             tot_inf1 = tot_inf1 + 1
-            total_M1 += 1
             infected_meme1.append(self)
        elif C2 > C1:
            self.state = State.I2
            tot_inf2 = tot_inf2 + 1
-           total_M2 += 1
            infected_meme2.append(self)
     def recover(self): #Method to see if node recovers assuming node cannot be infected by the other meme
-        global total_M1 #current # of nodes infected with meme 1
-        global total_M2 #current # of nodes infected with meme 1
         if self.state == State.S:
             return
         if self.state == State.I1 and random.random()<delta1:
             #print("Infected with I1")
             self.state = State.S
-            total_M1 =  total_M1 - 1
             infected_meme1.remove(self)
             
         if self.state == State.I2 and random.random()<delta2:
             #print("Infected with I2")
             self.state = State.S
-            total_M2 =  total_M2 - 1
             infected_meme2.remove(self)
 ##sets up infected lists for infection
 def set_simulation():
@@ -163,7 +157,16 @@ def set_simulation():
         infected_meme2.remove(i)
     total_M2 = len(infected_meme2)
    # print("Len of infected_meme2:",len(infected_meme2))
-
+def count():
+    global total_M1,total_M2
+    countM1=countM2 = 0
+    for i in allNodes:
+        if i.state == State.I1:
+            countM1 +=1
+        elif i.state == State.I2:
+            countM2 +=1
+    total_M1 = countM1
+    total_M2 = countM2
 def run_sim():
     global take_sample, allNodes , smp_size , total_M1 , total_M2 , tot_inf1 , tot_inf2
     global infected_meme1, infected_meme2 , M1_Wins , M2_Wins , No_win 
@@ -180,6 +183,7 @@ def run_sim():
                         i.attack()
                     else:
                         i.recover()
+                count()
                 time_inf1.append(total_M1)
                 time_inf2.append(total_M2)
             if total_M1 > total_M2 and ((total_M1-total_M2)/N) > theta: 
@@ -199,9 +203,36 @@ def run_sim():
                     i.attack()
                 else:
                     i.recover()
-            time_inf1.append(len(infected_meme1))
-            time_inf2.append(len(infected_meme2))
+            count()
+            time_inf1.append(total_M1)
+            time_inf2.append(total_M2)
+def plot_res():
+    fig =plt.figure()
+   if take_sample == 0:
+   
 
+    plt.bar('Meme1',tot_inf1,color="red", width = 1)
+    plt.bar('Meme2',tot_inf2,color="blue", width = 1)
+    plt.xlabel("Meme")
+    plt.ylabel("No. Total infections")
+    plt.title("Total infections by meme")
+    plt.show()
+
+    plt.plot(time,time_inf1,color="red", label ="Meme 1")
+    plt.plot(time,time_inf2,color="blue", label ="Meme 2")
+    plt.xlabel("Time,t")
+    plt.ylabel("No. Total infections")
+    plt.title("Total infections by meme")
+    plt.show()
+
+   if take_sample ==1:
+        plt.bar('Meme1 wins',M1_Wins,color="red", width = 1)
+        plt.bar('Meme2 wins ',M2_Wins,color="blue", width = 1)
+        plt.bar('No Decisive winner',No_win,color="green", width = 1)
+        plt.xlabel("Meme")
+        plt.ylabel("No. Total infections")
+        plt.title("Total infections by meme")
+        plt.show()
 
 ###SETUP#################################################################################################################################################################################################
 
@@ -316,32 +347,8 @@ print(tot_inf1)
 
 print("Total Infections by Meme 2:")
 print(tot_inf2)
-fig =plt.figure()
-if take_sample != 2:
-   
 
-    plt.bar('Meme1',tot_inf1,color="red", width = 1)
-    plt.bar('Meme2',tot_inf2,color="blue", width = 1)
-    plt.xlabel("Meme")
-    plt.ylabel("No. Total infections")
-    plt.title("Total infections by meme")
-    plt.show()
 
-    plt.plot(time,time_inf1,color="red", label ="Meme 1")
-    plt.plot(time,time_inf2,color="blue", label ="Meme 2")
-    plt.xlabel("Time,t")
-    plt.ylabel("No. Total infections")
-    plt.title("Total infections by meme")
-    plt.show()
-
-if take_sample ==1:
-    plt.bar('Meme1 wins',M1_Wins,color="red", width = 1)
-    plt.bar('Meme2 wins ',M2_Wins,color="blue", width = 1)
-    plt.bar('No Decisive winner',No_win,color="green", width = 1)
-    plt.xlabel("Meme")
-    plt.ylabel("No. Total infections")
-    plt.title("Total infections by meme")
-    plt.show()
 #else:
 #    plt.scatter(M1_Wins[0,:],M1_Wins[1,:], c ='r')
 #    plt.scatter(M2_Wins[0,:],M2_Wins[1,:], c ='b')
@@ -363,29 +370,4 @@ print(tot_inf1)
 
 print("Total Infections by Meme 2:")
 print(tot_inf2)
-fig =plt.figure()
-if take_sample != 2:
-   
 
-    plt.bar('Meme1',tot_inf1,color="red", width = 1)
-    plt.bar('Meme2',tot_inf2,color="blue", width = 1)
-    plt.xlabel("Meme")
-    plt.ylabel("No. Total infections")
-    plt.title("Total infections by meme")
-    plt.show()
-
-    plt.plot(time,time_inf1,color="red", label ="Meme 1")
-    plt.plot(time,time_inf2,color="blue", label ="Meme 2")
-    plt.xlabel("Time,t")
-    plt.ylabel("No. Total infections")
-    plt.title("Total infections by meme")
-    plt.show()
-
-if take_sample ==1:
-    plt.bar('Meme1 wins',M1_Wins,color="red", width = 1)
-    plt.bar('Meme2 wins ',M2_Wins,color="blue", width = 1)
-    plt.bar('No Decisive winner',No_win,color="green", width = 1)
-    plt.xlabel("Meme")
-    plt.ylabel("No. Wins")
-    plt.title("Wins by Meme")
-    plt.show()
