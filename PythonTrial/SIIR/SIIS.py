@@ -16,11 +16,11 @@ smp_size = 10 # sample size
 count = 0       # used to hold value of how many times out come matches
 theta = .10     #
 N = 100# N number of nodes
-tm = 1000     # time of simulation
-beta1 =.05
-beta2 =.05
-delta1 = .04
-delta2 = .04
+tm = 10000     # time of simulation
+beta1 =.005
+beta2 =.005
+delta1 = .004
+delta2 = .004
 M1_Wins = 0 #number of samples that M1 wins
 M2_Wins = 0 #number of samples M2 Wins
 No_win = 0  #number of samples with no clear winner 
@@ -28,26 +28,31 @@ No_win = 0  #number of samples with no clear winner
 #what to do with C1 == C2
 allNodes = [] #list of  all nodes
 tot_inf1 = 0 #total number of infections by meme 1
+old_inf1 = 0 #total number of infections by meme 1 for plotting
+old_inf2 = 0 #total number of infections by meme 2 for plotting
 tot_inf2 = 0 #total number of infections by meme 2
 total_M1 = 0 #total number of nodes in state I1 (for plot)
 total_M2 = 0 #total number of nodes in state I2 (for plot)
 total_S = 0  #total number of nodes in state S 
+
 #Classes and Function Definition
 class State(enum.Enum):
     S = 0
     I1 = 1
     I2 = 2
    
-
+################################################################################################################################################################################################################################################################################################################################################################
+#SUPRESSION METHODS
+################################################################################################################################################################################################################################################################################################################################################################
 #picks a random node        
 def randomRem():
         nodea = random.choice(allNodes)
         removeNode(nodea)
 
 #picks a random neighbor of a random node
-def randomNeigh():
+def randomNeigh(pick):
          nodea = random.choice(allNodes)
-         pick = random.randint(0, 1)
+         #pick = random.randint(0, 2)
          temp = nodea
          if pick == 1:
             temp =  random.choice(nodea.e1_Neighbors)
@@ -72,8 +77,9 @@ def removeNode(nodea):
                 #print("test after : ", len(allNodes[i].e1_Neighbors))
             if(nodea in allNodes[i].e2_Neighbors):
                 allNodes[i].e2_Neighbors.remove(nodea) 
-
+################################################################################################################################################################################################################################################################################################################################################################
 #Node Object
+################################################################################################################################################################################################################################################################################################################################################################
 class Node:
     count = 0
     def __init__(self):
@@ -100,8 +106,6 @@ class Node:
             return
        global tot_inf1 #total of infections made by nodes infected with meme 1
        global tot_inf2 #total of infections made by nodes infected with meme 2
-       global total_M1 #current # of nodes infected with meme 1
-       global total_M2 #current # of nodes infected with meme 1
        C1=0
        C2=0
        for i in self.e1_Neighbors:# attacks from meme 1 that can only spread on edge 1
@@ -130,6 +134,9 @@ class Node:
             #print("Infected with I2")
             self.state = State.S
             infected_meme2.remove(self)
+################################################################################################################################################################################################################################################################################################################################################################
+#Sim Methods
+################################################################################################################################################################################################################################################################################################################################################################
 ##sets up infected lists for infection
 def set_simulation():
     global infected_meme1,infected_meme2,tot_inf1,tot_inf2,original_inf_meme1,original_inf_meme2
@@ -164,7 +171,7 @@ def count():
         if i.state == State.I1:
             countM1 +=1
         elif i.state == State.I2:
-            countM2 +=1
+            countM2 +=1 
     total_M1 = countM1
     total_M2 = countM2
 def run_sim():
@@ -207,6 +214,7 @@ def run_sim():
             time_inf1.append(total_M1)
             time_inf2.append(total_M2)
 def plot_res(pause,supress,spr):
+   global old_inf1,old_inf2
    fig =plt.figure()
    if take_sample == 0:
    
@@ -217,12 +225,14 @@ def plot_res(pause,supress,spr):
     plt.ylabel("No. Total infections")
     plt.title("Total infections by meme")
     plt.show()
-
-    plt.plot(time,time_inf1,color="red", label = "Meme 1 λ = {}".format(eigenValueMaxDegreeValue1.most_common(1)))
-    plt.plot(time,time_inf2,color="blue", label ="Meme 2 λ ={}".format(eigenValueMaxDegreeValue2.most_common(1)))
-    #if supress == True:
-    plt.plot(time,time_inf1,color="green", label = "Meme 1 After {} λ = {}".format(spr,eigenValueMaxDegreeValue1.most_common(1)))
-    plt.plot(time,time_inf2,color="yellow", label ="Meme 2 After {} λ ={}".format(spr,eigenValueMaxDegreeValue2.most_common(1)))
+    if supress == True and pause == True:
+        old_inf1 = time_inf1
+        old_inf2 = time_inf2
+    elif supress == True and pause == False:
+        plt.plot(time,old_inf1,color="red", label = "Meme 1 λ = {}".format(eigenValueMaxDegreeValue1.most_common(1)))
+        plt.plot(time,old_inf2,color="blue", label ="Meme 2 λ ={}".format(eigenValueMaxDegreeValue2.most_common(1))) 
+        plt.plot(time,time_inf1,color="green", label = "Meme 1 After {} λ = {}".format(spr,eigenValueMaxDegreeValue1.most_common(1)))
+        plt.plot(time,time_inf2,color="yellow", label ="Meme 2 After {} λ ={}".format(spr,eigenValueMaxDegreeValue2.most_common(1)))
     plt.xlabel("Time,t")
     plt.ylabel("No. Total infections")
     plt.title("Total infections by meme")
@@ -297,46 +307,16 @@ sampled_M2_Wins = np.empty([2,50])
 sampled_No_Wins = np.empty([2,50])
 
 
-
-
+################################################################################################################################################################################################################################################################################################################################################################
+#Run Simulation without Supression
+################################################################################################################################################################################
 
 
 
 ########################MAIN LOOP################################################################################################################################################################################
-##currently sampling to see how many times expected output is matched does not work
-#if take_sample == 2:
-#    for i in  range(0,smp_size):
-#            ##set_up()
-#            set_simulation()
-#            if i % 10 == 0:
-#                    print("Sample:",i)
-#            for t in range(0,tm):
-#                time.append(t)### add time to array to use for plot
-    
-#                for i in allNodes:
-#                    if i.state == State.S: ##check for state therefore cutting down on how many runs of each method happen
-#                        i.attack()
-#                    else:
-#                        i.recover()
-#                time_inf1.append(total_M1)
-#                time_inf2.append(total_M2)
-#            if total_M1 > total_M2 and ((total_M1-total_M2)/N) > theta: 
-#                sampled_M1_Wins[0][M1_Wins] =  eigenValueMaxDegreeValue1.most_common(1)
-#                sampled_M1_Wins[1][M1_Wins] =  eigenValueMaxDegreeValue2.most_common(1)
-#                M1_Wins+= 1
-#            elif total_M2 > total_M1 and ((total_M2-total_M1)/N) > theta:
-#                sampled_M2_Wins[0][M1_Wins] =  eigenValueMaxDegreeValue1.most_common(1)
-#                sampled_M2_Wins[1][M1_Wins] =  eigenValueMaxDegreeValue2.most_common(1)
-#                M2_Wins+= 1
-#            else:
-#                sampled_M2_Wins[0][M1_Wins] =  eigenValueMaxDegreeValue1.most_common(1)
-#                sampled_M2_Wins[1][M1_Wins] =  eigenValueMaxDegreeValue2.most_common(1)
-#                No_win += 1
 
-
-#################################################################################################################################################################################################
 run_sim()
-plot_res(True,False,"")
+plot_res(True,True,"")
 print("Number of Meme 1 wins:")
 print(M1_Wins)
 print("Number of Meme 2 wins:")
@@ -355,21 +335,20 @@ print("Total Infections by Meme 2:")
 print(tot_inf2)
 
 
-#else:
-#    plt.scatter(M1_Wins[0,:],M1_Wins[1,:], c ='r')
-#    plt.scatter(M2_Wins[0,:],M2_Wins[1,:], c ='b')
-#    plt.scatter(No_Wins[0,:],No_Wins[1,:], c ='g')
-#    plt.show()
 
-######################################################################################################################################
-#Suppression Methods
-#####################################################################################################################################
+######################################################################################################################################################################################################################################################################################################################
+# Run with Suppression Methods 
+#####################################################################################################################################################################################################################################################################################################################
 
 #############################
-randomNeigh()
+if total_M1 > total_M2:
+    edge = 1
+else:
+    edge = 2
 set_simulation()
+randomNeigh(edge)
 run_sim()
-plot_res(False,True,"Random")
+plot_res(False,True,"Random Neighbor")
 
         #Showing Plots for one run
 print("After suppression\nTotal Infections by Meme 1:")
