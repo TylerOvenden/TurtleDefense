@@ -16,11 +16,11 @@ smp_size = 10 # sample size
 count = 0       # used to hold value of how many times out come matches
 theta = .10     #
 N = 100# N number of nodes
-tm = 10000     # time of simulation
-beta1 =.005
-beta2 =.005
-delta1 = .004
-delta2 = .004
+tm = 1000     # time of simulation
+beta1 =.05
+beta2 =.05
+delta1 = .04
+delta2 = .04
 M1_Wins = 0 #number of samples that M1 wins
 M2_Wins = 0 #number of samples M2 Wins
 No_win = 0  #number of samples with no clear winner 
@@ -59,8 +59,19 @@ def randomNeigh(pick):
          if pick == 0:
             temp =  random.choice(nodea.e2_Neighbors)
          
-         removeNode(temp)          
-        
+         removeNode(temp)         
+#removes node max degree or most connections
+def max_degree(edge):
+    
+    if edge == 1:
+        tmp = A1.sum(axis = 1)
+        i = np.max(tmp)
+        removeNode(allNodes[i])
+    else:
+        tmp = A2.sum(axis = 1)
+        i = np.max(tmp)
+        removeNode(allNodes[i])
+
 #removes the node being passed
 def removeNode(nodea):
         
@@ -128,20 +139,22 @@ class Node:
         if self.state == State.I1 and random.random()<delta1:
             #print("Infected with I1")
             self.state = State.S
-            infected_meme1.remove(self)
+            if self in infected_meme1:
+                infected_meme1.remove(self)
             
         if self.state == State.I2 and random.random()<delta2:
             #print("Infected with I2")
             self.state = State.S
-            infected_meme2.remove(self)
+            if self in infected_meme2:
+                infected_meme2.remove(self)
 ################################################################################################################################################################################################################################################################################################################################################################
 #Sim Methods
 ################################################################################################################################################################################################################################################################################################################################################################
 ##sets up infected lists for infection
 def set_simulation():
-    global infected_meme1,infected_meme2,tot_inf1,tot_inf2,original_inf_meme1,original_inf_meme2
-    infected_meme1 = original_inf_meme1
-    infected_meme2 = original_inf_meme2
+    global infected_meme1,infected_meme2,tot_inf1,tot_inf2
+    #infected_meme1 = original_inf_meme1
+    #infected_meme2 = original_inf_meme2
     tot_inf1 = 0
     tot_inf2 = 0
     global time,time_inf1,time_inf2 
@@ -149,7 +162,7 @@ def set_simulation():
     time_inf1 = []#array of  number of infected with meme 1, to plot
     time_inf2 = []#array of  number of infected with meme 1, to plot
     #print("Len of infected:",len(infected_meme1))
-    total_M1 = len(infected_meme1)
+    
     for i in range(0,len(infected_meme1)):
         infected_meme1[i].state = State.I1
     
@@ -162,7 +175,8 @@ def set_simulation():
             remove.append(infected_meme2[i])
     for i in remove:
         infected_meme2.remove(i)
-    total_M2 = len(infected_meme2)
+    count()
+  
    # print("Len of infected_meme2:",len(infected_meme2))
 def count():
     global total_M1,total_M2
@@ -211,6 +225,7 @@ def run_sim():
                 else:
                     i.recover()
             count()
+            print("M1:",total_M1,"M2:",total_M2)
             time_inf1.append(total_M1)
             time_inf2.append(total_M2)
 def plot_res(pause,supress,spr):
@@ -293,8 +308,9 @@ for i in allNodes:
 
     ##create first list of infected nodes
     #holds org sets to use for multiple lists
-infected_meme1 =  original_inf_meme1 = random.sample(allNodes,random.randint(1,len(allNodes)))#randomly choose how many nodes start infected with no more than half being infected
-infected_meme2 =original_inf_meme2 = random.sample(allNodes,random.randint(1,len(allNodes)))#randomly choose how many nodes start infected  by meme 2 
+infected_meme1 = random.sample(allNodes,random.randint(1,len(allNodes)/2))#randomly choose how many nodes start infected with no more than half being infected
+infected_meme2 = random.sample(allNodes,random.randint(1,len(allNodes)/2))#randomly choose how many nodes start infected  by meme 2 
+
 set_simulation()
 
 #method for removing random node
@@ -302,9 +318,9 @@ set_simulation()
 #method for removing random neigbor        
 
 
-sampled_M1_Wins = np.empty([2,50])
-sampled_M2_Wins = np.empty([2,50])
-sampled_No_Wins = np.empty([2,50])
+#sampled_M1_Wins = np.empty([2,50])
+#sampled_M2_Wins = np.empty([2,50])
+#sampled_No_Wins = np.empty([2,50])
 
 
 ################################################################################################################################################################################################################################################################################################################################################################
@@ -345,10 +361,16 @@ if total_M1 > total_M2:
     edge = 1
 else:
     edge = 2
+infected_meme1 = random.sample(allNodes,random.randint(1,len(allNodes)/2))#randomly choose how many nodes start infected with no more than half being infected
+infected_meme2 = random.sample(allNodes,random.randint(1,len(allNodes)/2))#randomly choose how many nodes start infected  by meme 2 
+for i in allNodes:
+    i.state = State.S
 set_simulation()
-randomNeigh(edge)
+#randomNeigh(edge)
+#randomRem()
+max_degree(edge)
 run_sim()
-plot_res(False,True,"Random Neighbor")
+plot_res(False,True,"Max_Degree")
 
         #Showing Plots for one run
 print("After suppression\nTotal Infections by Meme 1:")
