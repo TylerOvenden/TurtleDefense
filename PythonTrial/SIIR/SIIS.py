@@ -15,7 +15,7 @@ take_sample  = 0# 0 - Single Run, 1 - Same Matrix multiple runs , 2 - Different 
 smp_size = 10 # sample size
 count = 0       # used to hold value of how many times out come matches
 theta = .10     #
-N = 1000# N number of nodes
+N = 100# N number of nodes
 tm = 1000     # time of simulation
 beta1 =.05
 beta2 =.05
@@ -206,8 +206,8 @@ def run_sim():
             count()
             time_inf1.append(total_M1)
             time_inf2.append(total_M2)
-def plot_res():
-    fig =plt.figure()
+def plot_res(pause,supress,spr):
+   fig =plt.figure()
    if take_sample == 0:
    
 
@@ -218,12 +218,17 @@ def plot_res():
     plt.title("Total infections by meme")
     plt.show()
 
-    plt.plot(time,time_inf1,color="red", label ="Meme 1")
-    plt.plot(time,time_inf2,color="blue", label ="Meme 2")
+    plt.plot(time,time_inf1,color="red", label = "Meme 1 λ = {}".format(eigenValueMaxDegreeValue1.most_common(1)))
+    plt.plot(time,time_inf2,color="blue", label ="Meme 2 λ ={}".format(eigenValueMaxDegreeValue2.most_common(1)))
+    #if supress == True:
+    plt.plot(time,time_inf1,color="green", label = "Meme 1 After {} λ = {}".format(spr,eigenValueMaxDegreeValue1.most_common(1)))
+    plt.plot(time,time_inf2,color="yellow", label ="Meme 2 After {} λ ={}".format(spr,eigenValueMaxDegreeValue2.most_common(1)))
     plt.xlabel("Time,t")
     plt.ylabel("No. Total infections")
     plt.title("Total infections by meme")
-    plt.show()
+    plt.legend()
+    if pause != True:
+        plt.show()
 
    if take_sample ==1:
         plt.bar('Meme1 wins',M1_Wins,color="red", width = 1)
@@ -331,6 +336,7 @@ sampled_No_Wins = np.empty([2,50])
 
 #################################################################################################################################################################################################
 run_sim()
+plot_res(True,False,"")
 print("Number of Meme 1 wins:")
 print(M1_Wins)
 print("Number of Meme 2 wins:")
@@ -363,6 +369,7 @@ print(tot_inf2)
 randomNeigh()
 set_simulation()
 run_sim()
+plot_res(False,True,"Random")
 
         #Showing Plots for one run
 print("After suppression\nTotal Infections by Meme 1:")
