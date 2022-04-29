@@ -153,8 +153,8 @@ class Node:
 ##sets up infected lists for infection
 def set_simulation():
     global infected_meme1,infected_meme2,tot_inf1,tot_inf2
-    #infected_meme1 = original_inf_meme1
-    #infected_meme2 = original_inf_meme2
+    for i in allNodes:
+     i.state = State.S
     tot_inf1 = 0
     tot_inf2 = 0
     global time,time_inf1,time_inf2 
@@ -225,7 +225,7 @@ def run_sim():
                 else:
                     i.recover()
             count()
-            print("M1:",total_M1,"M2:",total_M2)
+           # print("M1:",total_M1,"M2:",total_M2)
             time_inf1.append(total_M1)
             time_inf2.append(total_M2)
 def plot_res(pause,supress,spr):
@@ -363,8 +363,7 @@ else:
     edge = 2
 infected_meme1 = random.sample(allNodes,random.randint(1,len(allNodes)/2))#randomly choose how many nodes start infected with no more than half being infected
 infected_meme2 = random.sample(allNodes,random.randint(1,len(allNodes)/2))#randomly choose how many nodes start infected  by meme 2 
-for i in allNodes:
-    i.state = State.S
+
 set_simulation()
 #randomNeigh(edge)
 #randomRem()
