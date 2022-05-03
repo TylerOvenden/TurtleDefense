@@ -11,12 +11,15 @@ import matplotlib.pyplot as plt
 import numpy as np
 import numpy.linalg as linalg
 from collections import Counter
+
+N = 200# N number of nodes
+tm = 1000    # time of simulation
+
+
 take_sample  = 0# 0 - Single Run, 1 - Same Matrix multiple runs , 2 - Different Matrix each run/holds eigen values
 smp_size = 10 # sample size
 count = 0       # used to hold value of how many times out come matches
 theta = .10     #
-N = 100# N number of nodes
-tm = 1000     # time of simulation
 beta1 =.05
 beta2 =.05
 delta1 = .04
@@ -246,8 +249,8 @@ def plot_res(pause,supress,spr):
     elif supress == True and pause == False:
         plt.plot(time,old_inf1,color="red", label = "Meme 1 λ = {}".format(eigenValueMaxDegreeValue1.most_common(1)))
         plt.plot(time,old_inf2,color="blue", label ="Meme 2 λ ={}".format(eigenValueMaxDegreeValue2.most_common(1))) 
-        plt.plot(time,time_inf1,color="green", label = "Meme 1 After {} λ = {}".format(spr,eigenValueMaxDegreeValue1.most_common(1)))
-        plt.plot(time,time_inf2,color="yellow", label ="Meme 2 After {} λ ={}".format(spr,eigenValueMaxDegreeValue2.most_common(1)))
+        plt.plot(time,time_inf1,color="green", label = "Meme 1 After {} Most common λ = {}".format(spr,eigenValueMaxDegreeValue1.most_common(1)))
+        plt.plot(time,time_inf2,color="yellow", label ="Meme 2 After {} Most common λ = {}".format(spr,eigenValueMaxDegreeValue2.most_common(1)))
     plt.xlabel("Time,t")
     plt.ylabel("No. Total infections")
     plt.title("Total infections by meme")
@@ -282,6 +285,7 @@ S2 = (1- delta2)* np.identity(N,dtype = np.int8) + beta2 * A2
 eigenValues1,eigenVectors1 = linalg.eig(S1)
 eigenValues2,eigenVectors2 = linalg.eig(S2)
 
+
 eigenValuesReal1 = [0]*N
 eigenValuesReal2 = [0]*N
 
@@ -296,6 +300,19 @@ eigenValueMaxDegreeValue2 = Counter(eigenValuesReal2)
 print("Eigenvalue1", eigenValueMaxDegreeValue1.most_common(1))
 print("Eigenvalue2", eigenValueMaxDegreeValue2.most_common(1))
 
+print("Largest Eigen Value for Meme1: ",eigenValues1[0])
+print("Largest Eigen Value for Meme1: ",eigenValues2[0])
+
+#idx = eigenValues1.argsort()[::-1]
+#eigenValues1 = eigenValues1[idx]
+#eigenVectors1 = eigenVectors1[:,idx]
+
+#idx = eigenValues2.argsort()[::-1]
+#eigenValues2 = eigenValues2[idx]
+#eigenVectors2 = eigenVectors2[:,idx]
+#print("Largest Eigen Value for Meme1: ",eigenValues1[0])
+#print("Largest Eigen Value for Meme1: ",eigenValues2[0])
+
 #Create Nodes
 for i in range(0,N): #fill list of nodes
     node = Node()
@@ -308,11 +325,18 @@ for i in allNodes:
 
     ##create first list of infected nodes
     #holds org sets to use for multiple lists
-infected_meme1 = random.sample(allNodes,random.randint(1,len(allNodes)/2))#randomly choose how many nodes start infected with no more than half being infected
-infected_meme2 = random.sample(allNodes,random.randint(1,len(allNodes)/2))#randomly choose how many nodes start infected  by meme 2 
+
+#infected_meme1 = random.sample(allNodes,random.randint(1,len(allNodes)/2))#randomly choose how many nodes start infected with no more than half being infected
+#infected_meme2 = random.sample(allNodes,random.randint(1,len(allNodes)/2))#randomly choose how many nodes start infected  by meme 2 
+infected_meme1 = random.sample(allNodes,10)#randomly choose how many nodes start infected with no more than half being infected
+infected_meme2 = random.sample(allNodes,10)#randomly choose how many nodes start infected  by meme 2 
 
 set_simulation()
-
+print("M1:",total_M1)
+print("M2:",total_M2)
+count()
+print("M1:",total_M1)
+print("M2:",total_M2)
 #method for removing random node
 #randomRem()
 #method for removing random neigbor        
@@ -361,10 +385,17 @@ if total_M1 > total_M2:
     edge = 1
 else:
     edge = 2
-infected_meme1 = random.sample(allNodes,random.randint(1,len(allNodes)/2))#randomly choose how many nodes start infected with no more than half being infected
-infected_meme2 = random.sample(allNodes,random.randint(1,len(allNodes)/2))#randomly choose how many nodes start infected  by meme 2 
+#infected_meme1 = random.sample(allNodes,random.randint(1,len(allNodes)/2))#randomly choose how many nodes start infected with no more than half being infected
+#infected_meme2 = random.sample(allNodes,random.randint(1,len(allNodes)/2))#randomly choose how many nodes start infected  by meme 2 
+infected_meme1 = random.sample(allNodes,2)#randomly choose how many nodes start infected with no more than half being infected
+infected_meme2 = random.sample(allNodes,2)#randomly choose how many nodes start infected  by meme 2 
 
 set_simulation()
+print("M1:",total_M1)
+print("M2:",total_M2)
+count()
+print("M1:",total_M1)
+print("M2:",total_M2)
 #randomNeigh(edge)
 #randomRem()
 max_degree(edge)

@@ -1,10 +1,11 @@
+%clc
 rng('shuffle');%%seed rnd 
-N = 1000;
+N = 10;
 Tm = 1000;
-beta1 = .5;
-beta2 = .005;
-delta1 =.5;
-delta2 = .4;
+beta1 = .0005;
+beta2 = .0005;
+delta1 =.004;
+delta2 = .004;
 adj1 = randi([0,1], N);
 B=adj1'+adj1;
 B(1:N+1:end)=diag(adj1);
@@ -16,6 +17,10 @@ adj2 = mod(B,2);
 node = randi([0,2],1,N);
 infected_meme1 = zeros(Tm);
 infected_meme2 = zeros(Tm);
+S1 = (1- delta1)*eye(N) + beta1*adj1;
+S2 = (1- delta2)*eye(N) + beta1*adj2;
+Eig1 = eigs(S1,2)
+Eig2 = eigs(S2,2)
 for t = 1:Tm
   for nd = 1:N
        C1 = 0;
@@ -36,7 +41,7 @@ for t = 1:Tm
            node(nd) = 1;
        end
        if C2>C1 
-           node(nd) = 1;
+           node(nd) = 2;
        end
       else
              if node(nd) == 1 && rand(1)<delta1 
