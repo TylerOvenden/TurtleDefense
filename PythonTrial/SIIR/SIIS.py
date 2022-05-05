@@ -1,11 +1,16 @@
-#TurtleDefense    
-#SIIR Model through python
-#last updated 3/15/22 
+
 """@package SIIS
 Python Simulation of the SIIS Model from 
 ‘Competing Memes Propagation on Networks: A Network Science Perspective’ 
 Use random number generation 
+@author Robert Bacigalupo
+@author Tyler Ovendan
+@author Auerman Atif 
+@version 3.0
+@date MAY 2022
 """
+###\cite X. Wei, N. C. Valler, B. A. Prakash, I. Neamtiu, M. Faloutsos, and C. Faloutsos, “Competing memes propagation on networks: A network science perspective,” IEEE Journal on Selected Areas in Communications, vol. 31, no. 6, pp. 1049–1060, 2013. 
+"""Imports"""
 import enum
 import random 
 import simpy
@@ -14,26 +19,39 @@ import matplotlib.pyplot as plt
 import numpy as np
 import numpy.linalg as linalg
 from collections import Counter
+"""
+Simulation Description Variables
+"""
+##@var N
+#Number of nodes
+N = 200
+##@var tm
+#Discrete time units
+tm = 1000    
+"""
+Sampling Variables
+"""
+##@var take_Sample
+#Enables Sampling 0 - Single Run, 1 - Same Matrix multiple runs , 2 - Different Matrix each run/holds eigen values
+take_sample  = 0
+##@var smp_size
+#sample size
+smp_size = 10 
+ 
+""" Meme Parameters"""
+##@var theta
+#Margin off error to see if a Meme won in sampling, if less than theta no clear winner
+theta = .10     
 
-## Number of nodes
-N = 200# N number of nodes
-##Discrete time units
-tm = 1000    # time of simulation
-
-
-take_sample  = 0# 0 - Single Run, 1 - Same Matrix multiple runs , 2 - Different Matrix each run/holds eigen values
-smp_size = 10 # sample size
-count = 0       # used to hold value of how many times out come matches
-theta = .10     #
 beta1 =.05
 beta2 =.05
 delta1 = .04
 delta2 = .04
+
+
 M1_Wins = 0 #number of samples that M1 wins
 M2_Wins = 0 #number of samples M2 Wins
 No_win = 0  #number of samples with no clear winner 
-#maybe add list of all nodes to have each node on creation pick neighbors from
-#what to do with C1 == C2
 allNodes = [] #list of  all nodes
 tot_inf1 = 0 #total number of infections by meme 1
 old_inf1 = 0 #total number of infections by meme 1 for plotting
@@ -43,7 +61,8 @@ total_M1 = 0 #total number of nodes in state I1 (for plot)
 total_M2 = 0 #total number of nodes in state I2 (for plot)
 total_S = 0  #total number of nodes in state S 
 
-#Classes and Function Definition
+##@class State
+#Enumeration for States
 class State(enum.Enum):
     S = 0
     I1 = 1
@@ -52,11 +71,14 @@ class State(enum.Enum):
 ################################################################################################################################################################################################################################################################################################################################################################
 #SUPRESSION METHODS
 ################################################################################################################################################################################################################################################################################################################################################################
+##randomRem
 #picks a random node        
 def randomRem():
         nodea = random.choice(allNodes)
         removeNode(nodea)
 
+##randomNeigh
+#@param pick What edge to delete node from
 #picks a random neighbor of a random node
 def randomNeigh(pick):
          nodea = random.choice(allNodes)
@@ -68,6 +90,8 @@ def randomNeigh(pick):
             temp =  random.choice(nodea.e2_Neighbors)
          
          removeNode(temp)         
+##max_degree
+#@param edge What edge to delete node from
 #removes node max degree or most connections
 def max_degree(edge):
     
@@ -80,27 +104,36 @@ def max_degree(edge):
         i = np.max(tmp)
         removeNode(allNodes[i])
 
+##removeNode
+#@param nodea The node to be deleted
 #removes the node being passed
 def removeNode(nodea):
         
-        #print("test: ", len(nodea.e1_Neighbors))
+        
         allNodes.remove(nodea)
         
         for i in range(len(allNodes)): 
-        #check if the removed node is a neighbor for all the nodes in the list
+        ##check if the removed node is a neighbor for all the nodes in the list
         #remove it, if so
             if(nodea in allNodes[i].e1_Neighbors):    
-                #print("found at node ", i)
-                #print("test before : ", len(allNodes[i].e1_Neighbors))
+                
                 allNodes[i].e1_Neighbors.remove(nodea)
-                #print("test after : ", len(allNodes[i].e1_Neighbors))
+              
             if(nodea in allNodes[i].e2_Neighbors):
                 allNodes[i].e2_Neighbors.remove(nodea) 
-################################################################################################################################################################################################################################################################################################################################################################
-#Node Object
-################################################################################################################################################################################################################################################################################################################################################################
-class Node:
-    count = 0
+
+##@class Node
+#@brief Class to implement node object
+#each node object has unique id, list of its neighbors on each edge, and its state
+#
+class Node: 
+    ##@var count
+    # class variable
+    #count of total amount of nodes created, used to create unique Node ids 
+    count = 0 
+    ##_init_
+    #@param self The object pointer
+    #increases count after giving Node id
     def __init__(self):
         self.id = Node.count
         Node.count+=1
@@ -110,7 +143,7 @@ class Node:
         allNodes.append(self)
     #Neighbors not always neighbor 
     def addNeighbors(self):#method to add neighbors to node, call after Adj matrix mad
-    ####WARNING: Make sure to sort Nodes before using#####
+    ##WARNING: Make sure to sort Nodes before using#####
      for x in range(0,N):
          if A1[self.id][x] == 1:
             self.e1_Neighbors.append(allNodes[x])
