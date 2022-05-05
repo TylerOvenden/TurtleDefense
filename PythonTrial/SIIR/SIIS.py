@@ -1,8 +1,11 @@
 #TurtleDefense    
 #SIIR Model through python
 #last updated 3/15/22 
-#Created the two edge sets
-####check math/stat keeping!!!!!!
+"""@package SIIS
+Python Simulation of the SIIS Model from 
+‘Competing Memes Propagation on Networks: A Network Science Perspective’ 
+Use random number generation 
+"""
 import enum
 import random 
 import simpy
@@ -12,7 +15,9 @@ import numpy as np
 import numpy.linalg as linalg
 from collections import Counter
 
+## Number of nodes
 N = 200# N number of nodes
+##Discrete time units
 tm = 1000    # time of simulation
 
 
