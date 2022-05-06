@@ -1,0 +1,5 @@
+<map id="SIIS.run_sim" name="SIIS.run_sim">
+<area shape="rect" id="node1" title="run_sim() carries out actual simulation uses for loop t inside time" alt="" coords="5,5,101,32"/>
+<area shape="rect" id="node2" href="$namespace_s_i_i_s.html#a9ce6bf60763fb485eaee729dcb4c2adb" title="count counts number of currently infected sets total_M values to current values" alt="" coords="332,5,415,32"/>
+<area shape="rect" id="node3" href="$namespace_s_i_i_s.html#a68ed4322068cfbb790ec5fa305ded181" title="set_simulation" alt="" coords="149,31,284,57"/>
+</map>

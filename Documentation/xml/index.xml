@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.3" xml:lang="en-US">
+  <compound refid="class_s_i_i_s_1_1_node" kind="class"><name>SIIS::Node</name>
+    <member refid="class_s_i_i_s_1_1_node_1a6357c075f29e3a3690f5ab86f24d61b5" kind="variable"><name>count</name></member>
+    <member refid="class_s_i_i_s_1_1_node_1ac60ec4bda7f8879860c7f086ab9c22a3" kind="variable"><name>id</name></member>
+    <member refid="class_s_i_i_s_1_1_node_1a78addc56ab36dcd9f2c78658e0556af5" kind="variable"><name>e1_Neighbors</name></member>
+    <member refid="class_s_i_i_s_1_1_node_1a5e7c5e57b3622fe9af125d9fca87ec09" kind="variable"><name>e2_Neighbors</name></member>
+    <member refid="class_s_i_i_s_1_1_node_1ae33315f9f91aefbcc422c5b88e318186" kind="variable"><name>state</name></member>
+    <member refid="class_s_i_i_s_1_1_node_1a0c8227370e4dfe12e644be21eb434a34" kind="function"><name>__init__</name></member>
+    <member refid="class_s_i_i_s_1_1_node_1a3b7f95ca4ff93ff560e71df457a7a0ef" kind="function"><name>addNeighbors</name></member>
+    <member refid="class_s_i_i_s_1_1_node_1a33ca5cfa2fe32637b74eeb141fe69c58" kind="function"><name>attack</name></member>
+    <member refid="class_s_i_i_s_1_1_node_1acd6b35d8d18b4d691136961c3661bf42" kind="function"><name>recover</name></member>
+  </compound>
+  <compound refid="class_s_i_i_s_1_1_state" kind="class"><name>SIIS::State</name>
+    <member refid="class_s_i_i_s_1_1_state_1a666833f111f4ce88e93efb45833775aa" kind="variable"><name>S</name></member>
+    <member refid="class_s_i_i_s_1_1_state_1a2be4789121968cf4a23a02f58e131f0a" kind="variable"><name>I1</name></member>
+    <member refid="class_s_i_i_s_1_1_state_1a6eaebdd004d589e4a5e642400d6579b1" kind="variable"><name>I2</name></member>
+  </compound>
+  <compound refid="namespaceenum" kind="namespace"><name>enum</name>
+  </compound>
+  <compound refid="namespace_s_i_i_s" kind="namespace"><name>SIIS</name>
+    <member refid="namespace_s_i_i_s_1a62794a73400a5a491e326f153fb0eb4a" kind="variable"><name>N</name></member>
+    <member refid="namespace_s_i_i_s_1a849dda36bfc0f180104fed68d251b82e" kind="variable"><name>tm</name></member>
+    <member refid="namespace_s_i_i_s_1aad32ed61613e587b5c5de338d317cba3" kind="variable"><name>take_sample</name></member>
+    <member refid="namespace_s_i_i_s_1aeaf718b2a70cffd8bcc43b7d0f402913" kind="variable"><name>smp_size</name></member>
+    <member refid="namespace_s_i_i_s_1acf03c50d66038c1c2c8bf85c360af75f" kind="variable"><name>theta</name></member>
+    <member refid="namespace_s_i_i_s_1a727237c66ea7d98aca6b3bd4e6fa1bcc" kind="variable"><name>beta1</name></member>
+    <member refid="namespace_s_i_i_s_1adcb989b943ed7927e5afbc277ca211a3" kind="variable"><name>beta2</name></member>
+    <member refid="namespace_s_i_i_s_1a401502781da59716e64740b944b8f784" kind="variable"><name>delta1</name></member>
+    <member refid="namespace_s_i_i_s_1a7e76e4a65200a189d0f8589d2cc767be" kind="variable"><name>delta2</name></member>
+    <member refid="namespace_s_i_i_s_1a4dab4ad21b94aae4b1a57b86461a8278" kind="variable"><name>M1_Wins</name></member>
+    <member refid="namespace_s_i_i_s_1ab817f7461381c636343a06d89ff814aa" kind="variable"><name>M2_Wins</name></member>
+    <member refid="namespace_s_i_i_s_1ab3f32447bb574c518467b12920eea7d6" kind="variable"><name>No_win</name></member>
+    <member refid="namespace_s_i_i_s_1accf1f6818ac3be2623083abdb5f2b7ec" kind="variable"><name>allNodes</name></member>
+    <member refid="namespace_s_i_i_s_1a525fba1045fcacc5c547c6dcf3181056" kind="variable"><name>tot_inf1</name></member>
+    <member refid="namespace_s_i_i_s_1a0e357539172c7604af85e61695c08ed3" kind="variable"><name>old_inf1</name></member>
+    <member refid="namespace_s_i_i_s_1a52ffed4dec36d3be6b39b4e29686d1f5" kind="variable"><name>old_inf2</name></member>
+    <member refid="namespace_s_i_i_s_1a75e6cdeeda5ed23dba13d1db30233bdd" kind="variable"><name>tot_inf2</name></member>
+    <member refid="namespace_s_i_i_s_1ade8340e66ce9b5146b1c975c241eebb2" kind="variable"><name>total_M1</name></member>
+    <member refid="namespace_s_i_i_s_1a2c928cda870de1f11476f4a8536bd480" kind="variable"><name>total_M2</name></member>
+    <member refid="namespace_s_i_i_s_1a61818c15fad0e5dc72309acf9ce98cd4" kind="variable"><name>total_S</name></member>
+    <member refid="namespace_s_i_i_s_1aa5d8f43bef1575e80e2f288c3d1b6e53" kind="variable"><name>A1</name></member>
+    <member refid="namespace_s_i_i_s_1a70172c3865725551cf373fc4a2f90433" kind="variable"><name>A2</name></member>
+    <member refid="namespace_s_i_i_s_1a94d4aca0a1e957b7a51c910b70b542a5" kind="variable"><name>S1</name></member>
+    <member refid="namespace_s_i_i_s_1afe0854a7f237a419933ae98bce821481" kind="variable"><name>S2</name></member>
+    <member refid="namespace_s_i_i_s_1a2cce8fdaa73ab70e4596012926ece943" kind="variable"><name>eigenValues1</name></member>
+    <member refid="namespace_s_i_i_s_1a06f0697a1529e8daa03480dabaaf708b" kind="variable"><name>eigenVectors1</name></member>
+    <member refid="namespace_s_i_i_s_1ac3b1f2748063d9addb90e0c297eb9fb1" kind="variable"><name>eigenValues2</name></member>
+    <member refid="namespace_s_i_i_s_1a4b3d97c27d29c2dd23a0016b989ccb44" kind="variable"><name>eigenVectors2</name></member>
+    <member refid="namespace_s_i_i_s_1a84411c515614a2ed36af934a8c29cc1d" kind="variable"><name>idx</name></member>
+    <member refid="namespace_s_i_i_s_1ad510cbae67271dda2063233b51aaafad" kind="variable"><name>node</name></member>
+    <member refid="namespace_s_i_i_s_1a4e70fbbd01f42c9eed3a49346a70af90" kind="variable"><name>key</name></member>
+    <member refid="namespace_s_i_i_s_1a8da1a41b1401b1b7ac673d0a8d5265d3" kind="variable"><name>id</name></member>
+    <member refid="namespace_s_i_i_s_1a9a41d5936ff90936a135c91f442699ae" kind="variable"><name>reverse</name></member>
+    <member refid="namespace_s_i_i_s_1ab9810fef4d7b3ff0765a4d6830a9ca96" kind="variable"><name>infected_meme1</name></member>
+    <member refid="namespace_s_i_i_s_1a93604b4d9e16c1681f652610898b8011" kind="variable"><name>infected_meme2</name></member>
+    <member refid="namespace_s_i_i_s_1a9b56e6ecae380824a538274919502b95" kind="variable"><name>edge</name></member>
+    <member refid="namespace_s_i_i_s_1ad1a44a181ccd1524730d53df9267ca27" kind="function"><name>randomRem</name></member>
+    <member refid="namespace_s_i_i_s_1aa7a9b6c4d2a2d91106dd90b854611539" kind="function"><name>randomNeigh</name></member>
+    <member refid="namespace_s_i_i_s_1a80b1cbd24ef3bce4414388e55f7a8a17" kind="function"><name>max_degree</name></member>
+    <member refid="namespace_s_i_i_s_1aae09dbe3d97853cab90111e7f58197a7" kind="function"><name>removeNode</name></member>
+    <member refid="namespace_s_i_i_s_1a68ed4322068cfbb790ec5fa305ded181" kind="function"><name>set_simulation</name></member>
+    <member refid="namespace_s_i_i_s_1a9ce6bf60763fb485eaee729dcb4c2adb" kind="function"><name>count</name></member>
+    <member refid="namespace_s_i_i_s_1a0451e8de5927fe55012013546da79f33" kind="function"><name>run_sim</name></member>
+    <member refid="namespace_s_i_i_s_1a107080135e2bcab2d5018a985632c0e1" kind="function"><name>plot_res</name></member>
+  </compound>
+  <compound refid="_s_i_i_s_8py" kind="file"><name>SIIS.py</name>
+  </compound>
+  <compound refid="dir_f265aeeac2653721b97fe14ded37a7e1" kind="dir"><name>C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial</name>
+  </compound>
+  <compound refid="dir_5cec6647aa30af898eb9e6605231ba16" kind="dir"><name>C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR</name>
+  </compound>
+</doxygenindex>

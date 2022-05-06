@@ -1,0 +1,558 @@
+\hypertarget{namespace_s_i_i_s}{}\doxysection{SIIS Namespace Reference}
+\label{namespace_s_i_i_s}\index{SIIS@{SIIS}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_s_i_i_s_1_1_node}{Node}}
+\begin{DoxyCompactList}\small\item\em Class to implement node object each node object has unique id, list of its neighbors on each edge, and its state. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_s_i_i_s_1_1_state}{State}}
+\begin{DoxyCompactList}\small\item\em Enumeration for States. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespace_s_i_i_s_ad1a44a181ccd1524730d53df9267ca27}{random\+Rem}} ()
+\begin{DoxyCompactList}\small\item\em random\+Rem picks a random node ~\newline
+ \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespace_s_i_i_s_aa7a9b6c4d2a2d91106dd90b854611539}{random\+Neigh}} (pick)
+\begin{DoxyCompactList}\small\item\em random\+Neigh \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespace_s_i_i_s_a80b1cbd24ef3bce4414388e55f7a8a17}{max\+\_\+degree}} (\mbox{\hyperlink{namespace_s_i_i_s_a9b56e6ecae380824a538274919502b95}{edge}})
+\begin{DoxyCompactList}\small\item\em max\+\_\+degree \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespace_s_i_i_s_aae09dbe3d97853cab90111e7f58197a7}{remove\+Node}} (nodea)
+\begin{DoxyCompactList}\small\item\em remove\+Node \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespace_s_i_i_s_a68ed4322068cfbb790ec5fa305ded181}{set\+\_\+simulation}} ()
+\begin{DoxyCompactList}\small\item\em set\+\_\+simulation \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespace_s_i_i_s_a9ce6bf60763fb485eaee729dcb4c2adb}{count}} ()
+\begin{DoxyCompactList}\small\item\em count counts number of currently infected sets total\+\_\+M values to current values \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespace_s_i_i_s_a0451e8de5927fe55012013546da79f33}{run\+\_\+sim}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{namespace_s_i_i_s_a0451e8de5927fe55012013546da79f33}{run\+\_\+sim()}} carries out actual simulation uses for loop t inside time \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespace_s_i_i_s_a107080135e2bcab2d5018a985632c0e1}{plot\+\_\+res}} (pause, supress, spr)
+\begin{DoxyCompactList}\small\item\em plot\+\_\+res \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespace_s_i_i_s_a62794a73400a5a491e326f153fb0eb4a}{N}} = 200
+\begin{DoxyCompactList}\small\item\em Number of nodes. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespace_s_i_i_s_a849dda36bfc0f180104fed68d251b82e}{tm}} = 1000
+\begin{DoxyCompactList}\small\item\em Discrete time units. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespace_s_i_i_s_aad32ed61613e587b5c5de338d317cba3}{take\+\_\+sample}} = 0
+\item 
+int \mbox{\hyperlink{namespace_s_i_i_s_aeaf718b2a70cffd8bcc43b7d0f402913}{smp\+\_\+size}} = 10
+\begin{DoxyCompactList}\small\item\em sample size \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespace_s_i_i_s_acf03c50d66038c1c2c8bf85c360af75f}{theta}} = .\+10
+\begin{DoxyCompactList}\small\item\em Margin off error to see if a Meme won in sampling, if less than theta no clear winner. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespace_s_i_i_s_a727237c66ea7d98aca6b3bd4e6fa1bcc}{beta1}} = .\+05
+\item 
+int \mbox{\hyperlink{namespace_s_i_i_s_adcb989b943ed7927e5afbc277ca211a3}{beta2}} = .\+05
+\item 
+int \mbox{\hyperlink{namespace_s_i_i_s_a401502781da59716e64740b944b8f784}{delta1}} = .\+04
+\item 
+int \mbox{\hyperlink{namespace_s_i_i_s_a7e76e4a65200a189d0f8589d2cc767be}{delta2}} = .\+04
+\item 
+int \mbox{\hyperlink{namespace_s_i_i_s_a4dab4ad21b94aae4b1a57b86461a8278}{M1\+\_\+\+Wins}} = 0
+\item 
+int \mbox{\hyperlink{namespace_s_i_i_s_ab817f7461381c636343a06d89ff814aa}{M2\+\_\+\+Wins}} = 0
+\item 
+int \mbox{\hyperlink{namespace_s_i_i_s_ab3f32447bb574c518467b12920eea7d6}{No\+\_\+win}} = 0
+\item 
+list \mbox{\hyperlink{namespace_s_i_i_s_accf1f6818ac3be2623083abdb5f2b7ec}{all\+Nodes}} = \mbox{[}$\,$\mbox{]}
+\item 
+int \mbox{\hyperlink{namespace_s_i_i_s_a525fba1045fcacc5c547c6dcf3181056}{tot\+\_\+inf1}} = 0
+\item 
+int \mbox{\hyperlink{namespace_s_i_i_s_a0e357539172c7604af85e61695c08ed3}{old\+\_\+inf1}} = 0
+\item 
+int \mbox{\hyperlink{namespace_s_i_i_s_a52ffed4dec36d3be6b39b4e29686d1f5}{old\+\_\+inf2}} = 0
+\item 
+int \mbox{\hyperlink{namespace_s_i_i_s_a75e6cdeeda5ed23dba13d1db30233bdd}{tot\+\_\+inf2}} = 0
+\item 
+int \mbox{\hyperlink{namespace_s_i_i_s_ade8340e66ce9b5146b1c975c241eebb2}{total\+\_\+\+M1}} = 0
+\item 
+int \mbox{\hyperlink{namespace_s_i_i_s_a2c928cda870de1f11476f4a8536bd480}{total\+\_\+\+M2}} = 0
+\item 
+int \mbox{\hyperlink{namespace_s_i_i_s_a61818c15fad0e5dc72309acf9ce98cd4}{total\+\_\+S}} = 0
+\item 
+\mbox{\hyperlink{namespace_s_i_i_s_aa5d8f43bef1575e80e2f288c3d1b6e53}{A1}} = np.\+random.\+randint(2, size=(\mbox{\hyperlink{namespace_s_i_i_s_a62794a73400a5a491e326f153fb0eb4a}{N}}, \mbox{\hyperlink{namespace_s_i_i_s_a62794a73400a5a491e326f153fb0eb4a}{N}}), dtype=np.\+int8)
+\begin{DoxyCompactList}\small\item\em SETUP\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespace_s_i_i_s_a70172c3865725551cf373fc4a2f90433}{A2}} = np.\+random.\+randint(2, size=(\mbox{\hyperlink{namespace_s_i_i_s_a62794a73400a5a491e326f153fb0eb4a}{N}}, \mbox{\hyperlink{namespace_s_i_i_s_a62794a73400a5a491e326f153fb0eb4a}{N}}), dtype=np.\+int8)
+\item 
+tuple \mbox{\hyperlink{namespace_s_i_i_s_a94d4aca0a1e957b7a51c910b70b542a5}{S1}} = (1 -\/ \mbox{\hyperlink{namespace_s_i_i_s_a401502781da59716e64740b944b8f784}{delta1}}) $\ast$ np.\+identity(\mbox{\hyperlink{namespace_s_i_i_s_a62794a73400a5a491e326f153fb0eb4a}{N}}, dtype=np.\+int8) + \mbox{\hyperlink{namespace_s_i_i_s_a727237c66ea7d98aca6b3bd4e6fa1bcc}{beta1}} $\ast$ \mbox{\hyperlink{namespace_s_i_i_s_aa5d8f43bef1575e80e2f288c3d1b6e53}{A1}}
+\begin{DoxyCompactList}\small\item\em create System Matrices \end{DoxyCompactList}\item 
+tuple \mbox{\hyperlink{namespace_s_i_i_s_afe0854a7f237a419933ae98bce821481}{S2}} = (1 -\/ \mbox{\hyperlink{namespace_s_i_i_s_a7e76e4a65200a189d0f8589d2cc767be}{delta2}}) $\ast$ np.\+identity(\mbox{\hyperlink{namespace_s_i_i_s_a62794a73400a5a491e326f153fb0eb4a}{N}}, dtype=np.\+int8) + \mbox{\hyperlink{namespace_s_i_i_s_adcb989b943ed7927e5afbc277ca211a3}{beta2}} $\ast$ \mbox{\hyperlink{namespace_s_i_i_s_a70172c3865725551cf373fc4a2f90433}{A2}}
+\item 
+\mbox{\hyperlink{namespace_s_i_i_s_a2cce8fdaa73ab70e4596012926ece943}{eigen\+Values1}} = eigen\+Values1\mbox{[}\mbox{\hyperlink{namespace_s_i_i_s_a84411c515614a2ed36af934a8c29cc1d}{idx}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em get Eigen Values \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespace_s_i_i_s_a06f0697a1529e8daa03480dabaaf708b}{eigen\+Vectors1}} = eigen\+Vectors1\mbox{[}\+:,\mbox{\hyperlink{namespace_s_i_i_s_a84411c515614a2ed36af934a8c29cc1d}{idx}}\mbox{]}
+\item 
+\mbox{\hyperlink{namespace_s_i_i_s_ac3b1f2748063d9addb90e0c297eb9fb1}{eigen\+Values2}} = eigen\+Values2\mbox{[}\mbox{\hyperlink{namespace_s_i_i_s_a84411c515614a2ed36af934a8c29cc1d}{idx}}\mbox{]}
+\item 
+\mbox{\hyperlink{namespace_s_i_i_s_a4b3d97c27d29c2dd23a0016b989ccb44}{eigen\+Vectors2}} = eigen\+Vectors2\mbox{[}\+:,\mbox{\hyperlink{namespace_s_i_i_s_a84411c515614a2ed36af934a8c29cc1d}{idx}}\mbox{]}
+\item 
+\mbox{\hyperlink{namespace_s_i_i_s_a84411c515614a2ed36af934a8c29cc1d}{idx}} = eigen\+Values1.\+argsort()\mbox{[}\+::-\/1\mbox{]}
+\begin{DoxyCompactList}\small\item\em sort list of found eigenvalues to find the largest one \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespace_s_i_i_s_ad510cbae67271dda2063233b51aaafad}{node}} = \mbox{\hyperlink{class_s_i_i_s_1_1_node}{Node}}()
+\begin{DoxyCompactList}\small\item\em Using our created \mbox{\hyperlink{class_s_i_i_s_1_1_node}{Node}} data type, we fill a list with nodes of length N. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespace_s_i_i_s_a4e70fbbd01f42c9eed3a49346a70af90}{key}}
+\begin{DoxyCompactList}\small\item\em sort nodes by ID number \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespace_s_i_i_s_a8da1a41b1401b1b7ac673d0a8d5265d3}{id}}
+\item 
+\mbox{\hyperlink{namespace_s_i_i_s_a9a41d5936ff90936a135c91f442699ae}{reverse}}
+\item 
+\mbox{\hyperlink{namespace_s_i_i_s_ab9810fef4d7b3ff0765a4d6830a9ca96}{infected\+\_\+meme1}} = random.\+sample(\mbox{\hyperlink{namespace_s_i_i_s_accf1f6818ac3be2623083abdb5f2b7ec}{all\+Nodes}},10)
+\begin{DoxyCompactList}\small\item\em create first list of infected nodes holds org sets to use for multiple lists \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespace_s_i_i_s_a93604b4d9e16c1681f652610898b8011}{infected\+\_\+meme2}} = random.\+sample(\mbox{\hyperlink{namespace_s_i_i_s_accf1f6818ac3be2623083abdb5f2b7ec}{all\+Nodes}}, 10)
+\item 
+int \mbox{\hyperlink{namespace_s_i_i_s_a9b56e6ecae380824a538274919502b95}{edge}} = 1
+\begin{DoxyCompactList}\small\item\em Run Simulation without Supression. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}@package SIIS
+Python Simulation of the SIIS Model from 
+‘Competing Memes Propagation on Networks: A Network Science Perspective’ 
+Using random number generation 
+@author Robert Bacigalupo
+@author Tyler Ovenden
+@author Auerman Atif 
+@version 3.0
+@date MAY 2022
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespace_s_i_i_s_a9ce6bf60763fb485eaee729dcb4c2adb}\label{namespace_s_i_i_s_a9ce6bf60763fb485eaee729dcb4c2adb}} 
+\index{SIIS@{SIIS}!count@{count}}
+\index{count@{count}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{count()}{count()}}
+{\footnotesize\ttfamily def SIIS.\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+count counts number of currently infected sets total\+\_\+M values to current values 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_s_i_i_s_a9ce6bf60763fb485eaee729dcb4c2adb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_s_i_i_s_a80b1cbd24ef3bce4414388e55f7a8a17}\label{namespace_s_i_i_s_a80b1cbd24ef3bce4414388e55f7a8a17}} 
+\index{SIIS@{SIIS}!max\_degree@{max\_degree}}
+\index{max\_degree@{max\_degree}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{max\_degree()}{max\_degree()}}
+{\footnotesize\ttfamily def SIIS.\+max\+\_\+degree (\begin{DoxyParamCaption}\item[{}]{edge }\end{DoxyParamCaption})}
+
+
+
+max\+\_\+degree 
+
+
+\begin{DoxyParams}{Parameters}
+{\em edge} & What edge to delete node from removes node max degree or most connections \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{namespace_s_i_i_s_a80b1cbd24ef3bce4414388e55f7a8a17_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_s_i_i_s_a107080135e2bcab2d5018a985632c0e1}\label{namespace_s_i_i_s_a107080135e2bcab2d5018a985632c0e1}} 
+\index{SIIS@{SIIS}!plot\_res@{plot\_res}}
+\index{plot\_res@{plot\_res}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{plot\_res()}{plot\_res()}}
+{\footnotesize\ttfamily def SIIS.\+plot\+\_\+res (\begin{DoxyParamCaption}\item[{}]{pause,  }\item[{}]{supress,  }\item[{}]{spr }\end{DoxyParamCaption})}
+
+
+
+plot\+\_\+res 
+
+plots histogram and time graph of simulation 
+\begin{DoxyParams}{Parameters}
+{\em pause} & if true does not plot but sets up graph until ran again with pause = false \\
+\hline
+{\em supress} & if true plot supression methods as well \\
+\hline
+{\em spr} & hold name supression method graphed to name on graph \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespace_s_i_i_s_aa7a9b6c4d2a2d91106dd90b854611539}\label{namespace_s_i_i_s_aa7a9b6c4d2a2d91106dd90b854611539}} 
+\index{SIIS@{SIIS}!randomNeigh@{randomNeigh}}
+\index{randomNeigh@{randomNeigh}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{randomNeigh()}{randomNeigh()}}
+{\footnotesize\ttfamily def SIIS.\+random\+Neigh (\begin{DoxyParamCaption}\item[{}]{pick }\end{DoxyParamCaption})}
+
+
+
+random\+Neigh 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pick} & What edge to delete node from picks a random neighbor of a random node \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{namespace_s_i_i_s_aa7a9b6c4d2a2d91106dd90b854611539_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_s_i_i_s_ad1a44a181ccd1524730d53df9267ca27}\label{namespace_s_i_i_s_ad1a44a181ccd1524730d53df9267ca27}} 
+\index{SIIS@{SIIS}!randomRem@{randomRem}}
+\index{randomRem@{randomRem}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{randomRem()}{randomRem()}}
+{\footnotesize\ttfamily def SIIS.\+random\+Rem (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+random\+Rem picks a random node ~\newline
+ 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{namespace_s_i_i_s_ad1a44a181ccd1524730d53df9267ca27_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_s_i_i_s_aae09dbe3d97853cab90111e7f58197a7}\label{namespace_s_i_i_s_aae09dbe3d97853cab90111e7f58197a7}} 
+\index{SIIS@{SIIS}!removeNode@{removeNode}}
+\index{removeNode@{removeNode}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{removeNode()}{removeNode()}}
+{\footnotesize\ttfamily def SIIS.\+remove\+Node (\begin{DoxyParamCaption}\item[{}]{nodea }\end{DoxyParamCaption})}
+
+
+
+remove\+Node 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nodea} & The node to be deleted removes the node being passed \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{namespace_s_i_i_s_aae09dbe3d97853cab90111e7f58197a7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_s_i_i_s_a0451e8de5927fe55012013546da79f33}\label{namespace_s_i_i_s_a0451e8de5927fe55012013546da79f33}} 
+\index{SIIS@{SIIS}!run\_sim@{run\_sim}}
+\index{run\_sim@{run\_sim}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{run\_sim()}{run\_sim()}}
+{\footnotesize\ttfamily def SIIS.\+run\+\_\+sim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{namespace_s_i_i_s_a0451e8de5927fe55012013546da79f33}{run\+\_\+sim()}} carries out actual simulation uses for loop t inside time 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_s_i_i_s_a0451e8de5927fe55012013546da79f33_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_s_i_i_s_a68ed4322068cfbb790ec5fa305ded181}\label{namespace_s_i_i_s_a68ed4322068cfbb790ec5fa305ded181}} 
+\index{SIIS@{SIIS}!set\_simulation@{set\_simulation}}
+\index{set\_simulation@{set\_simulation}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{set\_simulation()}{set\_simulation()}}
+{\footnotesize\ttfamily def SIIS.\+set\+\_\+simulation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+set\+\_\+simulation 
+
+sets up infected lists for infection set infected counts to empty set array of stats to empty sets x axis as empty Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=279pt]{namespace_s_i_i_s_a68ed4322068cfbb790ec5fa305ded181_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=289pt]{namespace_s_i_i_s_a68ed4322068cfbb790ec5fa305ded181_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespace_s_i_i_s_aa5d8f43bef1575e80e2f288c3d1b6e53}\label{namespace_s_i_i_s_aa5d8f43bef1575e80e2f288c3d1b6e53}} 
+\index{SIIS@{SIIS}!A1@{A1}}
+\index{A1@{A1}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{A1}{A1}}
+{\footnotesize\ttfamily tuple SIIS.\+A1 = np.\+random.\+randint(2, size=(\mbox{\hyperlink{namespace_s_i_i_s_a62794a73400a5a491e326f153fb0eb4a}{N}}, \mbox{\hyperlink{namespace_s_i_i_s_a62794a73400a5a491e326f153fb0eb4a}{N}}), dtype=np.\+int8)}
+
+
+
+SETUP\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#. 
+
+Make sure adj are symmetric and values are 2 or 1 By making it symmetric, we are making sure if \mbox{\hyperlink{class_s_i_i_s_1_1_node}{Node}} 1 is connected to \mbox{\hyperlink{class_s_i_i_s_1_1_node}{Node}} 2, then \mbox{\hyperlink{class_s_i_i_s_1_1_node}{Node}} 2 is also connected to \mbox{\hyperlink{class_s_i_i_s_1_1_node}{Node}} 1. \mbox{\Hypertarget{namespace_s_i_i_s_a70172c3865725551cf373fc4a2f90433}\label{namespace_s_i_i_s_a70172c3865725551cf373fc4a2f90433}} 
+\index{SIIS@{SIIS}!A2@{A2}}
+\index{A2@{A2}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{A2}{A2}}
+{\footnotesize\ttfamily tuple SIIS.\+A2 = np.\+random.\+randint(2, size=(\mbox{\hyperlink{namespace_s_i_i_s_a62794a73400a5a491e326f153fb0eb4a}{N}}, \mbox{\hyperlink{namespace_s_i_i_s_a62794a73400a5a491e326f153fb0eb4a}{N}}), dtype=np.\+int8)}
+
+\mbox{\Hypertarget{namespace_s_i_i_s_accf1f6818ac3be2623083abdb5f2b7ec}\label{namespace_s_i_i_s_accf1f6818ac3be2623083abdb5f2b7ec}} 
+\index{SIIS@{SIIS}!allNodes@{allNodes}}
+\index{allNodes@{allNodes}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{allNodes}{allNodes}}
+{\footnotesize\ttfamily list SIIS.\+all\+Nodes = \mbox{[}$\,$\mbox{]}}
+
+\mbox{\Hypertarget{namespace_s_i_i_s_a727237c66ea7d98aca6b3bd4e6fa1bcc}\label{namespace_s_i_i_s_a727237c66ea7d98aca6b3bd4e6fa1bcc}} 
+\index{SIIS@{SIIS}!beta1@{beta1}}
+\index{beta1@{beta1}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{beta1}{beta1}}
+{\footnotesize\ttfamily int SIIS.\+beta1 = .\+05}
+
+\mbox{\Hypertarget{namespace_s_i_i_s_adcb989b943ed7927e5afbc277ca211a3}\label{namespace_s_i_i_s_adcb989b943ed7927e5afbc277ca211a3}} 
+\index{SIIS@{SIIS}!beta2@{beta2}}
+\index{beta2@{beta2}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{beta2}{beta2}}
+{\footnotesize\ttfamily int SIIS.\+beta2 = .\+05}
+
+\mbox{\Hypertarget{namespace_s_i_i_s_a401502781da59716e64740b944b8f784}\label{namespace_s_i_i_s_a401502781da59716e64740b944b8f784}} 
+\index{SIIS@{SIIS}!delta1@{delta1}}
+\index{delta1@{delta1}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{delta1}{delta1}}
+{\footnotesize\ttfamily int SIIS.\+delta1 = .\+04}
+
+\mbox{\Hypertarget{namespace_s_i_i_s_a7e76e4a65200a189d0f8589d2cc767be}\label{namespace_s_i_i_s_a7e76e4a65200a189d0f8589d2cc767be}} 
+\index{SIIS@{SIIS}!delta2@{delta2}}
+\index{delta2@{delta2}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{delta2}{delta2}}
+{\footnotesize\ttfamily int SIIS.\+delta2 = .\+04}
+
+\mbox{\Hypertarget{namespace_s_i_i_s_a9b56e6ecae380824a538274919502b95}\label{namespace_s_i_i_s_a9b56e6ecae380824a538274919502b95}} 
+\index{SIIS@{SIIS}!edge@{edge}}
+\index{edge@{edge}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{edge}{edge}}
+{\footnotesize\ttfamily int SIIS.\+edge = 1}
+
+
+
+Run Simulation without Supression. 
+
+MAIN LOOP\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
+
+Run with Suppression Methods \mbox{\Hypertarget{namespace_s_i_i_s_a2cce8fdaa73ab70e4596012926ece943}\label{namespace_s_i_i_s_a2cce8fdaa73ab70e4596012926ece943}} 
+\index{SIIS@{SIIS}!eigenValues1@{eigenValues1}}
+\index{eigenValues1@{eigenValues1}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{eigenValues1}{eigenValues1}}
+{\footnotesize\ttfamily SIIS.\+eigen\+Values1 = eigen\+Values1\mbox{[}\mbox{\hyperlink{namespace_s_i_i_s_a84411c515614a2ed36af934a8c29cc1d}{idx}}\mbox{]}}
+
+
+
+get Eigen Values 
+
+\mbox{\Hypertarget{namespace_s_i_i_s_ac3b1f2748063d9addb90e0c297eb9fb1}\label{namespace_s_i_i_s_ac3b1f2748063d9addb90e0c297eb9fb1}} 
+\index{SIIS@{SIIS}!eigenValues2@{eigenValues2}}
+\index{eigenValues2@{eigenValues2}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{eigenValues2}{eigenValues2}}
+{\footnotesize\ttfamily SIIS.\+eigen\+Values2 = eigen\+Values2\mbox{[}\mbox{\hyperlink{namespace_s_i_i_s_a84411c515614a2ed36af934a8c29cc1d}{idx}}\mbox{]}}
+
+\mbox{\Hypertarget{namespace_s_i_i_s_a06f0697a1529e8daa03480dabaaf708b}\label{namespace_s_i_i_s_a06f0697a1529e8daa03480dabaaf708b}} 
+\index{SIIS@{SIIS}!eigenVectors1@{eigenVectors1}}
+\index{eigenVectors1@{eigenVectors1}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{eigenVectors1}{eigenVectors1}}
+{\footnotesize\ttfamily SIIS.\+eigen\+Vectors1 = eigen\+Vectors1\mbox{[}\+:,\mbox{\hyperlink{namespace_s_i_i_s_a84411c515614a2ed36af934a8c29cc1d}{idx}}\mbox{]}}
+
+\mbox{\Hypertarget{namespace_s_i_i_s_a4b3d97c27d29c2dd23a0016b989ccb44}\label{namespace_s_i_i_s_a4b3d97c27d29c2dd23a0016b989ccb44}} 
+\index{SIIS@{SIIS}!eigenVectors2@{eigenVectors2}}
+\index{eigenVectors2@{eigenVectors2}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{eigenVectors2}{eigenVectors2}}
+{\footnotesize\ttfamily SIIS.\+eigen\+Vectors2 = eigen\+Vectors2\mbox{[}\+:,\mbox{\hyperlink{namespace_s_i_i_s_a84411c515614a2ed36af934a8c29cc1d}{idx}}\mbox{]}}
+
+\mbox{\Hypertarget{namespace_s_i_i_s_a8da1a41b1401b1b7ac673d0a8d5265d3}\label{namespace_s_i_i_s_a8da1a41b1401b1b7ac673d0a8d5265d3}} 
+\index{SIIS@{SIIS}!id@{id}}
+\index{id@{id}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily SIIS.\+id}
+
+\mbox{\Hypertarget{namespace_s_i_i_s_a84411c515614a2ed36af934a8c29cc1d}\label{namespace_s_i_i_s_a84411c515614a2ed36af934a8c29cc1d}} 
+\index{SIIS@{SIIS}!idx@{idx}}
+\index{idx@{idx}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{idx}{idx}}
+{\footnotesize\ttfamily SIIS.\+idx = eigen\+Values1.\+argsort()\mbox{[}\+::-\/1\mbox{]}}
+
+
+
+sort list of found eigenvalues to find the largest one 
+
+\mbox{\Hypertarget{namespace_s_i_i_s_ab9810fef4d7b3ff0765a4d6830a9ca96}\label{namespace_s_i_i_s_ab9810fef4d7b3ff0765a4d6830a9ca96}} 
+\index{SIIS@{SIIS}!infected\_meme1@{infected\_meme1}}
+\index{infected\_meme1@{infected\_meme1}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{infected\_meme1}{infected\_meme1}}
+{\footnotesize\ttfamily SIIS.\+infected\+\_\+meme1 = random.\+sample(\mbox{\hyperlink{namespace_s_i_i_s_accf1f6818ac3be2623083abdb5f2b7ec}{all\+Nodes}},10)}
+
+
+
+create first list of infected nodes holds org sets to use for multiple lists 
+
+\mbox{\Hypertarget{namespace_s_i_i_s_a93604b4d9e16c1681f652610898b8011}\label{namespace_s_i_i_s_a93604b4d9e16c1681f652610898b8011}} 
+\index{SIIS@{SIIS}!infected\_meme2@{infected\_meme2}}
+\index{infected\_meme2@{infected\_meme2}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{infected\_meme2}{infected\_meme2}}
+{\footnotesize\ttfamily SIIS.\+infected\+\_\+meme2 = random.\+sample(\mbox{\hyperlink{namespace_s_i_i_s_accf1f6818ac3be2623083abdb5f2b7ec}{all\+Nodes}}, 10)}
+
+\mbox{\Hypertarget{namespace_s_i_i_s_a4e70fbbd01f42c9eed3a49346a70af90}\label{namespace_s_i_i_s_a4e70fbbd01f42c9eed3a49346a70af90}} 
+\index{SIIS@{SIIS}!key@{key}}
+\index{key@{key}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{key}{key}}
+{\footnotesize\ttfamily SIIS.\+key}
+
+
+
+sort nodes by ID number 
+
+\mbox{\Hypertarget{namespace_s_i_i_s_a4dab4ad21b94aae4b1a57b86461a8278}\label{namespace_s_i_i_s_a4dab4ad21b94aae4b1a57b86461a8278}} 
+\index{SIIS@{SIIS}!M1\_Wins@{M1\_Wins}}
+\index{M1\_Wins@{M1\_Wins}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{M1\_Wins}{M1\_Wins}}
+{\footnotesize\ttfamily int SIIS.\+M1\+\_\+\+Wins = 0}
+
+\mbox{\Hypertarget{namespace_s_i_i_s_ab817f7461381c636343a06d89ff814aa}\label{namespace_s_i_i_s_ab817f7461381c636343a06d89ff814aa}} 
+\index{SIIS@{SIIS}!M2\_Wins@{M2\_Wins}}
+\index{M2\_Wins@{M2\_Wins}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{M2\_Wins}{M2\_Wins}}
+{\footnotesize\ttfamily int SIIS.\+M2\+\_\+\+Wins = 0}
+
+\mbox{\Hypertarget{namespace_s_i_i_s_a62794a73400a5a491e326f153fb0eb4a}\label{namespace_s_i_i_s_a62794a73400a5a491e326f153fb0eb4a}} 
+\index{SIIS@{SIIS}!N@{N}}
+\index{N@{N}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{N}{N}}
+{\footnotesize\ttfamily SIIS.\+N = 200}
+
+
+
+Number of nodes. 
+
+\mbox{\Hypertarget{namespace_s_i_i_s_ab3f32447bb574c518467b12920eea7d6}\label{namespace_s_i_i_s_ab3f32447bb574c518467b12920eea7d6}} 
+\index{SIIS@{SIIS}!No\_win@{No\_win}}
+\index{No\_win@{No\_win}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{No\_win}{No\_win}}
+{\footnotesize\ttfamily int SIIS.\+No\+\_\+win = 0}
+
+\mbox{\Hypertarget{namespace_s_i_i_s_ad510cbae67271dda2063233b51aaafad}\label{namespace_s_i_i_s_ad510cbae67271dda2063233b51aaafad}} 
+\index{SIIS@{SIIS}!node@{node}}
+\index{node@{node}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{node}{node}}
+{\footnotesize\ttfamily SIIS.\+node = \mbox{\hyperlink{class_s_i_i_s_1_1_node}{Node}}()}
+
+
+
+Using our created \mbox{\hyperlink{class_s_i_i_s_1_1_node}{Node}} data type, we fill a list with nodes of length N. 
+
+\mbox{\Hypertarget{namespace_s_i_i_s_a0e357539172c7604af85e61695c08ed3}\label{namespace_s_i_i_s_a0e357539172c7604af85e61695c08ed3}} 
+\index{SIIS@{SIIS}!old\_inf1@{old\_inf1}}
+\index{old\_inf1@{old\_inf1}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{old\_inf1}{old\_inf1}}
+{\footnotesize\ttfamily int SIIS.\+old\+\_\+inf1 = 0}
+
+\mbox{\Hypertarget{namespace_s_i_i_s_a52ffed4dec36d3be6b39b4e29686d1f5}\label{namespace_s_i_i_s_a52ffed4dec36d3be6b39b4e29686d1f5}} 
+\index{SIIS@{SIIS}!old\_inf2@{old\_inf2}}
+\index{old\_inf2@{old\_inf2}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{old\_inf2}{old\_inf2}}
+{\footnotesize\ttfamily int SIIS.\+old\+\_\+inf2 = 0}
+
+\mbox{\Hypertarget{namespace_s_i_i_s_a9a41d5936ff90936a135c91f442699ae}\label{namespace_s_i_i_s_a9a41d5936ff90936a135c91f442699ae}} 
+\index{SIIS@{SIIS}!reverse@{reverse}}
+\index{reverse@{reverse}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{reverse}{reverse}}
+{\footnotesize\ttfamily SIIS.\+reverse}
+
+\mbox{\Hypertarget{namespace_s_i_i_s_a94d4aca0a1e957b7a51c910b70b542a5}\label{namespace_s_i_i_s_a94d4aca0a1e957b7a51c910b70b542a5}} 
+\index{SIIS@{SIIS}!S1@{S1}}
+\index{S1@{S1}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{S1}{S1}}
+{\footnotesize\ttfamily tuple SIIS.\+S1 = (1 -\/ \mbox{\hyperlink{namespace_s_i_i_s_a401502781da59716e64740b944b8f784}{delta1}}) $\ast$ np.\+identity(\mbox{\hyperlink{namespace_s_i_i_s_a62794a73400a5a491e326f153fb0eb4a}{N}}, dtype=np.\+int8) + \mbox{\hyperlink{namespace_s_i_i_s_a727237c66ea7d98aca6b3bd4e6fa1bcc}{beta1}} $\ast$ \mbox{\hyperlink{namespace_s_i_i_s_aa5d8f43bef1575e80e2f288c3d1b6e53}{A1}}}
+
+
+
+create System Matrices 
+
+\mbox{\Hypertarget{namespace_s_i_i_s_afe0854a7f237a419933ae98bce821481}\label{namespace_s_i_i_s_afe0854a7f237a419933ae98bce821481}} 
+\index{SIIS@{SIIS}!S2@{S2}}
+\index{S2@{S2}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{S2}{S2}}
+{\footnotesize\ttfamily tuple SIIS.\+S2 = (1 -\/ \mbox{\hyperlink{namespace_s_i_i_s_a7e76e4a65200a189d0f8589d2cc767be}{delta2}}) $\ast$ np.\+identity(\mbox{\hyperlink{namespace_s_i_i_s_a62794a73400a5a491e326f153fb0eb4a}{N}}, dtype=np.\+int8) + \mbox{\hyperlink{namespace_s_i_i_s_adcb989b943ed7927e5afbc277ca211a3}{beta2}} $\ast$ \mbox{\hyperlink{namespace_s_i_i_s_a70172c3865725551cf373fc4a2f90433}{A2}}}
+
+\mbox{\Hypertarget{namespace_s_i_i_s_aeaf718b2a70cffd8bcc43b7d0f402913}\label{namespace_s_i_i_s_aeaf718b2a70cffd8bcc43b7d0f402913}} 
+\index{SIIS@{SIIS}!smp\_size@{smp\_size}}
+\index{smp\_size@{smp\_size}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{smp\_size}{smp\_size}}
+{\footnotesize\ttfamily SIIS.\+smp\+\_\+size = 10}
+
+
+
+sample size 
+
+\mbox{\Hypertarget{namespace_s_i_i_s_aad32ed61613e587b5c5de338d317cba3}\label{namespace_s_i_i_s_aad32ed61613e587b5c5de338d317cba3}} 
+\index{SIIS@{SIIS}!take\_sample@{take\_sample}}
+\index{take\_sample@{take\_sample}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{take\_sample}{take\_sample}}
+{\footnotesize\ttfamily int SIIS.\+take\+\_\+sample = 0}
+
+\mbox{\Hypertarget{namespace_s_i_i_s_acf03c50d66038c1c2c8bf85c360af75f}\label{namespace_s_i_i_s_acf03c50d66038c1c2c8bf85c360af75f}} 
+\index{SIIS@{SIIS}!theta@{theta}}
+\index{theta@{theta}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{theta}{theta}}
+{\footnotesize\ttfamily SIIS.\+theta = .\+10}
+
+
+
+Margin off error to see if a Meme won in sampling, if less than theta no clear winner. 
+
+\mbox{\Hypertarget{namespace_s_i_i_s_a849dda36bfc0f180104fed68d251b82e}\label{namespace_s_i_i_s_a849dda36bfc0f180104fed68d251b82e}} 
+\index{SIIS@{SIIS}!tm@{tm}}
+\index{tm@{tm}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{tm}{tm}}
+{\footnotesize\ttfamily SIIS.\+tm = 1000}
+
+
+
+Discrete time units. 
+
+\mbox{\Hypertarget{namespace_s_i_i_s_a525fba1045fcacc5c547c6dcf3181056}\label{namespace_s_i_i_s_a525fba1045fcacc5c547c6dcf3181056}} 
+\index{SIIS@{SIIS}!tot\_inf1@{tot\_inf1}}
+\index{tot\_inf1@{tot\_inf1}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{tot\_inf1}{tot\_inf1}}
+{\footnotesize\ttfamily int SIIS.\+tot\+\_\+inf1 = 0}
+
+\mbox{\Hypertarget{namespace_s_i_i_s_a75e6cdeeda5ed23dba13d1db30233bdd}\label{namespace_s_i_i_s_a75e6cdeeda5ed23dba13d1db30233bdd}} 
+\index{SIIS@{SIIS}!tot\_inf2@{tot\_inf2}}
+\index{tot\_inf2@{tot\_inf2}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{tot\_inf2}{tot\_inf2}}
+{\footnotesize\ttfamily int SIIS.\+tot\+\_\+inf2 = 0}
+
+\mbox{\Hypertarget{namespace_s_i_i_s_ade8340e66ce9b5146b1c975c241eebb2}\label{namespace_s_i_i_s_ade8340e66ce9b5146b1c975c241eebb2}} 
+\index{SIIS@{SIIS}!total\_M1@{total\_M1}}
+\index{total\_M1@{total\_M1}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{total\_M1}{total\_M1}}
+{\footnotesize\ttfamily int SIIS.\+total\+\_\+\+M1 = 0}
+
+\mbox{\Hypertarget{namespace_s_i_i_s_a2c928cda870de1f11476f4a8536bd480}\label{namespace_s_i_i_s_a2c928cda870de1f11476f4a8536bd480}} 
+\index{SIIS@{SIIS}!total\_M2@{total\_M2}}
+\index{total\_M2@{total\_M2}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{total\_M2}{total\_M2}}
+{\footnotesize\ttfamily int SIIS.\+total\+\_\+\+M2 = 0}
+
+\mbox{\Hypertarget{namespace_s_i_i_s_a61818c15fad0e5dc72309acf9ce98cd4}\label{namespace_s_i_i_s_a61818c15fad0e5dc72309acf9ce98cd4}} 
+\index{SIIS@{SIIS}!total\_S@{total\_S}}
+\index{total\_S@{total\_S}!SIIS@{SIIS}}
+\doxysubsubsection{\texorpdfstring{total\_S}{total\_S}}
+{\footnotesize\ttfamily int SIIS.\+total\+\_\+S = 0}
+

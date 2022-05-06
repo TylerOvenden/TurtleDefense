@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_s_i_i_s_1_1_node" xml:lang="en-US">
+<title>SIIS.Node Class Reference</title>
+<indexterm><primary>SIIS.Node</primary></indexterm>
+<para>
+
+<para>Class to implement node object each node object has unique id, list of its neighbors on each edge, and its state. </para>
+ 
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>def <link linkend="_class_s_i_i_s_1_1_node_1a0c8227370e4dfe12e644be21eb434a34">__init__</link> (self)</para>
+
+<para><emphasis>init</emphasis> </para>
+</listitem>
+            <listitem><para>def <link linkend="_class_s_i_i_s_1_1_node_1a3b7f95ca4ff93ff560e71df457a7a0ef">addNeighbors</link> (self)</para>
+
+<para>addNeighbors adds neighbors to each node method to add neighbors to node, call after Adj matrices are made </para>
+</listitem>
+            <listitem><para>def <link linkend="_class_s_i_i_s_1_1_node_1a33ca5cfa2fe32637b74eeb141fe69c58">attack</link> (self)</para>
+
+<para>attack </para>
+</listitem>
+            <listitem><para>def <link linkend="_class_s_i_i_s_1_1_node_1acd6b35d8d18b4d691136961c3661bf42">recover</link> (self)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_s_i_i_s_1_1_node_1ac60ec4bda7f8879860c7f086ab9c22a3">id</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_s_i_i_s_1_1_node_1a78addc56ab36dcd9f2c78658e0556af5">e1_Neighbors</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_s_i_i_s_1_1_node_1a5e7c5e57b3622fe9af125d9fca87ec09">e2_Neighbors</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_s_i_i_s_1_1_node_1ae33315f9f91aefbcc422c5b88e318186">state</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_class_s_i_i_s_1_1_node_1a6357c075f29e3a3690f5ab86f24d61b5">count</link> = 0</para>
+
+<para>class variable count of total amount of nodes created, used to create unique <link linkend="_class_s_i_i_s_1_1_node">Node</link> ids </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Class to implement node object each node object has unique id, list of its neighbors on each edge, and its state. </para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_s_i_i_s_1_1_node_1a0c8227370e4dfe12e644be21eb434a34"/><section>
+    <title>__init__()</title>
+<indexterm><primary>__init__</primary><secondary>SIIS.Node</secondary></indexterm>
+<indexterm><primary>SIIS.Node</primary><secondary>__init__</secondary></indexterm>
+<para><computeroutput>def SIIS.Node.__init__ ( self)</computeroutput></para><para>
+
+<para><emphasis>init</emphasis> </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>self</entry><entry>
+<para>The object pointer increases count after giving <link linkend="_class_s_i_i_s_1_1_node">Node</link> id </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_s_i_i_s_1_1_node_1a3b7f95ca4ff93ff560e71df457a7a0ef"/><section>
+    <title>addNeighbors()</title>
+<indexterm><primary>addNeighbors</primary><secondary>SIIS.Node</secondary></indexterm>
+<indexterm><primary>SIIS.Node</primary><secondary>addNeighbors</secondary></indexterm>
+<para><computeroutput>def SIIS.Node.addNeighbors ( self)</computeroutput></para><para>
+
+<para>addNeighbors adds neighbors to each node method to add neighbors to node, call after Adj matrices are made </para>
+</para>
+
+<para><warning><title>Warning</title>
+
+<para>: Make sure to sort Nodes before using this method </para>
+</warning>
+</para>
+</section>
+<anchor xml:id="_class_s_i_i_s_1_1_node_1a33ca5cfa2fe32637b74eeb141fe69c58"/><section>
+    <title>attack()</title>
+<indexterm><primary>attack</primary><secondary>SIIS.Node</secondary></indexterm>
+<indexterm><primary>SIIS.Node</primary><secondary>attack</secondary></indexterm>
+<para><computeroutput>def SIIS.Node.attack ( self)</computeroutput></para><para>
+
+<para>attack </para>
+</para>
+
+<para>simualtes attacks on single node at single time t checks each infected neighbor on its corresponding edge using random number generation, random.random() which outputs a number between 0 and 1 it counts the number of attack from neighbors infected by each meme if the node is in state I1 or I2 then the node does not go through method if C1 &gt; C2 the node becomes infected with meme 1 if C2 &gt; C1 the node becomes infected with meme 2 else the node stays in state S </para>
+</section>
+<anchor xml:id="_class_s_i_i_s_1_1_node_1acd6b35d8d18b4d691136961c3661bf42"/><section>
+    <title>recover()</title>
+<indexterm><primary>recover</primary><secondary>SIIS.Node</secondary></indexterm>
+<indexterm><primary>SIIS.Node</primary><secondary>recover</secondary></indexterm>
+<para><computeroutput>def SIIS.Node.recover ( self)</computeroutput></para></section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_s_i_i_s_1_1_node_1a6357c075f29e3a3690f5ab86f24d61b5"/><section>
+    <title>count</title>
+<indexterm><primary>count</primary><secondary>SIIS.Node</secondary></indexterm>
+<indexterm><primary>SIIS.Node</primary><secondary>count</secondary></indexterm>
+<para><computeroutput>SIIS.Node.count = 0<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>class variable count of total amount of nodes created, used to create unique <link linkend="_class_s_i_i_s_1_1_node">Node</link> ids </para>
+</para>
+</section>
+<anchor xml:id="_class_s_i_i_s_1_1_node_1a78addc56ab36dcd9f2c78658e0556af5"/><section>
+    <title>e1_Neighbors</title>
+<indexterm><primary>e1_Neighbors</primary><secondary>SIIS.Node</secondary></indexterm>
+<indexterm><primary>SIIS.Node</primary><secondary>e1_Neighbors</secondary></indexterm>
+<para><computeroutput>SIIS.Node.e1_Neighbors</computeroutput></para></section>
+<anchor xml:id="_class_s_i_i_s_1_1_node_1a5e7c5e57b3622fe9af125d9fca87ec09"/><section>
+    <title>e2_Neighbors</title>
+<indexterm><primary>e2_Neighbors</primary><secondary>SIIS.Node</secondary></indexterm>
+<indexterm><primary>SIIS.Node</primary><secondary>e2_Neighbors</secondary></indexterm>
+<para><computeroutput>SIIS.Node.e2_Neighbors</computeroutput></para></section>
+<anchor xml:id="_class_s_i_i_s_1_1_node_1ac60ec4bda7f8879860c7f086ab9c22a3"/><section>
+    <title>id</title>
+<indexterm><primary>id</primary><secondary>SIIS.Node</secondary></indexterm>
+<indexterm><primary>SIIS.Node</primary><secondary>id</secondary></indexterm>
+<para><computeroutput>SIIS.Node.id</computeroutput></para></section>
+<anchor xml:id="_class_s_i_i_s_1_1_node_1ae33315f9f91aefbcc422c5b88e318186"/><section>
+    <title>state</title>
+<indexterm><primary>state</primary><secondary>SIIS.Node</secondary></indexterm>
+<indexterm><primary>SIIS.Node</primary><secondary>state</secondary></indexterm>
+<para><computeroutput>SIIS.Node.state</computeroutput></para></section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/<link linkend="__s_i_i_s_8py">SIIS.py</link></section>
+</section>

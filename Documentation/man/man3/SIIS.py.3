@@ -1,0 +1,192 @@
+.TH "C:/Users/Bobby the Kid's/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" 3 "Thu May 5 2022" "Version 3" "Turle Defense_SIIS_python_simulation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/Bobby the Kid's/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBSIIS\&.State\fP"
+.br
+.RI "Enumeration for States\&. "
+.ti -1c
+.RI "class \fBSIIS\&.Node\fP"
+.br
+.RI "Class to implement node object each node object has unique id, list of its neighbors on each edge, and its state\&. "
+.in -1c
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI "namespace \fBSIIS\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "def \fBSIIS\&.randomRem\fP ()"
+.br
+.RI "randomRem picks a random node 
+.br
+ "
+.ti -1c
+.RI "def \fBSIIS\&.randomNeigh\fP (pick)"
+.br
+.RI "randomNeigh "
+.ti -1c
+.RI "def \fBSIIS\&.max_degree\fP (edge)"
+.br
+.RI "max_degree "
+.ti -1c
+.RI "def \fBSIIS\&.removeNode\fP (nodea)"
+.br
+.RI "removeNode "
+.ti -1c
+.RI "def \fBSIIS\&.set_simulation\fP ()"
+.br
+.RI "set_simulation "
+.ti -1c
+.RI "def \fBSIIS\&.count\fP ()"
+.br
+.RI "count counts number of currently infected sets total_M values to current values "
+.ti -1c
+.RI "def \fBSIIS\&.run_sim\fP ()"
+.br
+.RI "\fBrun_sim()\fP carries out actual simulation uses for loop t inside time "
+.ti -1c
+.RI "def \fBSIIS\&.plot_res\fP (pause, supress, spr)"
+.br
+.RI "plot_res "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "int \fBSIIS\&.N\fP = 200"
+.br
+.RI "Number of nodes\&. "
+.ti -1c
+.RI "int \fBSIIS\&.tm\fP = 1000"
+.br
+.RI "Discrete time units\&. "
+.ti -1c
+.RI "int \fBSIIS\&.take_sample\fP = 0"
+.br
+.ti -1c
+.RI "int \fBSIIS\&.smp_size\fP = 10"
+.br
+.RI "sample size "
+.ti -1c
+.RI "int \fBSIIS\&.theta\fP = \&.10"
+.br
+.RI "Margin off error to see if a Meme won in sampling, if less than theta no clear winner\&. "
+.ti -1c
+.RI "int \fBSIIS\&.beta1\fP = \&.05"
+.br
+.ti -1c
+.RI "int \fBSIIS\&.beta2\fP = \&.05"
+.br
+.ti -1c
+.RI "int \fBSIIS\&.delta1\fP = \&.04"
+.br
+.ti -1c
+.RI "int \fBSIIS\&.delta2\fP = \&.04"
+.br
+.ti -1c
+.RI "int \fBSIIS\&.M1_Wins\fP = 0"
+.br
+.ti -1c
+.RI "int \fBSIIS\&.M2_Wins\fP = 0"
+.br
+.ti -1c
+.RI "int \fBSIIS\&.No_win\fP = 0"
+.br
+.ti -1c
+.RI "list \fBSIIS\&.allNodes\fP = []"
+.br
+.ti -1c
+.RI "int \fBSIIS\&.tot_inf1\fP = 0"
+.br
+.ti -1c
+.RI "int \fBSIIS\&.old_inf1\fP = 0"
+.br
+.ti -1c
+.RI "int \fBSIIS\&.old_inf2\fP = 0"
+.br
+.ti -1c
+.RI "int \fBSIIS\&.tot_inf2\fP = 0"
+.br
+.ti -1c
+.RI "int \fBSIIS\&.total_M1\fP = 0"
+.br
+.ti -1c
+.RI "int \fBSIIS\&.total_M2\fP = 0"
+.br
+.ti -1c
+.RI "int \fBSIIS\&.total_S\fP = 0"
+.br
+.ti -1c
+.RI "\fBSIIS\&.A1\fP = np\&.random\&.randint(2, size=(N, N), dtype=np\&.int8)"
+.br
+.RI "SETUP#################################################################################################################################################################################################\&. "
+.ti -1c
+.RI "\fBSIIS\&.A2\fP = np\&.random\&.randint(2, size=(N, N), dtype=np\&.int8)"
+.br
+.ti -1c
+.RI "tuple \fBSIIS\&.S1\fP = (1 \- delta1) * np\&.identity(N, dtype=np\&.int8) + beta1 * A1"
+.br
+.RI "create System Matrices "
+.ti -1c
+.RI "tuple \fBSIIS\&.S2\fP = (1 \- delta2) * np\&.identity(N, dtype=np\&.int8) + beta2 * A2"
+.br
+.ti -1c
+.RI "\fBSIIS\&.eigenValues1\fP = eigenValues1[idx]"
+.br
+.RI "get Eigen Values "
+.ti -1c
+.RI "\fBSIIS\&.eigenVectors1\fP = eigenVectors1[:,idx]"
+.br
+.ti -1c
+.RI "\fBSIIS\&.eigenValues2\fP = eigenValues2[idx]"
+.br
+.ti -1c
+.RI "\fBSIIS\&.eigenVectors2\fP = eigenVectors2[:,idx]"
+.br
+.ti -1c
+.RI "\fBSIIS\&.idx\fP = eigenValues1\&.argsort()[::\-1]"
+.br
+.RI "sort list of found eigenvalues to find the largest one "
+.ti -1c
+.RI "\fBSIIS\&.node\fP = Node()"
+.br
+.RI "Using our created \fBNode\fP data type, we fill a list with nodes of length N\&. "
+.ti -1c
+.RI "\fBSIIS\&.key\fP"
+.br
+.RI "sort nodes by ID number "
+.ti -1c
+.RI "\fBSIIS\&.id\fP"
+.br
+.ti -1c
+.RI "\fBSIIS\&.reverse\fP"
+.br
+.ti -1c
+.RI "\fBSIIS\&.infected_meme1\fP = random\&.sample(allNodes,10)"
+.br
+.RI "create first list of infected nodes holds org sets to use for multiple lists "
+.ti -1c
+.RI "\fBSIIS\&.infected_meme2\fP = random\&.sample(allNodes, 10)"
+.br
+.ti -1c
+.RI "int \fBSIIS\&.edge\fP = 1"
+.br
+.RI "Run Simulation without Supression\&. "
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Turle Defense_SIIS_python_simulation from the source code\&.

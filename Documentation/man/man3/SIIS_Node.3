@@ -1,0 +1,105 @@
+.TH "SIIS.Node" 3 "Thu May 5 2022" "Version 3" "Turle Defense_SIIS_python_simulation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SIIS.Node \- Class to implement node object each node object has unique id, list of its neighbors on each edge, and its state\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "def \fB__init__\fP (self)"
+.br
+.RI "\fIinit\fP "
+.ti -1c
+.RI "def \fBaddNeighbors\fP (self)"
+.br
+.RI "addNeighbors adds neighbors to each node method to add neighbors to node, call after Adj matrices are made "
+.ti -1c
+.RI "def \fBattack\fP (self)"
+.br
+.RI "attack "
+.ti -1c
+.RI "def \fBrecover\fP (self)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBid\fP"
+.br
+.ti -1c
+.RI "\fBe1_Neighbors\fP"
+.br
+.ti -1c
+.RI "\fBe2_Neighbors\fP"
+.br
+.ti -1c
+.RI "\fBstate\fP"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBcount\fP = 0"
+.br
+.RI "class variable count of total amount of nodes created, used to create unique \fBNode\fP ids "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class to implement node object each node object has unique id, list of its neighbors on each edge, and its state\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "def SIIS\&.Node\&.__init__ ( self)"
+
+.PP
+\fIinit\fP 
+.PP
+\fBParameters\fP
+.RS 4
+\fIself\fP The object pointer increases count after giving \fBNode\fP id 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "def SIIS\&.Node\&.addNeighbors ( self)"
+
+.PP
+addNeighbors adds neighbors to each node method to add neighbors to node, call after Adj matrices are made 
+.PP
+\fBWarning\fP
+.RS 4
+: Make sure to sort Nodes before using this method 
+.RE
+.PP
+
+.SS "def SIIS\&.Node\&.attack ( self)"
+
+.PP
+attack simualtes attacks on single node at single time t checks each infected neighbor on its corresponding edge using random number generation, random\&.random() which outputs a number between 0 and 1 it counts the number of attack from neighbors infected by each meme if the node is in state I1 or I2 then the node does not go through method if C1 > C2 the node becomes infected with meme 1 if C2 > C1 the node becomes infected with meme 2 else the node stays in state S 
+.SS "def SIIS\&.Node\&.recover ( self)"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "SIIS\&.Node\&.count = 0\fC [static]\fP"
+
+.PP
+class variable count of total amount of nodes created, used to create unique \fBNode\fP ids 
+.SS "SIIS\&.Node\&.e1_Neighbors"
+
+.SS "SIIS\&.Node\&.e2_Neighbors"
+
+.SS "SIIS\&.Node\&.id"
+
+.SS "SIIS\&.Node\&.state"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Turle Defense_SIIS_python_simulation from the source code\&.

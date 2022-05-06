@@ -1,0 +1,658 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_s_i_i_s" xml:lang="en-US">
+<title>SIIS Namespace Reference</title>
+<indexterm><primary>SIIS</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_s_i_i_s_1_1_node">Node</link></para>
+
+<para>Class to implement node object each node object has unique id, list of its neighbors on each edge, and its state. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_s_i_i_s_1_1_state">State</link></para>
+
+<para>Enumeration for States. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>def <link linkend="_namespace_s_i_i_s_1ad1a44a181ccd1524730d53df9267ca27">randomRem</link> ()</para>
+
+<para>randomRem picks a random node 
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+</listitem>
+            <listitem><para>def <link linkend="_namespace_s_i_i_s_1aa7a9b6c4d2a2d91106dd90b854611539">randomNeigh</link> (pick)</para>
+
+<para>randomNeigh </para>
+</listitem>
+            <listitem><para>def <link linkend="_namespace_s_i_i_s_1a80b1cbd24ef3bce4414388e55f7a8a17">max_degree</link> (<link linkend="_namespace_s_i_i_s_1a9b56e6ecae380824a538274919502b95">edge</link>)</para>
+
+<para>max_degree </para>
+</listitem>
+            <listitem><para>def <link linkend="_namespace_s_i_i_s_1aae09dbe3d97853cab90111e7f58197a7">removeNode</link> (nodea)</para>
+
+<para>removeNode </para>
+</listitem>
+            <listitem><para>def <link linkend="_namespace_s_i_i_s_1a68ed4322068cfbb790ec5fa305ded181">set_simulation</link> ()</para>
+
+<para>set_simulation </para>
+</listitem>
+            <listitem><para>def <link linkend="_namespace_s_i_i_s_1a9ce6bf60763fb485eaee729dcb4c2adb">count</link> ()</para>
+
+<para>count counts number of currently infected sets total_M values to current values </para>
+</listitem>
+            <listitem><para>def <link linkend="_namespace_s_i_i_s_1a0451e8de5927fe55012013546da79f33">run_sim</link> ()</para>
+
+<para><link linkend="_namespace_s_i_i_s_1a0451e8de5927fe55012013546da79f33">run_sim()</link> carries out actual simulation uses for loop t inside time </para>
+</listitem>
+            <listitem><para>def <link linkend="_namespace_s_i_i_s_1a107080135e2bcab2d5018a985632c0e1">plot_res</link> (pause, supress, spr)</para>
+
+<para>plot_res </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a62794a73400a5a491e326f153fb0eb4a">N</link> = 200</para>
+
+<para>Number of nodes. </para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a849dda36bfc0f180104fed68d251b82e">tm</link> = 1000</para>
+
+<para>Discrete time units. </para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1aad32ed61613e587b5c5de338d317cba3">take_sample</link> = 0</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1aeaf718b2a70cffd8bcc43b7d0f402913">smp_size</link> = 10</para>
+
+<para>sample size </para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1acf03c50d66038c1c2c8bf85c360af75f">theta</link> = .10</para>
+
+<para>Margin off error to see if a Meme won in sampling, if less than theta no clear winner. </para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a727237c66ea7d98aca6b3bd4e6fa1bcc">beta1</link> = .05</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1adcb989b943ed7927e5afbc277ca211a3">beta2</link> = .05</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a401502781da59716e64740b944b8f784">delta1</link> = .04</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a7e76e4a65200a189d0f8589d2cc767be">delta2</link> = .04</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a4dab4ad21b94aae4b1a57b86461a8278">M1_Wins</link> = 0</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1ab817f7461381c636343a06d89ff814aa">M2_Wins</link> = 0</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1ab3f32447bb574c518467b12920eea7d6">No_win</link> = 0</para>
+</listitem>
+            <listitem><para>list <link linkend="_namespace_s_i_i_s_1accf1f6818ac3be2623083abdb5f2b7ec">allNodes</link> = []</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a525fba1045fcacc5c547c6dcf3181056">tot_inf1</link> = 0</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a0e357539172c7604af85e61695c08ed3">old_inf1</link> = 0</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a52ffed4dec36d3be6b39b4e29686d1f5">old_inf2</link> = 0</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a75e6cdeeda5ed23dba13d1db30233bdd">tot_inf2</link> = 0</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1ade8340e66ce9b5146b1c975c241eebb2">total_M1</link> = 0</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a2c928cda870de1f11476f4a8536bd480">total_M2</link> = 0</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a61818c15fad0e5dc72309acf9ce98cd4">total_S</link> = 0</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_s_i_i_s_1aa5d8f43bef1575e80e2f288c3d1b6e53">A1</link> = np.random.randint(2, size=(<link linkend="_namespace_s_i_i_s_1a62794a73400a5a491e326f153fb0eb4a">N</link>, <link linkend="_namespace_s_i_i_s_1a62794a73400a5a491e326f153fb0eb4a">N</link>), dtype=np.int8)</para>
+
+<para>SETUP#################################################################################################################################################################################################. </para>
+</listitem>
+            <listitem><para><link linkend="_namespace_s_i_i_s_1a70172c3865725551cf373fc4a2f90433">A2</link> = np.random.randint(2, size=(<link linkend="_namespace_s_i_i_s_1a62794a73400a5a491e326f153fb0eb4a">N</link>, <link linkend="_namespace_s_i_i_s_1a62794a73400a5a491e326f153fb0eb4a">N</link>), dtype=np.int8)</para>
+</listitem>
+            <listitem><para>tuple <link linkend="_namespace_s_i_i_s_1a94d4aca0a1e957b7a51c910b70b542a5">S1</link> = (1 - <link linkend="_namespace_s_i_i_s_1a401502781da59716e64740b944b8f784">delta1</link>) * np.identity(<link linkend="_namespace_s_i_i_s_1a62794a73400a5a491e326f153fb0eb4a">N</link>, dtype=np.int8) + <link linkend="_namespace_s_i_i_s_1a727237c66ea7d98aca6b3bd4e6fa1bcc">beta1</link> * <link linkend="_namespace_s_i_i_s_1aa5d8f43bef1575e80e2f288c3d1b6e53">A1</link></para>
+
+<para>create System Matrices </para>
+</listitem>
+            <listitem><para>tuple <link linkend="_namespace_s_i_i_s_1afe0854a7f237a419933ae98bce821481">S2</link> = (1 - <link linkend="_namespace_s_i_i_s_1a7e76e4a65200a189d0f8589d2cc767be">delta2</link>) * np.identity(<link linkend="_namespace_s_i_i_s_1a62794a73400a5a491e326f153fb0eb4a">N</link>, dtype=np.int8) + <link linkend="_namespace_s_i_i_s_1adcb989b943ed7927e5afbc277ca211a3">beta2</link> * <link linkend="_namespace_s_i_i_s_1a70172c3865725551cf373fc4a2f90433">A2</link></para>
+</listitem>
+            <listitem><para><link linkend="_namespace_s_i_i_s_1a2cce8fdaa73ab70e4596012926ece943">eigenValues1</link> = eigenValues1[<link linkend="_namespace_s_i_i_s_1a84411c515614a2ed36af934a8c29cc1d">idx</link>]</para>
+
+<para>get Eigen Values </para>
+</listitem>
+            <listitem><para><link linkend="_namespace_s_i_i_s_1a06f0697a1529e8daa03480dabaaf708b">eigenVectors1</link> = eigenVectors1[:,<link linkend="_namespace_s_i_i_s_1a84411c515614a2ed36af934a8c29cc1d">idx</link>]</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_s_i_i_s_1ac3b1f2748063d9addb90e0c297eb9fb1">eigenValues2</link> = eigenValues2[<link linkend="_namespace_s_i_i_s_1a84411c515614a2ed36af934a8c29cc1d">idx</link>]</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_s_i_i_s_1a4b3d97c27d29c2dd23a0016b989ccb44">eigenVectors2</link> = eigenVectors2[:,<link linkend="_namespace_s_i_i_s_1a84411c515614a2ed36af934a8c29cc1d">idx</link>]</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_s_i_i_s_1a84411c515614a2ed36af934a8c29cc1d">idx</link> = eigenValues1.argsort()[::-1]</para>
+
+<para>sort list of found eigenvalues to find the largest one </para>
+</listitem>
+            <listitem><para><link linkend="_namespace_s_i_i_s_1ad510cbae67271dda2063233b51aaafad">node</link> = <link linkend="_class_s_i_i_s_1_1_node">Node</link>()</para>
+
+<para>Using our created <link linkend="_class_s_i_i_s_1_1_node">Node</link> data type, we fill a list with nodes of length N. </para>
+</listitem>
+            <listitem><para><link linkend="_namespace_s_i_i_s_1a4e70fbbd01f42c9eed3a49346a70af90">key</link></para>
+
+<para>sort nodes by ID number </para>
+</listitem>
+            <listitem><para><link linkend="_namespace_s_i_i_s_1a8da1a41b1401b1b7ac673d0a8d5265d3">id</link></para>
+</listitem>
+            <listitem><para><link linkend="_namespace_s_i_i_s_1a9a41d5936ff90936a135c91f442699ae">reverse</link></para>
+</listitem>
+            <listitem><para><link linkend="_namespace_s_i_i_s_1ab9810fef4d7b3ff0765a4d6830a9ca96">infected_meme1</link> = random.sample(<link linkend="_namespace_s_i_i_s_1accf1f6818ac3be2623083abdb5f2b7ec">allNodes</link>,10)</para>
+
+<para>create first list of infected nodes holds org sets to use for multiple lists </para>
+</listitem>
+            <listitem><para><link linkend="_namespace_s_i_i_s_1a93604b4d9e16c1681f652610898b8011">infected_meme2</link> = random.sample(<link linkend="_namespace_s_i_i_s_1accf1f6818ac3be2623083abdb5f2b7ec">allNodes</link>, 10)</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a9b56e6ecae380824a538274919502b95">edge</link> = 1</para>
+
+<para>Run Simulation without Supression. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><literallayout><computeroutput>@package SIIS
+Python Simulation of the SIIS Model from 
+‘Competing Memes Propagation on Networks: A Network Science Perspective’ 
+Using random number generation 
+@author Robert Bacigalupo
+@author Tyler Ovenden
+@author Auerman Atif 
+@version 3.0
+@date MAY 2022
+</computeroutput></literallayout> </para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_namespace_s_i_i_s_1a9ce6bf60763fb485eaee729dcb4c2adb"/><section>
+    <title>count()</title>
+<indexterm><primary>count</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>count</secondary></indexterm>
+<para><computeroutput>def SIIS.count ( )</computeroutput></para><para>
+
+<para>count counts number of currently infected sets total_M values to current values </para>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_s_i_i_s_a9ce6bf60763fb485eaee729dcb4c2adb_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_namespace_s_i_i_s_1a80b1cbd24ef3bce4414388e55f7a8a17"/><section>
+    <title>max_degree()</title>
+<indexterm><primary>max_degree</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>max_degree</secondary></indexterm>
+<para><computeroutput>def SIIS.max_degree ( edge)</computeroutput></para><para>
+
+<para>max_degree </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>edge</entry><entry>
+<para>What edge to delete node from removes node max degree or most connections </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_s_i_i_s_a80b1cbd24ef3bce4414388e55f7a8a17_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_namespace_s_i_i_s_1a107080135e2bcab2d5018a985632c0e1"/><section>
+    <title>plot_res()</title>
+<indexterm><primary>plot_res</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>plot_res</secondary></indexterm>
+<para><computeroutput>def SIIS.plot_res ( pause,  supress,  spr)</computeroutput></para><para>
+
+<para>plot_res </para>
+</para>
+
+<para>plots histogram and time graph of simulation 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>pause</entry><entry>
+<para>if true does not plot but sets up graph until ran again with pause = false </para>
+</entry>
+                            </row>
+                            <row>
+<entry>supress</entry><entry>
+<para>if true plot supression methods as well </para>
+</entry>
+                            </row>
+                            <row>
+<entry>spr</entry><entry>
+<para>hold name supression method graphed to name on graph </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_namespace_s_i_i_s_1aa7a9b6c4d2a2d91106dd90b854611539"/><section>
+    <title>randomNeigh()</title>
+<indexterm><primary>randomNeigh</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>randomNeigh</secondary></indexterm>
+<para><computeroutput>def SIIS.randomNeigh ( pick)</computeroutput></para><para>
+
+<para>randomNeigh </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>pick</entry><entry>
+<para>What edge to delete node from picks a random neighbor of a random node </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_s_i_i_s_aa7a9b6c4d2a2d91106dd90b854611539_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_namespace_s_i_i_s_1ad1a44a181ccd1524730d53df9267ca27"/><section>
+    <title>randomRem()</title>
+<indexterm><primary>randomRem</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>randomRem</secondary></indexterm>
+<para><computeroutput>def SIIS.randomRem ( )</computeroutput></para><para>
+
+<para>randomRem picks a random node 
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_s_i_i_s_ad1a44a181ccd1524730d53df9267ca27_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_namespace_s_i_i_s_1aae09dbe3d97853cab90111e7f58197a7"/><section>
+    <title>removeNode()</title>
+<indexterm><primary>removeNode</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>removeNode</secondary></indexterm>
+<para><computeroutput>def SIIS.removeNode ( nodea)</computeroutput></para><para>
+
+<para>removeNode </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>nodea</entry><entry>
+<para>The node to be deleted removes the node being passed </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_s_i_i_s_aae09dbe3d97853cab90111e7f58197a7_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_namespace_s_i_i_s_1a0451e8de5927fe55012013546da79f33"/><section>
+    <title>run_sim()</title>
+<indexterm><primary>run_sim</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>run_sim</secondary></indexterm>
+<para><computeroutput>def SIIS.run_sim ( )</computeroutput></para><para>
+
+<para><link linkend="_namespace_s_i_i_s_1a0451e8de5927fe55012013546da79f33">run_sim()</link> carries out actual simulation uses for loop t inside time </para>
+</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_s_i_i_s_a0451e8de5927fe55012013546da79f33_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_namespace_s_i_i_s_1a68ed4322068cfbb790ec5fa305ded181"/><section>
+    <title>set_simulation()</title>
+<indexterm><primary>set_simulation</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>set_simulation</secondary></indexterm>
+<para><computeroutput>def SIIS.set_simulation ( )</computeroutput></para><para>
+
+<para>set_simulation </para>
+</para>
+
+<para>sets up infected lists for infection set infected counts to empty set array of stats to empty sets x axis as empty </para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_s_i_i_s_a68ed4322068cfbb790ec5fa305ded181_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_s_i_i_s_a68ed4322068cfbb790ec5fa305ded181_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_namespace_s_i_i_s_1aa5d8f43bef1575e80e2f288c3d1b6e53"/><section>
+    <title>A1</title>
+<indexterm><primary>A1</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>A1</secondary></indexterm>
+<para><computeroutput>tuple SIIS.A1 = np.random.randint(2, size=(<link linkend="_namespace_s_i_i_s_1a62794a73400a5a491e326f153fb0eb4a">N</link>, <link linkend="_namespace_s_i_i_s_1a62794a73400a5a491e326f153fb0eb4a">N</link>), dtype=np.int8)</computeroutput></para><para>
+
+<para>SETUP#################################################################################################################################################################################################. </para>
+</para>
+
+<para>Make sure adj are symmetric and values are 2 or 1 By making it symmetric, we are making sure if <link linkend="_class_s_i_i_s_1_1_node">Node</link> 1 is connected to <link linkend="_class_s_i_i_s_1_1_node">Node</link> 2, then <link linkend="_class_s_i_i_s_1_1_node">Node</link> 2 is also connected to <link linkend="_class_s_i_i_s_1_1_node">Node</link> 1. </para>
+</section>
+<anchor xml:id="_namespace_s_i_i_s_1a70172c3865725551cf373fc4a2f90433"/><section>
+    <title>A2</title>
+<indexterm><primary>A2</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>A2</secondary></indexterm>
+<para><computeroutput>tuple SIIS.A2 = np.random.randint(2, size=(<link linkend="_namespace_s_i_i_s_1a62794a73400a5a491e326f153fb0eb4a">N</link>, <link linkend="_namespace_s_i_i_s_1a62794a73400a5a491e326f153fb0eb4a">N</link>), dtype=np.int8)</computeroutput></para></section>
+<anchor xml:id="_namespace_s_i_i_s_1accf1f6818ac3be2623083abdb5f2b7ec"/><section>
+    <title>allNodes</title>
+<indexterm><primary>allNodes</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>allNodes</secondary></indexterm>
+<para><computeroutput>list SIIS.allNodes = []</computeroutput></para></section>
+<anchor xml:id="_namespace_s_i_i_s_1a727237c66ea7d98aca6b3bd4e6fa1bcc"/><section>
+    <title>beta1</title>
+<indexterm><primary>beta1</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>beta1</secondary></indexterm>
+<para><computeroutput>int SIIS.beta1 = .05</computeroutput></para></section>
+<anchor xml:id="_namespace_s_i_i_s_1adcb989b943ed7927e5afbc277ca211a3"/><section>
+    <title>beta2</title>
+<indexterm><primary>beta2</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>beta2</secondary></indexterm>
+<para><computeroutput>int SIIS.beta2 = .05</computeroutput></para></section>
+<anchor xml:id="_namespace_s_i_i_s_1a401502781da59716e64740b944b8f784"/><section>
+    <title>delta1</title>
+<indexterm><primary>delta1</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>delta1</secondary></indexterm>
+<para><computeroutput>int SIIS.delta1 = .04</computeroutput></para></section>
+<anchor xml:id="_namespace_s_i_i_s_1a7e76e4a65200a189d0f8589d2cc767be"/><section>
+    <title>delta2</title>
+<indexterm><primary>delta2</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>delta2</secondary></indexterm>
+<para><computeroutput>int SIIS.delta2 = .04</computeroutput></para></section>
+<anchor xml:id="_namespace_s_i_i_s_1a9b56e6ecae380824a538274919502b95"/><section>
+    <title>edge</title>
+<indexterm><primary>edge</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>edge</secondary></indexterm>
+<para><computeroutput>int SIIS.edge = 1</computeroutput></para><para>
+
+<para>Run Simulation without Supression. </para>
+</para>
+
+<para>MAIN LOOP################################################################################################################################################################################</para>
+
+<para>Run with Suppression Methods </para>
+</section>
+<anchor xml:id="_namespace_s_i_i_s_1a2cce8fdaa73ab70e4596012926ece943"/><section>
+    <title>eigenValues1</title>
+<indexterm><primary>eigenValues1</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>eigenValues1</secondary></indexterm>
+<para><computeroutput>SIIS.eigenValues1 = eigenValues1[<link linkend="_namespace_s_i_i_s_1a84411c515614a2ed36af934a8c29cc1d">idx</link>]</computeroutput></para><para>
+
+<para>get Eigen Values </para>
+</para>
+</section>
+<anchor xml:id="_namespace_s_i_i_s_1ac3b1f2748063d9addb90e0c297eb9fb1"/><section>
+    <title>eigenValues2</title>
+<indexterm><primary>eigenValues2</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>eigenValues2</secondary></indexterm>
+<para><computeroutput>SIIS.eigenValues2 = eigenValues2[<link linkend="_namespace_s_i_i_s_1a84411c515614a2ed36af934a8c29cc1d">idx</link>]</computeroutput></para></section>
+<anchor xml:id="_namespace_s_i_i_s_1a06f0697a1529e8daa03480dabaaf708b"/><section>
+    <title>eigenVectors1</title>
+<indexterm><primary>eigenVectors1</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>eigenVectors1</secondary></indexterm>
+<para><computeroutput>SIIS.eigenVectors1 = eigenVectors1[:,<link linkend="_namespace_s_i_i_s_1a84411c515614a2ed36af934a8c29cc1d">idx</link>]</computeroutput></para></section>
+<anchor xml:id="_namespace_s_i_i_s_1a4b3d97c27d29c2dd23a0016b989ccb44"/><section>
+    <title>eigenVectors2</title>
+<indexterm><primary>eigenVectors2</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>eigenVectors2</secondary></indexterm>
+<para><computeroutput>SIIS.eigenVectors2 = eigenVectors2[:,<link linkend="_namespace_s_i_i_s_1a84411c515614a2ed36af934a8c29cc1d">idx</link>]</computeroutput></para></section>
+<anchor xml:id="_namespace_s_i_i_s_1a8da1a41b1401b1b7ac673d0a8d5265d3"/><section>
+    <title>id</title>
+<indexterm><primary>id</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>id</secondary></indexterm>
+<para><computeroutput>SIIS.id</computeroutput></para></section>
+<anchor xml:id="_namespace_s_i_i_s_1a84411c515614a2ed36af934a8c29cc1d"/><section>
+    <title>idx</title>
+<indexterm><primary>idx</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>idx</secondary></indexterm>
+<para><computeroutput>SIIS.idx = eigenValues1.argsort()[::-1]</computeroutput></para><para>
+
+<para>sort list of found eigenvalues to find the largest one </para>
+</para>
+</section>
+<anchor xml:id="_namespace_s_i_i_s_1ab9810fef4d7b3ff0765a4d6830a9ca96"/><section>
+    <title>infected_meme1</title>
+<indexterm><primary>infected_meme1</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>infected_meme1</secondary></indexterm>
+<para><computeroutput>SIIS.infected_meme1 = random.sample(<link linkend="_namespace_s_i_i_s_1accf1f6818ac3be2623083abdb5f2b7ec">allNodes</link>,10)</computeroutput></para><para>
+
+<para>create first list of infected nodes holds org sets to use for multiple lists </para>
+</para>
+</section>
+<anchor xml:id="_namespace_s_i_i_s_1a93604b4d9e16c1681f652610898b8011"/><section>
+    <title>infected_meme2</title>
+<indexterm><primary>infected_meme2</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>infected_meme2</secondary></indexterm>
+<para><computeroutput>SIIS.infected_meme2 = random.sample(<link linkend="_namespace_s_i_i_s_1accf1f6818ac3be2623083abdb5f2b7ec">allNodes</link>, 10)</computeroutput></para></section>
+<anchor xml:id="_namespace_s_i_i_s_1a4e70fbbd01f42c9eed3a49346a70af90"/><section>
+    <title>key</title>
+<indexterm><primary>key</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>key</secondary></indexterm>
+<para><computeroutput>SIIS.key</computeroutput></para><para>
+
+<para>sort nodes by ID number </para>
+</para>
+</section>
+<anchor xml:id="_namespace_s_i_i_s_1a4dab4ad21b94aae4b1a57b86461a8278"/><section>
+    <title>M1_Wins</title>
+<indexterm><primary>M1_Wins</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>M1_Wins</secondary></indexterm>
+<para><computeroutput>int SIIS.M1_Wins = 0</computeroutput></para></section>
+<anchor xml:id="_namespace_s_i_i_s_1ab817f7461381c636343a06d89ff814aa"/><section>
+    <title>M2_Wins</title>
+<indexterm><primary>M2_Wins</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>M2_Wins</secondary></indexterm>
+<para><computeroutput>int SIIS.M2_Wins = 0</computeroutput></para></section>
+<anchor xml:id="_namespace_s_i_i_s_1a62794a73400a5a491e326f153fb0eb4a"/><section>
+    <title>N</title>
+<indexterm><primary>N</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>N</secondary></indexterm>
+<para><computeroutput>SIIS.N = 200</computeroutput></para><para>
+
+<para>Number of nodes. </para>
+</para>
+</section>
+<anchor xml:id="_namespace_s_i_i_s_1ab3f32447bb574c518467b12920eea7d6"/><section>
+    <title>No_win</title>
+<indexterm><primary>No_win</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>No_win</secondary></indexterm>
+<para><computeroutput>int SIIS.No_win = 0</computeroutput></para></section>
+<anchor xml:id="_namespace_s_i_i_s_1ad510cbae67271dda2063233b51aaafad"/><section>
+    <title>node</title>
+<indexterm><primary>node</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>node</secondary></indexterm>
+<para><computeroutput>SIIS.node = <link linkend="_class_s_i_i_s_1_1_node">Node</link>()</computeroutput></para><para>
+
+<para>Using our created <link linkend="_class_s_i_i_s_1_1_node">Node</link> data type, we fill a list with nodes of length N. </para>
+</para>
+</section>
+<anchor xml:id="_namespace_s_i_i_s_1a0e357539172c7604af85e61695c08ed3"/><section>
+    <title>old_inf1</title>
+<indexterm><primary>old_inf1</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>old_inf1</secondary></indexterm>
+<para><computeroutput>int SIIS.old_inf1 = 0</computeroutput></para></section>
+<anchor xml:id="_namespace_s_i_i_s_1a52ffed4dec36d3be6b39b4e29686d1f5"/><section>
+    <title>old_inf2</title>
+<indexterm><primary>old_inf2</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>old_inf2</secondary></indexterm>
+<para><computeroutput>int SIIS.old_inf2 = 0</computeroutput></para></section>
+<anchor xml:id="_namespace_s_i_i_s_1a9a41d5936ff90936a135c91f442699ae"/><section>
+    <title>reverse</title>
+<indexterm><primary>reverse</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>reverse</secondary></indexterm>
+<para><computeroutput>SIIS.reverse</computeroutput></para></section>
+<anchor xml:id="_namespace_s_i_i_s_1a94d4aca0a1e957b7a51c910b70b542a5"/><section>
+    <title>S1</title>
+<indexterm><primary>S1</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>S1</secondary></indexterm>
+<para><computeroutput>tuple SIIS.S1 = (1 - <link linkend="_namespace_s_i_i_s_1a401502781da59716e64740b944b8f784">delta1</link>) * np.identity(<link linkend="_namespace_s_i_i_s_1a62794a73400a5a491e326f153fb0eb4a">N</link>, dtype=np.int8) + <link linkend="_namespace_s_i_i_s_1a727237c66ea7d98aca6b3bd4e6fa1bcc">beta1</link> * <link linkend="_namespace_s_i_i_s_1aa5d8f43bef1575e80e2f288c3d1b6e53">A1</link></computeroutput></para><para>
+
+<para>create System Matrices </para>
+</para>
+</section>
+<anchor xml:id="_namespace_s_i_i_s_1afe0854a7f237a419933ae98bce821481"/><section>
+    <title>S2</title>
+<indexterm><primary>S2</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>S2</secondary></indexterm>
+<para><computeroutput>tuple SIIS.S2 = (1 - <link linkend="_namespace_s_i_i_s_1a7e76e4a65200a189d0f8589d2cc767be">delta2</link>) * np.identity(<link linkend="_namespace_s_i_i_s_1a62794a73400a5a491e326f153fb0eb4a">N</link>, dtype=np.int8) + <link linkend="_namespace_s_i_i_s_1adcb989b943ed7927e5afbc277ca211a3">beta2</link> * <link linkend="_namespace_s_i_i_s_1a70172c3865725551cf373fc4a2f90433">A2</link></computeroutput></para></section>
+<anchor xml:id="_namespace_s_i_i_s_1aeaf718b2a70cffd8bcc43b7d0f402913"/><section>
+    <title>smp_size</title>
+<indexterm><primary>smp_size</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>smp_size</secondary></indexterm>
+<para><computeroutput>SIIS.smp_size = 10</computeroutput></para><para>
+
+<para>sample size </para>
+</para>
+</section>
+<anchor xml:id="_namespace_s_i_i_s_1aad32ed61613e587b5c5de338d317cba3"/><section>
+    <title>take_sample</title>
+<indexterm><primary>take_sample</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>take_sample</secondary></indexterm>
+<para><computeroutput>int SIIS.take_sample = 0</computeroutput></para></section>
+<anchor xml:id="_namespace_s_i_i_s_1acf03c50d66038c1c2c8bf85c360af75f"/><section>
+    <title>theta</title>
+<indexterm><primary>theta</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>theta</secondary></indexterm>
+<para><computeroutput>SIIS.theta = .10</computeroutput></para><para>
+
+<para>Margin off error to see if a Meme won in sampling, if less than theta no clear winner. </para>
+</para>
+</section>
+<anchor xml:id="_namespace_s_i_i_s_1a849dda36bfc0f180104fed68d251b82e"/><section>
+    <title>tm</title>
+<indexterm><primary>tm</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>tm</secondary></indexterm>
+<para><computeroutput>SIIS.tm = 1000</computeroutput></para><para>
+
+<para>Discrete time units. </para>
+</para>
+</section>
+<anchor xml:id="_namespace_s_i_i_s_1a525fba1045fcacc5c547c6dcf3181056"/><section>
+    <title>tot_inf1</title>
+<indexterm><primary>tot_inf1</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>tot_inf1</secondary></indexterm>
+<para><computeroutput>int SIIS.tot_inf1 = 0</computeroutput></para></section>
+<anchor xml:id="_namespace_s_i_i_s_1a75e6cdeeda5ed23dba13d1db30233bdd"/><section>
+    <title>tot_inf2</title>
+<indexterm><primary>tot_inf2</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>tot_inf2</secondary></indexterm>
+<para><computeroutput>int SIIS.tot_inf2 = 0</computeroutput></para></section>
+<anchor xml:id="_namespace_s_i_i_s_1ade8340e66ce9b5146b1c975c241eebb2"/><section>
+    <title>total_M1</title>
+<indexterm><primary>total_M1</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>total_M1</secondary></indexterm>
+<para><computeroutput>int SIIS.total_M1 = 0</computeroutput></para></section>
+<anchor xml:id="_namespace_s_i_i_s_1a2c928cda870de1f11476f4a8536bd480"/><section>
+    <title>total_M2</title>
+<indexterm><primary>total_M2</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>total_M2</secondary></indexterm>
+<para><computeroutput>int SIIS.total_M2 = 0</computeroutput></para></section>
+<anchor xml:id="_namespace_s_i_i_s_1a61818c15fad0e5dc72309acf9ce98cd4"/><section>
+    <title>total_S</title>
+<indexterm><primary>total_S</primary><secondary>SIIS</secondary></indexterm>
+<indexterm><primary>SIIS</primary><secondary>total_S</secondary></indexterm>
+<para><computeroutput>int SIIS.total_S = 0</computeroutput></para></section>
+</section>
+</section>

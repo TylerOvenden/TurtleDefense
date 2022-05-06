@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__s_i_i_s_8py" xml:lang="en-US">
+<title>C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py File Reference</title>
+<indexterm><primary>C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_s_i_i_s_1_1_state">SIIS.State</link></para>
+
+<para>Enumeration for States. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_s_i_i_s_1_1_node">SIIS.Node</link></para>
+
+<para>Class to implement node object each node object has unique id, list of its neighbors on each edge, and its state. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_s_i_i_s">SIIS</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>def <link linkend="_namespace_s_i_i_s_1ad1a44a181ccd1524730d53df9267ca27">SIIS.randomRem</link> ()</para>
+
+<para>randomRem picks a random node 
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+</listitem>
+            <listitem><para>def <link linkend="_namespace_s_i_i_s_1aa7a9b6c4d2a2d91106dd90b854611539">SIIS.randomNeigh</link> (pick)</para>
+
+<para>randomNeigh </para>
+</listitem>
+            <listitem><para>def <link linkend="_namespace_s_i_i_s_1a80b1cbd24ef3bce4414388e55f7a8a17">SIIS.max_degree</link> (edge)</para>
+
+<para>max_degree </para>
+</listitem>
+            <listitem><para>def <link linkend="_namespace_s_i_i_s_1aae09dbe3d97853cab90111e7f58197a7">SIIS.removeNode</link> (nodea)</para>
+
+<para>removeNode </para>
+</listitem>
+            <listitem><para>def <link linkend="_namespace_s_i_i_s_1a68ed4322068cfbb790ec5fa305ded181">SIIS.set_simulation</link> ()</para>
+
+<para>set_simulation </para>
+</listitem>
+            <listitem><para>def <link linkend="_namespace_s_i_i_s_1a9ce6bf60763fb485eaee729dcb4c2adb">SIIS.count</link> ()</para>
+
+<para>count counts number of currently infected sets total_M values to current values </para>
+</listitem>
+            <listitem><para>def <link linkend="_namespace_s_i_i_s_1a0451e8de5927fe55012013546da79f33">SIIS.run_sim</link> ()</para>
+
+<para><link linkend="_namespace_s_i_i_s_1a0451e8de5927fe55012013546da79f33">run_sim()</link> carries out actual simulation uses for loop t inside time </para>
+</listitem>
+            <listitem><para>def <link linkend="_namespace_s_i_i_s_1a107080135e2bcab2d5018a985632c0e1">SIIS.plot_res</link> (pause, supress, spr)</para>
+
+<para>plot_res </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a62794a73400a5a491e326f153fb0eb4a">SIIS.N</link> = 200</para>
+
+<para>Number of nodes. </para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a849dda36bfc0f180104fed68d251b82e">SIIS.tm</link> = 1000</para>
+
+<para>Discrete time units. </para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1aad32ed61613e587b5c5de338d317cba3">SIIS.take_sample</link> = 0</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1aeaf718b2a70cffd8bcc43b7d0f402913">SIIS.smp_size</link> = 10</para>
+
+<para>sample size </para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1acf03c50d66038c1c2c8bf85c360af75f">SIIS.theta</link> = .10</para>
+
+<para>Margin off error to see if a Meme won in sampling, if less than theta no clear winner. </para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a727237c66ea7d98aca6b3bd4e6fa1bcc">SIIS.beta1</link> = .05</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1adcb989b943ed7927e5afbc277ca211a3">SIIS.beta2</link> = .05</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a401502781da59716e64740b944b8f784">SIIS.delta1</link> = .04</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a7e76e4a65200a189d0f8589d2cc767be">SIIS.delta2</link> = .04</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a4dab4ad21b94aae4b1a57b86461a8278">SIIS.M1_Wins</link> = 0</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1ab817f7461381c636343a06d89ff814aa">SIIS.M2_Wins</link> = 0</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1ab3f32447bb574c518467b12920eea7d6">SIIS.No_win</link> = 0</para>
+</listitem>
+            <listitem><para>list <link linkend="_namespace_s_i_i_s_1accf1f6818ac3be2623083abdb5f2b7ec">SIIS.allNodes</link> = []</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a525fba1045fcacc5c547c6dcf3181056">SIIS.tot_inf1</link> = 0</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a0e357539172c7604af85e61695c08ed3">SIIS.old_inf1</link> = 0</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a52ffed4dec36d3be6b39b4e29686d1f5">SIIS.old_inf2</link> = 0</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a75e6cdeeda5ed23dba13d1db30233bdd">SIIS.tot_inf2</link> = 0</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1ade8340e66ce9b5146b1c975c241eebb2">SIIS.total_M1</link> = 0</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a2c928cda870de1f11476f4a8536bd480">SIIS.total_M2</link> = 0</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a61818c15fad0e5dc72309acf9ce98cd4">SIIS.total_S</link> = 0</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_s_i_i_s_1aa5d8f43bef1575e80e2f288c3d1b6e53">SIIS.A1</link> = np.random.randint(2, size=(N, N), dtype=np.int8)</para>
+
+<para>SETUP#################################################################################################################################################################################################. </para>
+</listitem>
+            <listitem><para><link linkend="_namespace_s_i_i_s_1a70172c3865725551cf373fc4a2f90433">SIIS.A2</link> = np.random.randint(2, size=(N, N), dtype=np.int8)</para>
+</listitem>
+            <listitem><para>tuple <link linkend="_namespace_s_i_i_s_1a94d4aca0a1e957b7a51c910b70b542a5">SIIS.S1</link> = (1 - delta1) * np.identity(N, dtype=np.int8) + beta1 * A1</para>
+
+<para>create System Matrices </para>
+</listitem>
+            <listitem><para>tuple <link linkend="_namespace_s_i_i_s_1afe0854a7f237a419933ae98bce821481">SIIS.S2</link> = (1 - delta2) * np.identity(N, dtype=np.int8) + beta2 * A2</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_s_i_i_s_1a2cce8fdaa73ab70e4596012926ece943">SIIS.eigenValues1</link> = eigenValues1[idx]</para>
+
+<para>get Eigen Values </para>
+</listitem>
+            <listitem><para><link linkend="_namespace_s_i_i_s_1a06f0697a1529e8daa03480dabaaf708b">SIIS.eigenVectors1</link> = eigenVectors1[:,idx]</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_s_i_i_s_1ac3b1f2748063d9addb90e0c297eb9fb1">SIIS.eigenValues2</link> = eigenValues2[idx]</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_s_i_i_s_1a4b3d97c27d29c2dd23a0016b989ccb44">SIIS.eigenVectors2</link> = eigenVectors2[:,idx]</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_s_i_i_s_1a84411c515614a2ed36af934a8c29cc1d">SIIS.idx</link> = eigenValues1.argsort()[::-1]</para>
+
+<para>sort list of found eigenvalues to find the largest one </para>
+</listitem>
+            <listitem><para><link linkend="_namespace_s_i_i_s_1ad510cbae67271dda2063233b51aaafad">SIIS.node</link> = Node()</para>
+
+<para>Using our created <link linkend="_class_s_i_i_s_1_1_node">Node</link> data type, we fill a list with nodes of length N. </para>
+</listitem>
+            <listitem><para><link linkend="_namespace_s_i_i_s_1a4e70fbbd01f42c9eed3a49346a70af90">SIIS.key</link></para>
+
+<para>sort nodes by ID number </para>
+</listitem>
+            <listitem><para><link linkend="_namespace_s_i_i_s_1a8da1a41b1401b1b7ac673d0a8d5265d3">SIIS.id</link></para>
+</listitem>
+            <listitem><para><link linkend="_namespace_s_i_i_s_1a9a41d5936ff90936a135c91f442699ae">SIIS.reverse</link></para>
+</listitem>
+            <listitem><para><link linkend="_namespace_s_i_i_s_1ab9810fef4d7b3ff0765a4d6830a9ca96">SIIS.infected_meme1</link> = random.sample(allNodes,10)</para>
+
+<para>create first list of infected nodes holds org sets to use for multiple lists </para>
+</listitem>
+            <listitem><para><link linkend="_namespace_s_i_i_s_1a93604b4d9e16c1681f652610898b8011">SIIS.infected_meme2</link> = random.sample(allNodes, 10)</para>
+</listitem>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a9b56e6ecae380824a538274919502b95">SIIS.edge</link> = 1</para>
+
+<para>Run Simulation without Supression. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

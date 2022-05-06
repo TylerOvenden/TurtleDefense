@@ -1,0 +1,371 @@
+.TH "SIIS" 3 "Thu May 5 2022" "Version 3" "Turle Defense_SIIS_python_simulation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SIIS
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBNode\fP"
+.br
+.RI "Class to implement node object each node object has unique id, list of its neighbors on each edge, and its state\&. "
+.ti -1c
+.RI "class \fBState\fP"
+.br
+.RI "Enumeration for States\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "def \fBrandomRem\fP ()"
+.br
+.RI "randomRem picks a random node 
+.br
+ "
+.ti -1c
+.RI "def \fBrandomNeigh\fP (pick)"
+.br
+.RI "randomNeigh "
+.ti -1c
+.RI "def \fBmax_degree\fP (\fBedge\fP)"
+.br
+.RI "max_degree "
+.ti -1c
+.RI "def \fBremoveNode\fP (nodea)"
+.br
+.RI "removeNode "
+.ti -1c
+.RI "def \fBset_simulation\fP ()"
+.br
+.RI "set_simulation "
+.ti -1c
+.RI "def \fBcount\fP ()"
+.br
+.RI "count counts number of currently infected sets total_M values to current values "
+.ti -1c
+.RI "def \fBrun_sim\fP ()"
+.br
+.RI "\fBrun_sim()\fP carries out actual simulation uses for loop t inside time "
+.ti -1c
+.RI "def \fBplot_res\fP (pause, supress, spr)"
+.br
+.RI "plot_res "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "int \fBN\fP = 200"
+.br
+.RI "Number of nodes\&. "
+.ti -1c
+.RI "int \fBtm\fP = 1000"
+.br
+.RI "Discrete time units\&. "
+.ti -1c
+.RI "int \fBtake_sample\fP = 0"
+.br
+.ti -1c
+.RI "int \fBsmp_size\fP = 10"
+.br
+.RI "sample size "
+.ti -1c
+.RI "int \fBtheta\fP = \&.10"
+.br
+.RI "Margin off error to see if a Meme won in sampling, if less than theta no clear winner\&. "
+.ti -1c
+.RI "int \fBbeta1\fP = \&.05"
+.br
+.ti -1c
+.RI "int \fBbeta2\fP = \&.05"
+.br
+.ti -1c
+.RI "int \fBdelta1\fP = \&.04"
+.br
+.ti -1c
+.RI "int \fBdelta2\fP = \&.04"
+.br
+.ti -1c
+.RI "int \fBM1_Wins\fP = 0"
+.br
+.ti -1c
+.RI "int \fBM2_Wins\fP = 0"
+.br
+.ti -1c
+.RI "int \fBNo_win\fP = 0"
+.br
+.ti -1c
+.RI "list \fBallNodes\fP = []"
+.br
+.ti -1c
+.RI "int \fBtot_inf1\fP = 0"
+.br
+.ti -1c
+.RI "int \fBold_inf1\fP = 0"
+.br
+.ti -1c
+.RI "int \fBold_inf2\fP = 0"
+.br
+.ti -1c
+.RI "int \fBtot_inf2\fP = 0"
+.br
+.ti -1c
+.RI "int \fBtotal_M1\fP = 0"
+.br
+.ti -1c
+.RI "int \fBtotal_M2\fP = 0"
+.br
+.ti -1c
+.RI "int \fBtotal_S\fP = 0"
+.br
+.ti -1c
+.RI "\fBA1\fP = np\&.random\&.randint(2, size=(\fBN\fP, \fBN\fP), dtype=np\&.int8)"
+.br
+.RI "SETUP#################################################################################################################################################################################################\&. "
+.ti -1c
+.RI "\fBA2\fP = np\&.random\&.randint(2, size=(\fBN\fP, \fBN\fP), dtype=np\&.int8)"
+.br
+.ti -1c
+.RI "tuple \fBS1\fP = (1 \- \fBdelta1\fP) * np\&.identity(\fBN\fP, dtype=np\&.int8) + \fBbeta1\fP * \fBA1\fP"
+.br
+.RI "create System Matrices "
+.ti -1c
+.RI "tuple \fBS2\fP = (1 \- \fBdelta2\fP) * np\&.identity(\fBN\fP, dtype=np\&.int8) + \fBbeta2\fP * \fBA2\fP"
+.br
+.ti -1c
+.RI "\fBeigenValues1\fP = eigenValues1[\fBidx\fP]"
+.br
+.RI "get Eigen Values "
+.ti -1c
+.RI "\fBeigenVectors1\fP = eigenVectors1[:,\fBidx\fP]"
+.br
+.ti -1c
+.RI "\fBeigenValues2\fP = eigenValues2[\fBidx\fP]"
+.br
+.ti -1c
+.RI "\fBeigenVectors2\fP = eigenVectors2[:,\fBidx\fP]"
+.br
+.ti -1c
+.RI "\fBidx\fP = eigenValues1\&.argsort()[::\-1]"
+.br
+.RI "sort list of found eigenvalues to find the largest one "
+.ti -1c
+.RI "\fBnode\fP = \fBNode\fP()"
+.br
+.RI "Using our created \fBNode\fP data type, we fill a list with nodes of length N\&. "
+.ti -1c
+.RI "\fBkey\fP"
+.br
+.RI "sort nodes by ID number "
+.ti -1c
+.RI "\fBid\fP"
+.br
+.ti -1c
+.RI "\fBreverse\fP"
+.br
+.ti -1c
+.RI "\fBinfected_meme1\fP = random\&.sample(\fBallNodes\fP,10)"
+.br
+.RI "create first list of infected nodes holds org sets to use for multiple lists "
+.ti -1c
+.RI "\fBinfected_meme2\fP = random\&.sample(\fBallNodes\fP, 10)"
+.br
+.ti -1c
+.RI "int \fBedge\fP = 1"
+.br
+.RI "Run Simulation without Supression\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+.nf
+@package SIIS
+Python Simulation of the SIIS Model from 
+‘Competing Memes Propagation on Networks: A Network Science Perspective’ 
+Using random number generation 
+@author Robert Bacigalupo
+@author Tyler Ovenden
+@author Auerman Atif 
+@version 3\&.0
+@date MAY 2022
+
+.fi
+.PP
+ 
+.SH "Function Documentation"
+.PP 
+.SS "def SIIS\&.count ()"
+
+.PP
+count counts number of currently infected sets total_M values to current values 
+.SS "def SIIS\&.max_degree ( edge)"
+
+.PP
+max_degree 
+.PP
+\fBParameters\fP
+.RS 4
+\fIedge\fP What edge to delete node from removes node max degree or most connections 
+.RE
+.PP
+
+.SS "def SIIS\&.plot_res ( pause,  supress,  spr)"
+
+.PP
+plot_res plots histogram and time graph of simulation 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpause\fP if true does not plot but sets up graph until ran again with pause = false 
+.br
+\fIsupress\fP if true plot supression methods as well 
+.br
+\fIspr\fP hold name supression method graphed to name on graph 
+.RE
+.PP
+
+.SS "def SIIS\&.randomNeigh ( pick)"
+
+.PP
+randomNeigh 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpick\fP What edge to delete node from picks a random neighbor of a random node 
+.RE
+.PP
+
+.SS "def SIIS\&.randomRem ()"
+
+.PP
+randomRem picks a random node 
+.br
+ 
+.SS "def SIIS\&.removeNode ( nodea)"
+
+.PP
+removeNode 
+.PP
+\fBParameters\fP
+.RS 4
+\fInodea\fP The node to be deleted removes the node being passed 
+.RE
+.PP
+
+.SS "def SIIS\&.run_sim ()"
+
+.PP
+\fBrun_sim()\fP carries out actual simulation uses for loop t inside time 
+.SS "def SIIS\&.set_simulation ()"
+
+.PP
+set_simulation sets up infected lists for infection set infected counts to empty set array of stats to empty sets x axis as empty 
+.SH "Variable Documentation"
+.PP 
+.SS "tuple SIIS\&.A1 = np\&.random\&.randint(2, size=(\fBN\fP, \fBN\fP), dtype=np\&.int8)"
+
+.PP
+SETUP#################################################################################################################################################################################################\&. Make sure adj are symmetric and values are 2 or 1 By making it symmetric, we are making sure if \fBNode\fP 1 is connected to \fBNode\fP 2, then \fBNode\fP 2 is also connected to \fBNode\fP 1\&. 
+.SS "tuple SIIS\&.A2 = np\&.random\&.randint(2, size=(\fBN\fP, \fBN\fP), dtype=np\&.int8)"
+
+.SS "list SIIS\&.allNodes = []"
+
+.SS "int SIIS\&.beta1 = \&.05"
+
+.SS "int SIIS\&.beta2 = \&.05"
+
+.SS "int SIIS\&.delta1 = \&.04"
+
+.SS "int SIIS\&.delta2 = \&.04"
+
+.SS "int SIIS\&.edge = 1"
+
+.PP
+Run Simulation without Supression\&. MAIN LOOP################################################################################################################################################################################
+.PP
+Run with Suppression Methods 
+.SS "SIIS\&.eigenValues1 = eigenValues1[\fBidx\fP]"
+
+.PP
+get Eigen Values 
+.SS "SIIS\&.eigenValues2 = eigenValues2[\fBidx\fP]"
+
+.SS "SIIS\&.eigenVectors1 = eigenVectors1[:,\fBidx\fP]"
+
+.SS "SIIS\&.eigenVectors2 = eigenVectors2[:,\fBidx\fP]"
+
+.SS "SIIS\&.id"
+
+.SS "SIIS\&.idx = eigenValues1\&.argsort()[::\-1]"
+
+.PP
+sort list of found eigenvalues to find the largest one 
+.SS "SIIS\&.infected_meme1 = random\&.sample(\fBallNodes\fP,10)"
+
+.PP
+create first list of infected nodes holds org sets to use for multiple lists 
+.SS "SIIS\&.infected_meme2 = random\&.sample(\fBallNodes\fP, 10)"
+
+.SS "SIIS\&.key"
+
+.PP
+sort nodes by ID number 
+.SS "int SIIS\&.M1_Wins = 0"
+
+.SS "int SIIS\&.M2_Wins = 0"
+
+.SS "SIIS\&.N = 200"
+
+.PP
+Number of nodes\&. 
+.SS "int SIIS\&.No_win = 0"
+
+.SS "SIIS\&.node = \fBNode\fP()"
+
+.PP
+Using our created \fBNode\fP data type, we fill a list with nodes of length N\&. 
+.SS "int SIIS\&.old_inf1 = 0"
+
+.SS "int SIIS\&.old_inf2 = 0"
+
+.SS "SIIS\&.reverse"
+
+.SS "tuple SIIS\&.S1 = (1 \- \fBdelta1\fP) * np\&.identity(\fBN\fP, dtype=np\&.int8) + \fBbeta1\fP * \fBA1\fP"
+
+.PP
+create System Matrices 
+.SS "tuple SIIS\&.S2 = (1 \- \fBdelta2\fP) * np\&.identity(\fBN\fP, dtype=np\&.int8) + \fBbeta2\fP * \fBA2\fP"
+
+.SS "SIIS\&.smp_size = 10"
+
+.PP
+sample size 
+.SS "int SIIS\&.take_sample = 0"
+
+.SS "SIIS\&.theta = \&.10"
+
+.PP
+Margin off error to see if a Meme won in sampling, if less than theta no clear winner\&. 
+.SS "SIIS\&.tm = 1000"
+
+.PP
+Discrete time units\&. 
+.SS "int SIIS\&.tot_inf1 = 0"
+
+.SS "int SIIS\&.tot_inf2 = 0"
+
+.SS "int SIIS\&.total_M1 = 0"
+
+.SS "int SIIS\&.total_M2 = 0"
+
+.SS "int SIIS\&.total_S = 0"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Turle Defense_SIIS_python_simulation from the source code\&.

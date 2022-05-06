@@ -1,0 +1,129 @@
+\hypertarget{class_s_i_i_s_1_1_node}{}\doxysection{SIIS.\+Node Class Reference}
+\label{class_s_i_i_s_1_1_node}\index{SIIS.Node@{SIIS.Node}}
+
+
+Class to implement node object each node object has unique id, list of its neighbors on each edge, and its state.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{class_s_i_i_s_1_1_node_a0c8227370e4dfe12e644be21eb434a34}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\begin{DoxyCompactList}\small\item\em {\itshape init} \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_s_i_i_s_1_1_node_a3b7f95ca4ff93ff560e71df457a7a0ef}{add\+Neighbors}} (self)
+\begin{DoxyCompactList}\small\item\em add\+Neighbors adds neighbors to each node method to add neighbors to node, call after Adj matrices are made \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_s_i_i_s_1_1_node_a33ca5cfa2fe32637b74eeb141fe69c58}{attack}} (self)
+\begin{DoxyCompactList}\small\item\em attack \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_s_i_i_s_1_1_node_acd6b35d8d18b4d691136961c3661bf42}{recover}} (self)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_s_i_i_s_1_1_node_ac60ec4bda7f8879860c7f086ab9c22a3}{id}}
+\item 
+\mbox{\hyperlink{class_s_i_i_s_1_1_node_a78addc56ab36dcd9f2c78658e0556af5}{e1\+\_\+\+Neighbors}}
+\item 
+\mbox{\hyperlink{class_s_i_i_s_1_1_node_a5e7c5e57b3622fe9af125d9fca87ec09}{e2\+\_\+\+Neighbors}}
+\item 
+\mbox{\hyperlink{class_s_i_i_s_1_1_node_ae33315f9f91aefbcc422c5b88e318186}{state}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_s_i_i_s_1_1_node_a6357c075f29e3a3690f5ab86f24d61b5}{count}} = 0
+\begin{DoxyCompactList}\small\item\em class variable count of total amount of nodes created, used to create unique \mbox{\hyperlink{class_s_i_i_s_1_1_node}{Node}} ids \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to implement node object each node object has unique id, list of its neighbors on each edge, and its state. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_s_i_i_s_1_1_node_a0c8227370e4dfe12e644be21eb434a34}\label{class_s_i_i_s_1_1_node_a0c8227370e4dfe12e644be21eb434a34}} 
+\index{SIIS.Node@{SIIS.Node}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!SIIS.Node@{SIIS.Node}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def SIIS.\+Node.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+{\itshape init} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & The object pointer increases count after giving \mbox{\hyperlink{class_s_i_i_s_1_1_node}{Node}} id \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_s_i_i_s_1_1_node_a3b7f95ca4ff93ff560e71df457a7a0ef}\label{class_s_i_i_s_1_1_node_a3b7f95ca4ff93ff560e71df457a7a0ef}} 
+\index{SIIS.Node@{SIIS.Node}!addNeighbors@{addNeighbors}}
+\index{addNeighbors@{addNeighbors}!SIIS.Node@{SIIS.Node}}
+\doxysubsubsection{\texorpdfstring{addNeighbors()}{addNeighbors()}}
+{\footnotesize\ttfamily def SIIS.\+Node.\+add\+Neighbors (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+add\+Neighbors adds neighbors to each node method to add neighbors to node, call after Adj matrices are made 
+
+\begin{DoxyWarning}{Warning}
+\+: Make sure to sort Nodes before using this method 
+\end{DoxyWarning}
+\mbox{\Hypertarget{class_s_i_i_s_1_1_node_a33ca5cfa2fe32637b74eeb141fe69c58}\label{class_s_i_i_s_1_1_node_a33ca5cfa2fe32637b74eeb141fe69c58}} 
+\index{SIIS.Node@{SIIS.Node}!attack@{attack}}
+\index{attack@{attack}!SIIS.Node@{SIIS.Node}}
+\doxysubsubsection{\texorpdfstring{attack()}{attack()}}
+{\footnotesize\ttfamily def SIIS.\+Node.\+attack (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+attack 
+
+simualtes attacks on single node at single time t checks each infected neighbor on its corresponding edge using random number generation, random.\+random() which outputs a number between 0 and 1 it counts the number of attack from neighbors infected by each meme if the node is in state I1 or I2 then the node does not go through method if C1 \texorpdfstring{$>$}{>} C2 the node becomes infected with meme 1 if C2 \texorpdfstring{$>$}{>} C1 the node becomes infected with meme 2 else the node stays in state S \mbox{\Hypertarget{class_s_i_i_s_1_1_node_acd6b35d8d18b4d691136961c3661bf42}\label{class_s_i_i_s_1_1_node_acd6b35d8d18b4d691136961c3661bf42}} 
+\index{SIIS.Node@{SIIS.Node}!recover@{recover}}
+\index{recover@{recover}!SIIS.Node@{SIIS.Node}}
+\doxysubsubsection{\texorpdfstring{recover()}{recover()}}
+{\footnotesize\ttfamily def SIIS.\+Node.\+recover (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_s_i_i_s_1_1_node_a6357c075f29e3a3690f5ab86f24d61b5}\label{class_s_i_i_s_1_1_node_a6357c075f29e3a3690f5ab86f24d61b5}} 
+\index{SIIS.Node@{SIIS.Node}!count@{count}}
+\index{count@{count}!SIIS.Node@{SIIS.Node}}
+\doxysubsubsection{\texorpdfstring{count}{count}}
+{\footnotesize\ttfamily SIIS.\+Node.\+count = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+class variable count of total amount of nodes created, used to create unique \mbox{\hyperlink{class_s_i_i_s_1_1_node}{Node}} ids 
+
+\mbox{\Hypertarget{class_s_i_i_s_1_1_node_a78addc56ab36dcd9f2c78658e0556af5}\label{class_s_i_i_s_1_1_node_a78addc56ab36dcd9f2c78658e0556af5}} 
+\index{SIIS.Node@{SIIS.Node}!e1\_Neighbors@{e1\_Neighbors}}
+\index{e1\_Neighbors@{e1\_Neighbors}!SIIS.Node@{SIIS.Node}}
+\doxysubsubsection{\texorpdfstring{e1\_Neighbors}{e1\_Neighbors}}
+{\footnotesize\ttfamily SIIS.\+Node.\+e1\+\_\+\+Neighbors}
+
+\mbox{\Hypertarget{class_s_i_i_s_1_1_node_a5e7c5e57b3622fe9af125d9fca87ec09}\label{class_s_i_i_s_1_1_node_a5e7c5e57b3622fe9af125d9fca87ec09}} 
+\index{SIIS.Node@{SIIS.Node}!e2\_Neighbors@{e2\_Neighbors}}
+\index{e2\_Neighbors@{e2\_Neighbors}!SIIS.Node@{SIIS.Node}}
+\doxysubsubsection{\texorpdfstring{e2\_Neighbors}{e2\_Neighbors}}
+{\footnotesize\ttfamily SIIS.\+Node.\+e2\+\_\+\+Neighbors}
+
+\mbox{\Hypertarget{class_s_i_i_s_1_1_node_ac60ec4bda7f8879860c7f086ab9c22a3}\label{class_s_i_i_s_1_1_node_ac60ec4bda7f8879860c7f086ab9c22a3}} 
+\index{SIIS.Node@{SIIS.Node}!id@{id}}
+\index{id@{id}!SIIS.Node@{SIIS.Node}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily SIIS.\+Node.\+id}
+
+\mbox{\Hypertarget{class_s_i_i_s_1_1_node_ae33315f9f91aefbcc422c5b88e318186}\label{class_s_i_i_s_1_1_node_ae33315f9f91aefbcc422c5b88e318186}} 
+\index{SIIS.Node@{SIIS.Node}!state@{state}}
+\index{state@{state}!SIIS.Node@{SIIS.Node}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily SIIS.\+Node.\+state}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Bobby the Kid\textquotesingle{}s/\+Documents/turtledefense/\+Turtle\+Defense/\+Python\+Trial/\+SIIR/\mbox{\hyperlink{_s_i_i_s_8py}{SIIS.\+py}}\end{DoxyCompactItemize}
