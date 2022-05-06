@@ -1,7 +1,8 @@
 
 """@package SIIS
 @mainpage
-Python Simulation of the SIIS Model from ‘Competing Memes Propagation on Networks: A Network Science Perspective’ Using random number generation 
+Python Simulation of the SIIS Model
+‘Competing Memes Propagation on Networks: A Network Science Perspective’ Using random number generation 
 @author Robert Bacigalupo
 @author Tyler Ovenden
 @author Auerman Atif 
