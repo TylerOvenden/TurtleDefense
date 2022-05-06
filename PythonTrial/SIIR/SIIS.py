@@ -1,9 +1,7 @@
 
 """@package SIIS
 @mainpage
-Python Simulation of the SIIS Model from 
-‘Competing Memes Propagation on Networks: A Network Science Perspective’ 
-Using random number generation 
+Python Simulation of the SIIS Model from ‘Competing Memes Propagation on Networks: A Network Science Perspective’ Using random number generation 
 @author Robert Bacigalupo
 @author Tyler Ovenden
 @author Auerman Atif 
@@ -50,17 +48,17 @@ delta1 = .04
 delta2 = .04
 
 
-M1_Wins = 0 #number of samples that M1 wins
-M2_Wins = 0 #number of samples M2 Wins
-No_win = 0  #number of samples with no clear winner 
+M1_Wins = 0 ##number of samples that M1 wins
+M2_Wins = 0 ##number of samples M2 Wins
+No_win = 0  ##number of samples with no clear winner 
 allNodes = [] #list of  all nodes
-tot_inf1 = 0 #total number of infections by meme 1
-old_inf1 = 0 #total number of infections by meme 1 for plotting
-old_inf2 = 0 #total number of infections by meme 2 for plotting
-tot_inf2 = 0 #total number of infections by meme 2
-total_M1 = 0 #total number of nodes in state I1 (for plot)
-total_M2 = 0 #total number of nodes in state I2 (for plot)
-total_S = 0  #total number of nodes in state S 
+tot_inf1 = 0 ##total number of infections by meme 1
+old_inf1 = 0 ##total number of infections by meme 1 for plotting
+old_inf2 = 0 ##total number of infections by meme 2 for plotting
+tot_inf2 = 0 ##total number of infections by meme 2
+total_M1 = 0 ##total number of nodes in state I1 (for plot)
+total_M2 = 0 ##total number of nodes in state I2 (for plot)
+total_S = 0  ##total number of nodes in state S 
 
 ##@class State
 #Enumeration for States
