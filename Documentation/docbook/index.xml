@@ -4,6 +4,10 @@
     <title>Turle Defense_SIIS_python_simulation</title>
     </info>
 <chapter>
+    <title>Turle Defense_SIIS_python_simulation</title>
+    <xi:include href="mainpage.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<chapter>
     <title>Namespace Documentation</title>
 <xi:include href="namespace_s_i_i_s.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
 </chapter>

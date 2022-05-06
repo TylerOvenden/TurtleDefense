@@ -93,18 +93,23 @@ SIIS
 .ti -1c
 .RI "int \fBM1_Wins\fP = 0"
 .br
+.RI "number of samples that M1 wins "
 .ti -1c
 .RI "int \fBM2_Wins\fP = 0"
 .br
+.RI "number of samples M2 Wins "
 .ti -1c
 .RI "int \fBNo_win\fP = 0"
 .br
+.RI "number of samples with no clear winner "
 .ti -1c
 .RI "list \fBallNodes\fP = []"
 .br
+.RI "list of all nodes "
 .ti -1c
 .RI "int \fBtot_inf1\fP = 0"
 .br
+.RI "total number of infections by meme 1 "
 .ti -1c
 .RI "int \fBold_inf1\fP = 0"
 .br
@@ -114,15 +119,19 @@ SIIS
 .ti -1c
 .RI "int \fBtot_inf2\fP = 0"
 .br
+.RI "total number of infected by meme 2 before running sim for plotting "
 .ti -1c
 .RI "int \fBtotal_M1\fP = 0"
 .br
+.RI "total number of nodes in state I1 (for plot) "
 .ti -1c
 .RI "int \fBtotal_M2\fP = 0"
 .br
+.RI "total number of nodes in state I2 (for plot) "
 .ti -1c
 .RI "int \fBtotal_S\fP = 0"
 .br
+.RI "total number of nodes in state S "
 .ti -1c
 .RI "\fBA1\fP = np\&.random\&.randint(2, size=(\fBN\fP, \fBN\fP), dtype=np\&.int8)"
 .br
@@ -180,24 +189,6 @@ SIIS
 .br
 .RI "Run Simulation without Supression\&. "
 .in -1c
-.SH "Detailed Description"
-.PP 
-
-.PP
-.nf
-@package SIIS
-@mainpage
-Python Simulation of the SIIS Model
-‘Competing Memes Propagation on Networks: A Network Science Perspective’ Using random number generation 
-@author Robert Bacigalupo
-@author Tyler Ovenden
-@author Auerman Atif 
-@version 3\&.0
-@date MAY 2022
-
-.fi
-.PP
- 
 .SH "Function Documentation"
 .PP 
 .SS "def SIIS\&.count ()"
@@ -274,8 +265,10 @@ set_simulation sets up infected lists for infection set infected counts to empty
 SETUP#################################################################################################################################################################################################\&. Make sure adj are symmetric and values are 2 or 1 By making it symmetric, we are making sure if \fBNode\fP 1 is connected to \fBNode\fP 2, then \fBNode\fP 2 is also connected to \fBNode\fP 1\&. 
 .SS "tuple SIIS\&.A2 = np\&.random\&.randint(2, size=(\fBN\fP, \fBN\fP), dtype=np\&.int8)"
 
-.SS "list SIIS\&.allNodes = []"
+.SS "SIIS\&.allNodes = []"
 
+.PP
+list of all nodes 
 .SS "int SIIS\&.beta1 = \&.05"
 
 .SS "int SIIS\&.beta2 = \&.05"
@@ -316,16 +309,22 @@ create first list of infected nodes holds org sets to use for multiple lists
 
 .PP
 sort nodes by ID number 
-.SS "int SIIS\&.M1_Wins = 0"
+.SS "SIIS\&.M1_Wins = 0"
 
-.SS "int SIIS\&.M2_Wins = 0"
+.PP
+number of samples that M1 wins 
+.SS "SIIS\&.M2_Wins = 0"
 
+.PP
+number of samples M2 Wins 
 .SS "SIIS\&.N = 200"
 
 .PP
 Number of nodes\&. 
-.SS "int SIIS\&.No_win = 0"
+.SS "SIIS\&.No_win = 0"
 
+.PP
+number of samples with no clear winner 
 .SS "SIIS\&.node = \fBNode\fP()"
 
 .PP
@@ -356,16 +355,26 @@ Margin off error to see if a Meme won in sampling, if less than theta no clear w
 
 .PP
 Discrete time units\&. 
-.SS "int SIIS\&.tot_inf1 = 0"
+.SS "SIIS\&.tot_inf1 = 0"
 
-.SS "int SIIS\&.tot_inf2 = 0"
+.PP
+total number of infections by meme 1 total number of infected by meme 1 before running sim for plotting 
+.SS "SIIS\&.tot_inf2 = 0"
 
-.SS "int SIIS\&.total_M1 = 0"
+.PP
+total number of infected by meme 2 before running sim for plotting total number of infections by meme 2 
+.SS "SIIS\&.total_M1 = 0"
 
-.SS "int SIIS\&.total_M2 = 0"
+.PP
+total number of nodes in state I1 (for plot) 
+.SS "SIIS\&.total_M2 = 0"
 
-.SS "int SIIS\&.total_S = 0"
+.PP
+total number of nodes in state I2 (for plot) 
+.SS "SIIS\&.total_S = 0"
 
+.PP
+total number of nodes in state S 
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for Turle Defense_SIIS_python_simulation from the source code\&.

@@ -3,7 +3,7 @@
   <option  id='DOXYFILE_ENCODING' default='yes' type='string'><value><![CDATA[UTF-8]]></value></option>
   <option  id='PROJECT_NAME' default='no' type='string'><value><![CDATA["Turle Defense_SIIS_python_simulation"]]></value></option>
   <option  id='PROJECT_NUMBER' default='no' type='string'><value><![CDATA[3]]></value></option>
-  <option  id='PROJECT_BRIEF' default='no' type='string'><value><![CDATA["Python Simulation of the SIIS Model from"]]></value></option>
+  <option  id='PROJECT_BRIEF' default='no' type='string'><value><![CDATA["Python Simulation of the SIIS Model"]]></value></option>
   <option  id='PROJECT_LOGO' default='no' type='string'><value><![CDATA["C:/Users/Bobby the Kid's/Downloads/turtledefense_logo.png"]]></value></option>
   <option  id='OUTPUT_DIRECTORY' default='no' type='string'><value><![CDATA["C:/Users/Bobby the Kid's/Documents/turtledefense/TurtleDefense/Documentation"]]></value></option>
   <option  id='CREATE_SUBDIRS' default='yes' type='bool'><value>NO</value></option>

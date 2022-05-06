@@ -28,17 +28,17 @@
     <member refid="namespace_s_i_i_s_1adcb989b943ed7927e5afbc277ca211a3" kind="variable"><name>beta2</name></member>
     <member refid="namespace_s_i_i_s_1a401502781da59716e64740b944b8f784" kind="variable"><name>delta1</name></member>
     <member refid="namespace_s_i_i_s_1a7e76e4a65200a189d0f8589d2cc767be" kind="variable"><name>delta2</name></member>
-    <member refid="namespace_s_i_i_s_1a4dab4ad21b94aae4b1a57b86461a8278" kind="variable"><name>M1_Wins</name></member>
-    <member refid="namespace_s_i_i_s_1ab817f7461381c636343a06d89ff814aa" kind="variable"><name>M2_Wins</name></member>
-    <member refid="namespace_s_i_i_s_1ab3f32447bb574c518467b12920eea7d6" kind="variable"><name>No_win</name></member>
-    <member refid="namespace_s_i_i_s_1accf1f6818ac3be2623083abdb5f2b7ec" kind="variable"><name>allNodes</name></member>
-    <member refid="namespace_s_i_i_s_1a525fba1045fcacc5c547c6dcf3181056" kind="variable"><name>tot_inf1</name></member>
+    <member refid="namespace_s_i_i_s_1a72c51d8f0c7bc3d8db7c07222bf30a02" kind="variable"><name>M1_Wins</name></member>
+    <member refid="namespace_s_i_i_s_1a09e3c58fadac2b7cb752df1134e77625" kind="variable"><name>M2_Wins</name></member>
+    <member refid="namespace_s_i_i_s_1af53f6a10fe05cb0ae7531c59b50f8286" kind="variable"><name>No_win</name></member>
+    <member refid="namespace_s_i_i_s_1a8be68f64adcc7f3c6998c43e9042cc32" kind="variable"><name>allNodes</name></member>
+    <member refid="namespace_s_i_i_s_1a6979c054ef09cad22f92ef12e7c59ce7" kind="variable"><name>tot_inf1</name></member>
     <member refid="namespace_s_i_i_s_1a0e357539172c7604af85e61695c08ed3" kind="variable"><name>old_inf1</name></member>
     <member refid="namespace_s_i_i_s_1a52ffed4dec36d3be6b39b4e29686d1f5" kind="variable"><name>old_inf2</name></member>
-    <member refid="namespace_s_i_i_s_1a75e6cdeeda5ed23dba13d1db30233bdd" kind="variable"><name>tot_inf2</name></member>
-    <member refid="namespace_s_i_i_s_1ade8340e66ce9b5146b1c975c241eebb2" kind="variable"><name>total_M1</name></member>
-    <member refid="namespace_s_i_i_s_1a2c928cda870de1f11476f4a8536bd480" kind="variable"><name>total_M2</name></member>
-    <member refid="namespace_s_i_i_s_1a61818c15fad0e5dc72309acf9ce98cd4" kind="variable"><name>total_S</name></member>
+    <member refid="namespace_s_i_i_s_1a72adb6238998622617fe12e208015e06" kind="variable"><name>tot_inf2</name></member>
+    <member refid="namespace_s_i_i_s_1a406a1b1e27b327786ca2fc2dac2c9eb4" kind="variable"><name>total_M1</name></member>
+    <member refid="namespace_s_i_i_s_1a638970adddbf2dbc6cd3205514811467" kind="variable"><name>total_M2</name></member>
+    <member refid="namespace_s_i_i_s_1af25140b67018e5f34e54f62dfe42d78d" kind="variable"><name>total_S</name></member>
     <member refid="namespace_s_i_i_s_1aa5d8f43bef1575e80e2f288c3d1b6e53" kind="variable"><name>A1</name></member>
     <member refid="namespace_s_i_i_s_1a70172c3865725551cf373fc4a2f90433" kind="variable"><name>A2</name></member>
     <member refid="namespace_s_i_i_s_1a94d4aca0a1e957b7a51c910b70b542a5" kind="variable"><name>S1</name></member>
@@ -69,5 +69,7 @@
   <compound refid="dir_f265aeeac2653721b97fe14ded37a7e1" kind="dir"><name>C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial</name>
   </compound>
   <compound refid="dir_5cec6647aa30af898eb9e6605231ba16" kind="dir"><name>C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR</name>
+  </compound>
+  <compound refid="indexpage" kind="page"><name>index</name>
   </compound>
 </doxygenindex>

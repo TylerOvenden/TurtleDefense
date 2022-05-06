@@ -1,14 +1,14 @@
 
-"""@package SIIS
-@mainpage
-Python Simulation of the SIIS Model
-‘Competing Memes Propagation on Networks: A Network Science Perspective’ Using random number generation 
-@author Robert Bacigalupo
-@author Tyler Ovenden
-@author Auerman Atif 
-@version 3.0
-@date MAY 2022
-"""
+##@package SIIS
+#@mainpage
+#Python Simulation of the SIIS Model
+#‘Competing Memes Propagation on Networks: A Network Science Perspective’ Using random number generation 
+#@author Robert Bacigalupo
+#@author Tyler Ovenden
+#@author Auerman Atif 
+#@version 3.0
+#@date MAY 2022
+#
 ###\cite X. Wei, N. C. Valler, B. A. Prakash, I. Neamtiu, M. Faloutsos, and C. Faloutsos, “Competing memes propagation on networks: A network science perspective,” IEEE Journal on Selected Areas in Communications, vol. 31, no. 6, pp. 1049–1060, 2013. 
 """Imports"""
 import enum
@@ -49,17 +49,39 @@ delta1 = .04
 delta2 = .04
 
 
-M1_Wins = 0 ##number of samples that M1 wins
-M2_Wins = 0 ##number of samples M2 Wins
-No_win = 0  ##number of samples with no clear winner 
-allNodes = [] #list of  all nodes
-tot_inf1 = 0 ##total number of infections by meme 1
-old_inf1 = 0 ##total number of infections by meme 1 for plotting
-old_inf2 = 0 ##total number of infections by meme 2 for plotting
-tot_inf2 = 0 ##total number of infections by meme 2
-total_M1 = 0 ##total number of nodes in state I1 (for plot)
-total_M2 = 0 ##total number of nodes in state I2 (for plot)
-total_S = 0  ##total number of nodes in state S 
+##@var M1_Wins 
+#number of samples that M1 wins
+M1_Wins = 0
+##@var M2_Wins 
+#number of samples M2 Wins
+M2_Wins = 0 
+##@var No_win
+# number of samples with no clear winner 
+No_win = 0  
+ ##@var allNodes
+ #list of  all nodes
+allNodes = []
+##@var tot_inf1 
+#total number of infections by meme 1
+tot_inf1 = 0 
+##@var tot_inf1 
+#total number of infected by meme 1 before running sim for plotting
+old_inf1 = 0 
+##@var tot_inf2
+# total number of infected by meme 2 before running sim for plotting
+old_inf2 = 0 
+##@var tot_inf2 
+#total number of infections by meme 2
+tot_inf2 = 0 
+##@var total_M1 
+#total number of nodes in state I1 (for plot)
+total_M1 = 0 
+##@var total_M2 
+#total number of nodes in state I2 (for plot)
+total_M2 = 0
+##@var total_S 
+#total number of nodes in state S 
+total_S = 0  
 
 ##@class State
 #Enumeration for States

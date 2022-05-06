@@ -83,27 +83,45 @@
 </listitem>
             <listitem><para>int <link linkend="_namespace_s_i_i_s_1a7e76e4a65200a189d0f8589d2cc767be">delta2</link> = .04</para>
 </listitem>
-            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a4dab4ad21b94aae4b1a57b86461a8278">M1_Wins</link> = 0</para>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a72c51d8f0c7bc3d8db7c07222bf30a02">M1_Wins</link> = 0</para>
+
+<para>number of samples that M1 wins </para>
 </listitem>
-            <listitem><para>int <link linkend="_namespace_s_i_i_s_1ab817f7461381c636343a06d89ff814aa">M2_Wins</link> = 0</para>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a09e3c58fadac2b7cb752df1134e77625">M2_Wins</link> = 0</para>
+
+<para>number of samples M2 Wins </para>
 </listitem>
-            <listitem><para>int <link linkend="_namespace_s_i_i_s_1ab3f32447bb574c518467b12920eea7d6">No_win</link> = 0</para>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1af53f6a10fe05cb0ae7531c59b50f8286">No_win</link> = 0</para>
+
+<para>number of samples with no clear winner </para>
 </listitem>
-            <listitem><para>list <link linkend="_namespace_s_i_i_s_1accf1f6818ac3be2623083abdb5f2b7ec">allNodes</link> = []</para>
+            <listitem><para>list <link linkend="_namespace_s_i_i_s_1a8be68f64adcc7f3c6998c43e9042cc32">allNodes</link> = []</para>
+
+<para>list of all nodes </para>
 </listitem>
-            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a525fba1045fcacc5c547c6dcf3181056">tot_inf1</link> = 0</para>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a6979c054ef09cad22f92ef12e7c59ce7">tot_inf1</link> = 0</para>
+
+<para>total number of infections by meme 1 </para>
 </listitem>
             <listitem><para>int <link linkend="_namespace_s_i_i_s_1a0e357539172c7604af85e61695c08ed3">old_inf1</link> = 0</para>
 </listitem>
             <listitem><para>int <link linkend="_namespace_s_i_i_s_1a52ffed4dec36d3be6b39b4e29686d1f5">old_inf2</link> = 0</para>
 </listitem>
-            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a75e6cdeeda5ed23dba13d1db30233bdd">tot_inf2</link> = 0</para>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a72adb6238998622617fe12e208015e06">tot_inf2</link> = 0</para>
+
+<para>total number of infected by meme 2 before running sim for plotting </para>
 </listitem>
-            <listitem><para>int <link linkend="_namespace_s_i_i_s_1ade8340e66ce9b5146b1c975c241eebb2">total_M1</link> = 0</para>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a406a1b1e27b327786ca2fc2dac2c9eb4">total_M1</link> = 0</para>
+
+<para>total number of nodes in state I1 (for plot) </para>
 </listitem>
-            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a2c928cda870de1f11476f4a8536bd480">total_M2</link> = 0</para>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a638970adddbf2dbc6cd3205514811467">total_M2</link> = 0</para>
+
+<para>total number of nodes in state I2 (for plot) </para>
 </listitem>
-            <listitem><para>int <link linkend="_namespace_s_i_i_s_1a61818c15fad0e5dc72309acf9ce98cd4">total_S</link> = 0</para>
+            <listitem><para>int <link linkend="_namespace_s_i_i_s_1af25140b67018e5f34e54f62dfe42d78d">total_S</link> = 0</para>
+
+<para>total number of nodes in state S </para>
 </listitem>
             <listitem><para><link linkend="_namespace_s_i_i_s_1aa5d8f43bef1575e80e2f288c3d1b6e53">A1</link> = np.random.randint(2, size=(<link linkend="_namespace_s_i_i_s_1a62794a73400a5a491e326f153fb0eb4a">N</link>, <link linkend="_namespace_s_i_i_s_1a62794a73400a5a491e326f153fb0eb4a">N</link>), dtype=np.int8)</para>
 
@@ -143,11 +161,11 @@
 </listitem>
             <listitem><para><link linkend="_namespace_s_i_i_s_1a9a41d5936ff90936a135c91f442699ae">reverse</link></para>
 </listitem>
-            <listitem><para><link linkend="_namespace_s_i_i_s_1ab9810fef4d7b3ff0765a4d6830a9ca96">infected_meme1</link> = random.sample(<link linkend="_namespace_s_i_i_s_1accf1f6818ac3be2623083abdb5f2b7ec">allNodes</link>,10)</para>
+            <listitem><para><link linkend="_namespace_s_i_i_s_1ab9810fef4d7b3ff0765a4d6830a9ca96">infected_meme1</link> = random.sample(<link linkend="_namespace_s_i_i_s_1a8be68f64adcc7f3c6998c43e9042cc32">allNodes</link>,10)</para>
 
 <para>create first list of infected nodes holds org sets to use for multiple lists </para>
 </listitem>
-            <listitem><para><link linkend="_namespace_s_i_i_s_1a93604b4d9e16c1681f652610898b8011">infected_meme2</link> = random.sample(<link linkend="_namespace_s_i_i_s_1accf1f6818ac3be2623083abdb5f2b7ec">allNodes</link>, 10)</para>
+            <listitem><para><link linkend="_namespace_s_i_i_s_1a93604b4d9e16c1681f652610898b8011">infected_meme2</link> = random.sample(<link linkend="_namespace_s_i_i_s_1a8be68f64adcc7f3c6998c43e9042cc32">allNodes</link>, 10)</para>
 </listitem>
             <listitem><para>int <link linkend="_namespace_s_i_i_s_1a9b56e6ecae380824a538274919502b95">edge</link> = 1</para>
 
@@ -155,20 +173,6 @@
 </listitem>
         </itemizedlist>
 </simplesect>
-<section>
-<title>Detailed Description</title>
-
-<para><literallayout><computeroutput>@package SIIS
-@mainpage
-Python Simulation of the SIIS Model
-‘Competing Memes Propagation on Networks: A Network Science Perspective’ Using random number generation 
-@author Robert Bacigalupo
-@author Tyler Ovenden
-@author Auerman Atif 
-@version 3.0
-@date MAY 2022
-</computeroutput></literallayout> </para>
-</section>
 <section>
 <title>Function Documentation</title>
 <anchor xml:id="_namespace_s_i_i_s_1a9ce6bf60763fb485eaee729dcb4c2adb"/><section>
@@ -436,11 +440,15 @@ Here is the caller graph for this function:<para>
 <indexterm><primary>A2</primary><secondary>SIIS</secondary></indexterm>
 <indexterm><primary>SIIS</primary><secondary>A2</secondary></indexterm>
 <para><computeroutput>tuple SIIS.A2 = np.random.randint(2, size=(<link linkend="_namespace_s_i_i_s_1a62794a73400a5a491e326f153fb0eb4a">N</link>, <link linkend="_namespace_s_i_i_s_1a62794a73400a5a491e326f153fb0eb4a">N</link>), dtype=np.int8)</computeroutput></para></section>
-<anchor xml:id="_namespace_s_i_i_s_1accf1f6818ac3be2623083abdb5f2b7ec"/><section>
+<anchor xml:id="_namespace_s_i_i_s_1a8be68f64adcc7f3c6998c43e9042cc32"/><section>
     <title>allNodes</title>
 <indexterm><primary>allNodes</primary><secondary>SIIS</secondary></indexterm>
 <indexterm><primary>SIIS</primary><secondary>allNodes</secondary></indexterm>
-<para><computeroutput>list SIIS.allNodes = []</computeroutput></para></section>
+<para><computeroutput>SIIS.allNodes = []</computeroutput></para><para>
+
+<para>list of all nodes </para>
+</para>
+</section>
 <anchor xml:id="_namespace_s_i_i_s_1a727237c66ea7d98aca6b3bd4e6fa1bcc"/><section>
     <title>beta1</title>
 <indexterm><primary>beta1</primary><secondary>SIIS</secondary></indexterm>
@@ -516,7 +524,7 @@ Here is the caller graph for this function:<para>
     <title>infected_meme1</title>
 <indexterm><primary>infected_meme1</primary><secondary>SIIS</secondary></indexterm>
 <indexterm><primary>SIIS</primary><secondary>infected_meme1</secondary></indexterm>
-<para><computeroutput>SIIS.infected_meme1 = random.sample(<link linkend="_namespace_s_i_i_s_1accf1f6818ac3be2623083abdb5f2b7ec">allNodes</link>,10)</computeroutput></para><para>
+<para><computeroutput>SIIS.infected_meme1 = random.sample(<link linkend="_namespace_s_i_i_s_1a8be68f64adcc7f3c6998c43e9042cc32">allNodes</link>,10)</computeroutput></para><para>
 
 <para>create first list of infected nodes holds org sets to use for multiple lists </para>
 </para>
@@ -525,7 +533,7 @@ Here is the caller graph for this function:<para>
     <title>infected_meme2</title>
 <indexterm><primary>infected_meme2</primary><secondary>SIIS</secondary></indexterm>
 <indexterm><primary>SIIS</primary><secondary>infected_meme2</secondary></indexterm>
-<para><computeroutput>SIIS.infected_meme2 = random.sample(<link linkend="_namespace_s_i_i_s_1accf1f6818ac3be2623083abdb5f2b7ec">allNodes</link>, 10)</computeroutput></para></section>
+<para><computeroutput>SIIS.infected_meme2 = random.sample(<link linkend="_namespace_s_i_i_s_1a8be68f64adcc7f3c6998c43e9042cc32">allNodes</link>, 10)</computeroutput></para></section>
 <anchor xml:id="_namespace_s_i_i_s_1a4e70fbbd01f42c9eed3a49346a70af90"/><section>
     <title>key</title>
 <indexterm><primary>key</primary><secondary>SIIS</secondary></indexterm>
@@ -535,16 +543,24 @@ Here is the caller graph for this function:<para>
 <para>sort nodes by ID number </para>
 </para>
 </section>
-<anchor xml:id="_namespace_s_i_i_s_1a4dab4ad21b94aae4b1a57b86461a8278"/><section>
+<anchor xml:id="_namespace_s_i_i_s_1a72c51d8f0c7bc3d8db7c07222bf30a02"/><section>
     <title>M1_Wins</title>
 <indexterm><primary>M1_Wins</primary><secondary>SIIS</secondary></indexterm>
 <indexterm><primary>SIIS</primary><secondary>M1_Wins</secondary></indexterm>
-<para><computeroutput>int SIIS.M1_Wins = 0</computeroutput></para></section>
-<anchor xml:id="_namespace_s_i_i_s_1ab817f7461381c636343a06d89ff814aa"/><section>
+<para><computeroutput>SIIS.M1_Wins = 0</computeroutput></para><para>
+
+<para>number of samples that M1 wins </para>
+</para>
+</section>
+<anchor xml:id="_namespace_s_i_i_s_1a09e3c58fadac2b7cb752df1134e77625"/><section>
     <title>M2_Wins</title>
 <indexterm><primary>M2_Wins</primary><secondary>SIIS</secondary></indexterm>
 <indexterm><primary>SIIS</primary><secondary>M2_Wins</secondary></indexterm>
-<para><computeroutput>int SIIS.M2_Wins = 0</computeroutput></para></section>
+<para><computeroutput>SIIS.M2_Wins = 0</computeroutput></para><para>
+
+<para>number of samples M2 Wins </para>
+</para>
+</section>
 <anchor xml:id="_namespace_s_i_i_s_1a62794a73400a5a491e326f153fb0eb4a"/><section>
     <title>N</title>
 <indexterm><primary>N</primary><secondary>SIIS</secondary></indexterm>
@@ -554,11 +570,15 @@ Here is the caller graph for this function:<para>
 <para>Number of nodes. </para>
 </para>
 </section>
-<anchor xml:id="_namespace_s_i_i_s_1ab3f32447bb574c518467b12920eea7d6"/><section>
+<anchor xml:id="_namespace_s_i_i_s_1af53f6a10fe05cb0ae7531c59b50f8286"/><section>
     <title>No_win</title>
 <indexterm><primary>No_win</primary><secondary>SIIS</secondary></indexterm>
 <indexterm><primary>SIIS</primary><secondary>No_win</secondary></indexterm>
-<para><computeroutput>int SIIS.No_win = 0</computeroutput></para></section>
+<para><computeroutput>SIIS.No_win = 0</computeroutput></para><para>
+
+<para>number of samples with no clear winner </para>
+</para>
+</section>
 <anchor xml:id="_namespace_s_i_i_s_1ad510cbae67271dda2063233b51aaafad"/><section>
     <title>node</title>
 <indexterm><primary>node</primary><secondary>SIIS</secondary></indexterm>
@@ -629,30 +649,54 @@ Here is the caller graph for this function:<para>
 <para>Discrete time units. </para>
 </para>
 </section>
-<anchor xml:id="_namespace_s_i_i_s_1a525fba1045fcacc5c547c6dcf3181056"/><section>
+<anchor xml:id="_namespace_s_i_i_s_1a6979c054ef09cad22f92ef12e7c59ce7"/><section>
     <title>tot_inf1</title>
 <indexterm><primary>tot_inf1</primary><secondary>SIIS</secondary></indexterm>
 <indexterm><primary>SIIS</primary><secondary>tot_inf1</secondary></indexterm>
-<para><computeroutput>int SIIS.tot_inf1 = 0</computeroutput></para></section>
-<anchor xml:id="_namespace_s_i_i_s_1a75e6cdeeda5ed23dba13d1db30233bdd"/><section>
+<para><computeroutput>SIIS.tot_inf1 = 0</computeroutput></para><para>
+
+<para>total number of infections by meme 1 </para>
+</para>
+
+<para>total number of infected by meme 1 before running sim for plotting </para>
+</section>
+<anchor xml:id="_namespace_s_i_i_s_1a72adb6238998622617fe12e208015e06"/><section>
     <title>tot_inf2</title>
 <indexterm><primary>tot_inf2</primary><secondary>SIIS</secondary></indexterm>
 <indexterm><primary>SIIS</primary><secondary>tot_inf2</secondary></indexterm>
-<para><computeroutput>int SIIS.tot_inf2 = 0</computeroutput></para></section>
-<anchor xml:id="_namespace_s_i_i_s_1ade8340e66ce9b5146b1c975c241eebb2"/><section>
+<para><computeroutput>SIIS.tot_inf2 = 0</computeroutput></para><para>
+
+<para>total number of infected by meme 2 before running sim for plotting </para>
+</para>
+
+<para>total number of infections by meme 2 </para>
+</section>
+<anchor xml:id="_namespace_s_i_i_s_1a406a1b1e27b327786ca2fc2dac2c9eb4"/><section>
     <title>total_M1</title>
 <indexterm><primary>total_M1</primary><secondary>SIIS</secondary></indexterm>
 <indexterm><primary>SIIS</primary><secondary>total_M1</secondary></indexterm>
-<para><computeroutput>int SIIS.total_M1 = 0</computeroutput></para></section>
-<anchor xml:id="_namespace_s_i_i_s_1a2c928cda870de1f11476f4a8536bd480"/><section>
+<para><computeroutput>SIIS.total_M1 = 0</computeroutput></para><para>
+
+<para>total number of nodes in state I1 (for plot) </para>
+</para>
+</section>
+<anchor xml:id="_namespace_s_i_i_s_1a638970adddbf2dbc6cd3205514811467"/><section>
     <title>total_M2</title>
 <indexterm><primary>total_M2</primary><secondary>SIIS</secondary></indexterm>
 <indexterm><primary>SIIS</primary><secondary>total_M2</secondary></indexterm>
-<para><computeroutput>int SIIS.total_M2 = 0</computeroutput></para></section>
-<anchor xml:id="_namespace_s_i_i_s_1a61818c15fad0e5dc72309acf9ce98cd4"/><section>
+<para><computeroutput>SIIS.total_M2 = 0</computeroutput></para><para>
+
+<para>total number of nodes in state I2 (for plot) </para>
+</para>
+</section>
+<anchor xml:id="_namespace_s_i_i_s_1af25140b67018e5f34e54f62dfe42d78d"/><section>
     <title>total_S</title>
 <indexterm><primary>total_S</primary><secondary>SIIS</secondary></indexterm>
 <indexterm><primary>SIIS</primary><secondary>total_S</secondary></indexterm>
-<para><computeroutput>int SIIS.total_S = 0</computeroutput></para></section>
+<para><computeroutput>SIIS.total_S = 0</computeroutput></para><para>
+
+<para>total number of nodes in state S </para>
+</para>
+</section>
 </section>
 </section>

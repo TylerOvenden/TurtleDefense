@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_mainpage" xml:lang="en-US">
+
+<para>Python Simulation of the <link linkend="_namespace_s_i_i_s">SIIS</link> Model ‘Competing Memes Propagation on Networks: A Network Science Perspective’ Using random number generation <formalpara><title>Author</title>
+
+<para>Robert Bacigalupo </para>
+
+<para>Tyler Ovenden </para>
+
+<para>Auerman Atif </para>
+</formalpara>
+<formalpara><title>Version</title>
+
+<para>3.0 </para>
+</formalpara>
+<formalpara><title>Date</title>
+
+<para>MAY 2022</para>
+</formalpara>
+X. Wei, N. C. Valler, B. A. Prakash, I. Neamtiu, M. Faloutsos, and C. Faloutsos, “Competing memes propagation on networks: A network science perspective,” IEEE Journal on Selected Areas in Communications, vol. 31, no. 6, pp. 1049–1060, 2013. </para>
+</chapter>
