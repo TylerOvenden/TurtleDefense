@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_s_i_i_s_1_1_node" kind="class" language="Python" prot="public">
+    <compoundname>SIIS::Node</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_s_i_i_s_1_1_node_1a6357c075f29e3a3690f5ab86f24d61b5" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>SIIS.Node::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <qualifiedname>SIIS.Node.count</qualifiedname>
+        <initializer>=  0</initializer>
+        <briefdescription>
+<para>class variable count of total amount of nodes created, used to create unique <ref refid="class_s_i_i_s_1_1_node" kindref="compound">Node</ref> ids </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="155" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_s_i_i_s_1_1_node_1ac60ec4bda7f8879860c7f086ab9c22a3" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>SIIS.Node::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>SIIS.Node.id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="160" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="160" bodyend="-1"/>
+        <referencedby refid="class_s_i_i_s_1_1_node_1a3b7f95ca4ff93ff560e71df457a7a0ef" compoundref="_s_i_i_s_8py" startline="170" endline="178">SIIS.Node.addNeighbors</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_s_i_i_s_1_1_node_1a78addc56ab36dcd9f2c78658e0556af5" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>SIIS.Node::e1_Neighbors</definition>
+        <argsstring></argsstring>
+        <name>e1_Neighbors</name>
+        <qualifiedname>SIIS.Node.e1_Neighbors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="162" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="162" bodyend="-1"/>
+        <referencedby refid="class_s_i_i_s_1_1_node_1a3b7f95ca4ff93ff560e71df457a7a0ef" compoundref="_s_i_i_s_8py" startline="170" endline="178">SIIS.Node.addNeighbors</referencedby>
+        <referencedby refid="class_s_i_i_s_1_1_node_1a33ca5cfa2fe32637b74eeb141fe69c58" compoundref="_s_i_i_s_8py" startline="188" endline="208">SIIS.Node.attack</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_s_i_i_s_1_1_node_1a5e7c5e57b3622fe9af125d9fca87ec09" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>SIIS.Node::e2_Neighbors</definition>
+        <argsstring></argsstring>
+        <name>e2_Neighbors</name>
+        <qualifiedname>SIIS.Node.e2_Neighbors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="163" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="163" bodyend="-1"/>
+        <referencedby refid="class_s_i_i_s_1_1_node_1a3b7f95ca4ff93ff560e71df457a7a0ef" compoundref="_s_i_i_s_8py" startline="170" endline="178">SIIS.Node.addNeighbors</referencedby>
+        <referencedby refid="class_s_i_i_s_1_1_node_1a33ca5cfa2fe32637b74eeb141fe69c58" compoundref="_s_i_i_s_8py" startline="188" endline="208">SIIS.Node.attack</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_s_i_i_s_1_1_node_1ae33315f9f91aefbcc422c5b88e318186" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>SIIS.Node::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <qualifiedname>SIIS.Node.state</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="164" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="164" bodyend="-1"/>
+        <referencedby refid="class_s_i_i_s_1_1_node_1a33ca5cfa2fe32637b74eeb141fe69c58" compoundref="_s_i_i_s_8py" startline="188" endline="208">SIIS.Node.attack</referencedby>
+        <referencedby refid="class_s_i_i_s_1_1_node_1acd6b35d8d18b4d691136961c3661bf42" compoundref="_s_i_i_s_8py" startline="209" endline="222">SIIS.Node.recover</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_s_i_i_s_1_1_node_1a0c8227370e4dfe12e644be21eb434a34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def SIIS.Node.__init__</definition>
+        <argsstring>(self)</argsstring>
+        <name>__init__</name>
+        <qualifiedname>SIIS.Node.__init__</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+<para><emphasis>init</emphasis> </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object pointer increases count after giving <ref refid="class_s_i_i_s_1_1_node" kindref="compound">Node</ref> id </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="159" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="159" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="class_s_i_i_s_1_1_node_1a3b7f95ca4ff93ff560e71df457a7a0ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def SIIS.Node.addNeighbors</definition>
+        <argsstring>(self)</argsstring>
+        <name>addNeighbors</name>
+        <qualifiedname>SIIS.Node.addNeighbors</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+<para>addNeighbors adds neighbors to each node method to add neighbors to node, call after Adj matrices are made </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>: Make sure to sort Nodes before using this method </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="170" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="170" bodyend="178"/>
+        <references refid="class_s_i_i_s_1_1_node_1a78addc56ab36dcd9f2c78658e0556af5" compoundref="_s_i_i_s_8py" startline="162">SIIS.Node.e1_Neighbors</references>
+        <references refid="class_s_i_i_s_1_1_node_1a5e7c5e57b3622fe9af125d9fca87ec09" compoundref="_s_i_i_s_8py" startline="163">SIIS.Node.e2_Neighbors</references>
+        <references refid="class_s_i_i_s_1_1_node_1ac60ec4bda7f8879860c7f086ab9c22a3" compoundref="_s_i_i_s_8py" startline="160">SIIS.Node.id</references>
+      </memberdef>
+      <memberdef kind="function" id="class_s_i_i_s_1_1_node_1a33ca5cfa2fe32637b74eeb141fe69c58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def SIIS.Node.attack</definition>
+        <argsstring>(self)</argsstring>
+        <name>attack</name>
+        <qualifiedname>SIIS.Node.attack</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+<para>attack </para>
+        </briefdescription>
+        <detaileddescription>
+<para>simualtes attacks on single node at single time t checks each infected neighbor on its corresponding edge using random number generation, random.random() which outputs a number between 0 and 1 it counts the number of attack from neighbors infected by each meme if the node is in state I1 or I2 then the node does not go through method if C1 &gt; C2 the node becomes infected with meme 1 if C2 &gt; C1 the node becomes infected with meme 2 else the node stays in state S </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="188" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="188" bodyend="208"/>
+        <references refid="class_s_i_i_s_1_1_node_1a78addc56ab36dcd9f2c78658e0556af5" compoundref="_s_i_i_s_8py" startline="162">SIIS.Node.e1_Neighbors</references>
+        <references refid="class_s_i_i_s_1_1_node_1a5e7c5e57b3622fe9af125d9fca87ec09" compoundref="_s_i_i_s_8py" startline="163">SIIS.Node.e2_Neighbors</references>
+        <references refid="class_s_i_i_s_1_1_node_1ae33315f9f91aefbcc422c5b88e318186" compoundref="_s_i_i_s_8py" startline="164">SIIS.Node.state</references>
+      </memberdef>
+      <memberdef kind="function" id="class_s_i_i_s_1_1_node_1acd6b35d8d18b4d691136961c3661bf42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def SIIS.Node.recover</definition>
+        <argsstring>(self)</argsstring>
+        <name>recover</name>
+        <qualifiedname>SIIS.Node.recover</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="209" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="209" bodyend="222"/>
+        <references refid="class_s_i_i_s_1_1_node_1ae33315f9f91aefbcc422c5b88e318186" compoundref="_s_i_i_s_8py" startline="164">SIIS.Node.state</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class to implement node object each node object has unique id, list of its neighbors on each edge, and its state. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="151" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="151" bodyend="225"/>
+    <listofallmembers>
+      <member refid="class_s_i_i_s_1_1_node_1a0c8227370e4dfe12e644be21eb434a34" prot="public" virt="non-virtual"><scope>SIIS::Node</scope><name>__init__</name></member>
+      <member refid="class_s_i_i_s_1_1_node_1a3b7f95ca4ff93ff560e71df457a7a0ef" prot="public" virt="non-virtual"><scope>SIIS::Node</scope><name>addNeighbors</name></member>
+      <member refid="class_s_i_i_s_1_1_node_1a33ca5cfa2fe32637b74eeb141fe69c58" prot="public" virt="non-virtual"><scope>SIIS::Node</scope><name>attack</name></member>
+      <member refid="class_s_i_i_s_1_1_node_1a6357c075f29e3a3690f5ab86f24d61b5" prot="public" virt="non-virtual"><scope>SIIS::Node</scope><name>count</name></member>
+      <member refid="class_s_i_i_s_1_1_node_1a78addc56ab36dcd9f2c78658e0556af5" prot="public" virt="non-virtual"><scope>SIIS::Node</scope><name>e1_Neighbors</name></member>
+      <member refid="class_s_i_i_s_1_1_node_1a5e7c5e57b3622fe9af125d9fca87ec09" prot="public" virt="non-virtual"><scope>SIIS::Node</scope><name>e2_Neighbors</name></member>
+      <member refid="class_s_i_i_s_1_1_node_1ac60ec4bda7f8879860c7f086ab9c22a3" prot="public" virt="non-virtual"><scope>SIIS::Node</scope><name>id</name></member>
+      <member refid="class_s_i_i_s_1_1_node_1acd6b35d8d18b4d691136961c3661bf42" prot="public" virt="non-virtual"><scope>SIIS::Node</scope><name>recover</name></member>
+      <member refid="class_s_i_i_s_1_1_node_1ae33315f9f91aefbcc422c5b88e318186" prot="public" virt="non-virtual"><scope>SIIS::Node</scope><name>state</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>Turle Defense_SIIS_python_simulation</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Python Simulation of the <ref refid="namespace_s_i_i_s" kindref="compound">SIIS</ref> Model ‘Competing Memes Propagation on Networks: A Network Science Perspective’ Using random number generation <simplesect kind="author"><para>Robert Bacigalupo </para>
+</simplesect>
+<simplesect kind="author"><para>Tyler Ovenden </para>
+</simplesect>
+<simplesect kind="author"><para>Auerman Atif </para>
+</simplesect>
+<simplesect kind="version"><para>3.0 </para>
+</simplesect>
+<simplesect kind="date"><para>MAY 2022</para>
+</simplesect>
+X. Wei, N. C. Valler, B. A. Prakash, I. Neamtiu, M. Faloutsos, and C. Faloutsos, “Competing memes propagation on networks: A network science perspective,” IEEE Journal on Selected Areas in Communications, vol. 31, no. 6, pp. 1049–1060, 2013. </para>
+    </detaileddescription>
+    <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py"/>
+  </compounddef>
+</doxygen>

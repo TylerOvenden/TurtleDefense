@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_s_i_i_s_1_1_state" kind="class" language="Python" prot="public">
+    <compoundname>SIIS::State</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">enum.Enum</basecompoundref>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_s_i_i_s_1_1_state_1a666833f111f4ce88e93efb45833775aa" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int SIIS.State::S</definition>
+        <argsstring></argsstring>
+        <name>S</name>
+        <qualifiedname>SIIS.State.S</qualifiedname>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="89" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_s_i_i_s_1_1_state_1a2be4789121968cf4a23a02f58e131f0a" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int SIIS.State::I1</definition>
+        <argsstring></argsstring>
+        <name>I1</name>
+        <qualifiedname>SIIS.State.I1</qualifiedname>
+        <initializer>=  1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="90" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_s_i_i_s_1_1_state_1a6eaebdd004d589e4a5e642400d6579b1" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int SIIS.State::I2</definition>
+        <argsstring></argsstring>
+        <name>I2</name>
+        <qualifiedname>SIIS.State.I2</qualifiedname>
+        <initializer>=  2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="91" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Enumeration for States. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>SIIS.State</label>
+        <link refid="class_s_i_i_s_1_1_state"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>enum::Enum</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>SIIS.State</label>
+        <link refid="class_s_i_i_s_1_1_state"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>enum::Enum</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="88" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="88" bodyend="95"/>
+    <listofallmembers>
+      <member refid="class_s_i_i_s_1_1_state_1a2be4789121968cf4a23a02f58e131f0a" prot="public" virt="non-virtual"><scope>SIIS::State</scope><name>I1</name></member>
+      <member refid="class_s_i_i_s_1_1_state_1a6eaebdd004d589e4a5e642400d6579b1" prot="public" virt="non-virtual"><scope>SIIS::State</scope><name>I2</name></member>
+      <member refid="class_s_i_i_s_1_1_state_1a666833f111f4ce88e93efb45833775aa" prot="public" virt="non-virtual"><scope>SIIS::State</scope><name>S</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

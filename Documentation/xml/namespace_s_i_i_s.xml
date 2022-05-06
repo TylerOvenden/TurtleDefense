@@ -1,0 +1,794 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="namespace_s_i_i_s" kind="namespace" language="Python">
+    <compoundname>SIIS</compoundname>
+    <innerclass refid="class_s_i_i_s_1_1_node" prot="public">SIIS::Node</innerclass>
+    <innerclass refid="class_s_i_i_s_1_1_state" prot="public">SIIS::State</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespace_s_i_i_s_1a62794a73400a5a491e326f153fb0eb4a" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>SIIS::N</definition>
+        <argsstring></argsstring>
+        <name>N</name>
+        <qualifiedname>SIIS.N</qualifiedname>
+        <initializer>=  200</initializer>
+        <briefdescription>
+<para>Number of nodes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="27" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1a849dda36bfc0f180104fed68d251b82e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>SIIS::tm</definition>
+        <argsstring></argsstring>
+        <name>tm</name>
+        <qualifiedname>SIIS.tm</qualifiedname>
+        <initializer>=  1000</initializer>
+        <briefdescription>
+<para>Discrete time units. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="30" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1aad32ed61613e587b5c5de338d317cba3" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SIIS.take_sample</definition>
+        <argsstring></argsstring>
+        <name>take_sample</name>
+        <qualifiedname>SIIS.take_sample</qualifiedname>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="36" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1aeaf718b2a70cffd8bcc43b7d0f402913" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>SIIS::smp_size</definition>
+        <argsstring></argsstring>
+        <name>smp_size</name>
+        <qualifiedname>SIIS.smp_size</qualifiedname>
+        <initializer>=  10</initializer>
+        <briefdescription>
+<para>sample size </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="39" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1acf03c50d66038c1c2c8bf85c360af75f" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>SIIS::theta</definition>
+        <argsstring></argsstring>
+        <name>theta</name>
+        <qualifiedname>SIIS.theta</qualifiedname>
+        <initializer>=  .10</initializer>
+        <briefdescription>
+<para>Margin off error to see if a Meme won in sampling, if less than theta no clear winner. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="44" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1a727237c66ea7d98aca6b3bd4e6fa1bcc" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SIIS.beta1</definition>
+        <argsstring></argsstring>
+        <name>beta1</name>
+        <qualifiedname>SIIS.beta1</qualifiedname>
+        <initializer>= .05</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="46" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1adcb989b943ed7927e5afbc277ca211a3" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SIIS.beta2</definition>
+        <argsstring></argsstring>
+        <name>beta2</name>
+        <qualifiedname>SIIS.beta2</qualifiedname>
+        <initializer>= .05</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="47" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1a401502781da59716e64740b944b8f784" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SIIS.delta1</definition>
+        <argsstring></argsstring>
+        <name>delta1</name>
+        <qualifiedname>SIIS.delta1</qualifiedname>
+        <initializer>=  .04</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="48" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1a7e76e4a65200a189d0f8589d2cc767be" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SIIS.delta2</definition>
+        <argsstring></argsstring>
+        <name>delta2</name>
+        <qualifiedname>SIIS.delta2</qualifiedname>
+        <initializer>=  .04</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="49" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1a72c51d8f0c7bc3d8db7c07222bf30a02" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>SIIS::M1_Wins</definition>
+        <argsstring></argsstring>
+        <name>M1_Wins</name>
+        <qualifiedname>SIIS.M1_Wins</qualifiedname>
+        <initializer>=  0</initializer>
+        <briefdescription>
+<para>number of samples that M1 wins </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="54" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1a09e3c58fadac2b7cb752df1134e77625" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>SIIS::M2_Wins</definition>
+        <argsstring></argsstring>
+        <name>M2_Wins</name>
+        <qualifiedname>SIIS.M2_Wins</qualifiedname>
+        <initializer>=  0</initializer>
+        <briefdescription>
+<para>number of samples M2 Wins </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="57" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1af53f6a10fe05cb0ae7531c59b50f8286" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>SIIS::No_win</definition>
+        <argsstring></argsstring>
+        <name>No_win</name>
+        <qualifiedname>SIIS.No_win</qualifiedname>
+        <initializer>=  0</initializer>
+        <briefdescription>
+<para>number of samples with no clear winner </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="60" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1a8be68f64adcc7f3c6998c43e9042cc32" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>SIIS::allNodes</definition>
+        <argsstring></argsstring>
+        <name>allNodes</name>
+        <qualifiedname>SIIS.allNodes</qualifiedname>
+        <initializer>=  []</initializer>
+        <briefdescription>
+<para>list of all nodes </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="63" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1a6979c054ef09cad22f92ef12e7c59ce7" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>SIIS::tot_inf1</definition>
+        <argsstring></argsstring>
+        <name>tot_inf1</name>
+        <qualifiedname>SIIS.tot_inf1</qualifiedname>
+        <initializer>=  0</initializer>
+        <briefdescription>
+<para>total number of infections by meme 1 </para>
+        </briefdescription>
+        <detaileddescription>
+<para>total number of infected by meme 1 before running sim for plotting </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="66" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1a0e357539172c7604af85e61695c08ed3" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SIIS.old_inf1</definition>
+        <argsstring></argsstring>
+        <name>old_inf1</name>
+        <qualifiedname>SIIS.old_inf1</qualifiedname>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="69" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1a52ffed4dec36d3be6b39b4e29686d1f5" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SIIS.old_inf2</definition>
+        <argsstring></argsstring>
+        <name>old_inf2</name>
+        <qualifiedname>SIIS.old_inf2</qualifiedname>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="72" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1a72adb6238998622617fe12e208015e06" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>SIIS::tot_inf2</definition>
+        <argsstring></argsstring>
+        <name>tot_inf2</name>
+        <qualifiedname>SIIS.tot_inf2</qualifiedname>
+        <initializer>=  0</initializer>
+        <briefdescription>
+<para>total number of infected by meme 2 before running sim for plotting </para>
+        </briefdescription>
+        <detaileddescription>
+<para>total number of infections by meme 2 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="75" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1a406a1b1e27b327786ca2fc2dac2c9eb4" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>SIIS::total_M1</definition>
+        <argsstring></argsstring>
+        <name>total_M1</name>
+        <qualifiedname>SIIS.total_M1</qualifiedname>
+        <initializer>=  0</initializer>
+        <briefdescription>
+<para>total number of nodes in state I1 (for plot) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="78" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1a638970adddbf2dbc6cd3205514811467" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>SIIS::total_M2</definition>
+        <argsstring></argsstring>
+        <name>total_M2</name>
+        <qualifiedname>SIIS.total_M2</qualifiedname>
+        <initializer>=  0</initializer>
+        <briefdescription>
+<para>total number of nodes in state I2 (for plot) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="81" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1af25140b67018e5f34e54f62dfe42d78d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>SIIS::total_S</definition>
+        <argsstring></argsstring>
+        <name>total_S</name>
+        <qualifiedname>SIIS.total_S</qualifiedname>
+        <initializer>=  0</initializer>
+        <briefdescription>
+<para>total number of nodes in state S </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="84" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1aa5d8f43bef1575e80e2f288c3d1b6e53" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>tuple SIIS::A1</definition>
+        <argsstring></argsstring>
+        <name>A1</name>
+        <qualifiedname>SIIS.A1</qualifiedname>
+        <initializer>=  np.random.randint(2, size=(<ref refid="namespace_s_i_i_s_1a62794a73400a5a491e326f153fb0eb4a" kindref="member">N</ref>, <ref refid="namespace_s_i_i_s_1a62794a73400a5a491e326f153fb0eb4a" kindref="member">N</ref>), dtype=np.int8)</initializer>
+        <briefdescription>
+<para>SETUP#################################################################################################################################################################################################. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Make sure adj are symmetric and values are 2 or 1 By making it symmetric, we are making sure if <ref refid="class_s_i_i_s_1_1_node" kindref="compound">Node</ref> 1 is connected to <ref refid="class_s_i_i_s_1_1_node" kindref="compound">Node</ref> 2, then <ref refid="class_s_i_i_s_1_1_node" kindref="compound">Node</ref> 2 is also connected to <ref refid="class_s_i_i_s_1_1_node" kindref="compound">Node</ref> 1. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="369" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="369" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1a70172c3865725551cf373fc4a2f90433" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>tuple SIIS::A2</definition>
+        <argsstring></argsstring>
+        <name>A2</name>
+        <qualifiedname>SIIS.A2</qualifiedname>
+        <initializer>=  np.random.randint(2, size=(<ref refid="namespace_s_i_i_s_1a62794a73400a5a491e326f153fb0eb4a" kindref="member">N</ref>, <ref refid="namespace_s_i_i_s_1a62794a73400a5a491e326f153fb0eb4a" kindref="member">N</ref>), dtype=np.int8)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="371" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="371" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1a94d4aca0a1e957b7a51c910b70b542a5" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple SIIS.S1</definition>
+        <argsstring></argsstring>
+        <name>S1</name>
+        <qualifiedname>SIIS.S1</qualifiedname>
+        <initializer>=  (1 - <ref refid="namespace_s_i_i_s_1a401502781da59716e64740b944b8f784" kindref="member">delta1</ref>) * np.identity(<ref refid="namespace_s_i_i_s_1a62794a73400a5a491e326f153fb0eb4a" kindref="member">N</ref>, dtype=np.int8) + <ref refid="namespace_s_i_i_s_1a727237c66ea7d98aca6b3bd4e6fa1bcc" kindref="member">beta1</ref> * <ref refid="namespace_s_i_i_s_1aa5d8f43bef1575e80e2f288c3d1b6e53" kindref="member">A1</ref></initializer>
+        <briefdescription>
+<para>create System Matrices </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="378" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="378" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1afe0854a7f237a419933ae98bce821481" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple SIIS.S2</definition>
+        <argsstring></argsstring>
+        <name>S2</name>
+        <qualifiedname>SIIS.S2</qualifiedname>
+        <initializer>=  (1 - <ref refid="namespace_s_i_i_s_1a7e76e4a65200a189d0f8589d2cc767be" kindref="member">delta2</ref>) * np.identity(<ref refid="namespace_s_i_i_s_1a62794a73400a5a491e326f153fb0eb4a" kindref="member">N</ref>, dtype=np.int8) + <ref refid="namespace_s_i_i_s_1adcb989b943ed7927e5afbc277ca211a3" kindref="member">beta2</ref> * <ref refid="namespace_s_i_i_s_1a70172c3865725551cf373fc4a2f90433" kindref="member">A2</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="379" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="379" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1a2cce8fdaa73ab70e4596012926ece943" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>SIIS.eigenValues1</definition>
+        <argsstring></argsstring>
+        <name>eigenValues1</name>
+        <qualifiedname>SIIS.eigenValues1</qualifiedname>
+        <initializer>=  eigenValues1[<ref refid="namespace_s_i_i_s_1a84411c515614a2ed36af934a8c29cc1d" kindref="member">idx</ref>]</initializer>
+        <briefdescription>
+<para>get Eigen Values </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="387" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="387" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1a06f0697a1529e8daa03480dabaaf708b" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>SIIS.eigenVectors1</definition>
+        <argsstring></argsstring>
+        <name>eigenVectors1</name>
+        <qualifiedname>SIIS.eigenVectors1</qualifiedname>
+        <initializer>=  eigenVectors1[:,<ref refid="namespace_s_i_i_s_1a84411c515614a2ed36af934a8c29cc1d" kindref="member">idx</ref>]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="387" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="387" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1ac3b1f2748063d9addb90e0c297eb9fb1" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>SIIS.eigenValues2</definition>
+        <argsstring></argsstring>
+        <name>eigenValues2</name>
+        <qualifiedname>SIIS.eigenValues2</qualifiedname>
+        <initializer>=  eigenValues2[<ref refid="namespace_s_i_i_s_1a84411c515614a2ed36af934a8c29cc1d" kindref="member">idx</ref>]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="388" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="388" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1a4b3d97c27d29c2dd23a0016b989ccb44" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>SIIS.eigenVectors2</definition>
+        <argsstring></argsstring>
+        <name>eigenVectors2</name>
+        <qualifiedname>SIIS.eigenVectors2</qualifiedname>
+        <initializer>=  eigenVectors2[:,<ref refid="namespace_s_i_i_s_1a84411c515614a2ed36af934a8c29cc1d" kindref="member">idx</ref>]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="388" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="388" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1a84411c515614a2ed36af934a8c29cc1d" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>SIIS.idx</definition>
+        <argsstring></argsstring>
+        <name>idx</name>
+        <qualifiedname>SIIS.idx</qualifiedname>
+        <initializer>=  eigenValues1.argsort()[::-1]</initializer>
+        <briefdescription>
+<para>sort list of found eigenvalues to find the largest one </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="391" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="391" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1ad510cbae67271dda2063233b51aaafad" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>SIIS.node</definition>
+        <argsstring></argsstring>
+        <name>node</name>
+        <qualifiedname>SIIS.node</qualifiedname>
+        <initializer>=  <ref refid="class_s_i_i_s_1_1_node" kindref="compound">Node</ref>()</initializer>
+        <briefdescription>
+<para>Using our created <ref refid="class_s_i_i_s_1_1_node" kindref="compound">Node</ref> data type, we fill a list with nodes of length N. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="412" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="412" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1a4e70fbbd01f42c9eed3a49346a70af90" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>SIIS.key</definition>
+        <argsstring></argsstring>
+        <name>key</name>
+        <qualifiedname>SIIS.key</qualifiedname>
+        <briefdescription>
+<para>sort nodes by ID number </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="414" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="414" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1a8da1a41b1401b1b7ac673d0a8d5265d3" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>SIIS.id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>SIIS.id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="414" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="414" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1a9a41d5936ff90936a135c91f442699ae" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>SIIS.reverse</definition>
+        <argsstring></argsstring>
+        <name>reverse</name>
+        <qualifiedname>SIIS.reverse</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="414" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="414" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1ab9810fef4d7b3ff0765a4d6830a9ca96" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>SIIS.infected_meme1</definition>
+        <argsstring></argsstring>
+        <name>infected_meme1</name>
+        <qualifiedname>SIIS.infected_meme1</qualifiedname>
+        <initializer>=  random.sample(<ref refid="namespace_s_i_i_s_1a8be68f64adcc7f3c6998c43e9042cc32" kindref="member">allNodes</ref>,10)</initializer>
+        <briefdescription>
+<para>create first list of infected nodes holds org sets to use for multiple lists </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="422" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="422" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1a93604b4d9e16c1681f652610898b8011" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>SIIS.infected_meme2</definition>
+        <argsstring></argsstring>
+        <name>infected_meme2</name>
+        <qualifiedname>SIIS.infected_meme2</qualifiedname>
+        <initializer>=  random.sample(<ref refid="namespace_s_i_i_s_1a8be68f64adcc7f3c6998c43e9042cc32" kindref="member">allNodes</ref>, 10)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="423" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="423" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_s_i_i_s_1a9b56e6ecae380824a538274919502b95" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SIIS::edge</definition>
+        <argsstring></argsstring>
+        <name>edge</name>
+        <qualifiedname>SIIS.edge</qualifiedname>
+        <initializer>=  1</initializer>
+        <briefdescription>
+<para>Run Simulation without Supression. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>MAIN LOOP################################################################################################################################################################################</para>
+<para>Run with Suppression Methods </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="476" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="476" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespace_s_i_i_s_1ad1a44a181ccd1524730d53df9267ca27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def SIIS.randomRem</definition>
+        <argsstring>()</argsstring>
+        <name>randomRem</name>
+        <qualifiedname>SIIS.randomRem</qualifiedname>
+        <briefdescription>
+<para>randomRem picks a random node <linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="98" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="98" bodyend="101"/>
+        <references refid="namespace_s_i_i_s_1aae09dbe3d97853cab90111e7f58197a7" compoundref="_s_i_i_s_8py" startline="132" endline="146">removeNode</references>
+      </memberdef>
+      <memberdef kind="function" id="namespace_s_i_i_s_1aa7a9b6c4d2a2d91106dd90b854611539" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def SIIS.randomNeigh</definition>
+        <argsstring>(pick)</argsstring>
+        <name>randomNeigh</name>
+        <qualifiedname>SIIS.randomNeigh</qualifiedname>
+        <param>
+          <type>pick</type>
+          <defname>pick</defname>
+        </param>
+        <briefdescription>
+<para>randomNeigh </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pick</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>What edge to delete node from picks a random neighbor of a random node </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="105" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="105" bodyend="114"/>
+        <references refid="namespace_s_i_i_s_1aae09dbe3d97853cab90111e7f58197a7" compoundref="_s_i_i_s_8py" startline="132" endline="146">removeNode</references>
+      </memberdef>
+      <memberdef kind="function" id="namespace_s_i_i_s_1a80b1cbd24ef3bce4414388e55f7a8a17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def SIIS.max_degree</definition>
+        <argsstring>(edge)</argsstring>
+        <name>max_degree</name>
+        <qualifiedname>SIIS.max_degree</qualifiedname>
+        <param>
+          <type><ref refid="namespace_s_i_i_s_1a9b56e6ecae380824a538274919502b95" kindref="member">edge</ref></type>
+          <defname>edge</defname>
+        </param>
+        <briefdescription>
+<para>max_degree </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>edge</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>What edge to delete node from removes node max degree or most connections </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="118" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="118" bodyend="128"/>
+        <references refid="namespace_s_i_i_s_1aae09dbe3d97853cab90111e7f58197a7" compoundref="_s_i_i_s_8py" startline="132" endline="146">removeNode</references>
+      </memberdef>
+      <memberdef kind="function" id="namespace_s_i_i_s_1aae09dbe3d97853cab90111e7f58197a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def SIIS.removeNode</definition>
+        <argsstring>(nodea)</argsstring>
+        <name>removeNode</name>
+        <qualifiedname>SIIS.removeNode</qualifiedname>
+        <param>
+          <type>nodea</type>
+          <defname>nodea</defname>
+        </param>
+        <briefdescription>
+<para>removeNode </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nodea</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The node to be deleted removes the node being passed </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="132" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="132" bodyend="146"/>
+        <referencedby refid="namespace_s_i_i_s_1a80b1cbd24ef3bce4414388e55f7a8a17" compoundref="_s_i_i_s_8py" startline="118" endline="128">max_degree</referencedby>
+        <referencedby refid="namespace_s_i_i_s_1aa7a9b6c4d2a2d91106dd90b854611539" compoundref="_s_i_i_s_8py" startline="105" endline="114">randomNeigh</referencedby>
+        <referencedby refid="namespace_s_i_i_s_1ad1a44a181ccd1524730d53df9267ca27" compoundref="_s_i_i_s_8py" startline="98" endline="101">randomRem</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespace_s_i_i_s_1a68ed4322068cfbb790ec5fa305ded181" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def SIIS.set_simulation</definition>
+        <argsstring>()</argsstring>
+        <name>set_simulation</name>
+        <qualifiedname>SIIS.set_simulation</qualifiedname>
+        <briefdescription>
+<para>set_simulation </para>
+        </briefdescription>
+        <detaileddescription>
+<para>sets up infected lists for infection set infected counts to empty set array of stats to empty sets x axis as empty </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="231" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="231" bodyend="256"/>
+        <references refid="namespace_s_i_i_s_1a9ce6bf60763fb485eaee729dcb4c2adb" compoundref="_s_i_i_s_8py" startline="260" endline="269">count</references>
+        <referencedby refid="namespace_s_i_i_s_1a0451e8de5927fe55012013546da79f33" compoundref="_s_i_i_s_8py" startline="273" endline="321">run_sim</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespace_s_i_i_s_1a9ce6bf60763fb485eaee729dcb4c2adb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def SIIS.count</definition>
+        <argsstring>()</argsstring>
+        <name>count</name>
+        <qualifiedname>SIIS.count</qualifiedname>
+        <briefdescription>
+<para>count counts number of currently infected sets total_M values to current values </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="260" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="260" bodyend="269"/>
+        <referencedby refid="namespace_s_i_i_s_1a0451e8de5927fe55012013546da79f33" compoundref="_s_i_i_s_8py" startline="273" endline="321">run_sim</referencedby>
+        <referencedby refid="namespace_s_i_i_s_1a68ed4322068cfbb790ec5fa305ded181" compoundref="_s_i_i_s_8py" startline="231" endline="256">set_simulation</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespace_s_i_i_s_1a0451e8de5927fe55012013546da79f33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def SIIS.run_sim</definition>
+        <argsstring>()</argsstring>
+        <name>run_sim</name>
+        <qualifiedname>SIIS.run_sim</qualifiedname>
+        <briefdescription>
+<para><ref refid="namespace_s_i_i_s_1a0451e8de5927fe55012013546da79f33" kindref="member">run_sim()</ref> carries out actual simulation uses for loop t inside time </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="273" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="273" bodyend="321"/>
+        <references refid="namespace_s_i_i_s_1a9ce6bf60763fb485eaee729dcb4c2adb" compoundref="_s_i_i_s_8py" startline="260" endline="269">count</references>
+        <references refid="namespace_s_i_i_s_1a68ed4322068cfbb790ec5fa305ded181" compoundref="_s_i_i_s_8py" startline="231" endline="256">set_simulation</references>
+      </memberdef>
+      <memberdef kind="function" id="namespace_s_i_i_s_1a107080135e2bcab2d5018a985632c0e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def SIIS.plot_res</definition>
+        <argsstring>(pause, supress, spr)</argsstring>
+        <name>plot_res</name>
+        <qualifiedname>SIIS.plot_res</qualifiedname>
+        <param>
+          <type>pause</type>
+          <defname>pause</defname>
+        </param>
+        <param>
+          <type>supress</type>
+          <defname>supress</defname>
+        </param>
+        <param>
+          <type>spr</type>
+          <defname>spr</defname>
+        </param>
+        <briefdescription>
+<para>plot_res </para>
+        </briefdescription>
+        <detaileddescription>
+<para>plots histogram and time graph of simulation <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pause</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if true does not plot but sets up graph until ran again with pause = false </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>supress</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if true plot supression methods as well </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>spr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>hold name supression method graphed to name on graph </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="328" column="1" bodyfile="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" bodystart="328" bodyend="363"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/SIIS.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

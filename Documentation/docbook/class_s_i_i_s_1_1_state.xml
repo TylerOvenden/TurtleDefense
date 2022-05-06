@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_s_i_i_s_1_1_state" xml:lang="en-US">
+<title>SIIS.State Class Reference</title>
+<indexterm><primary>SIIS.State</primary></indexterm>
+<para>
+
+<para>Enumeration for States. </para>
+ 
+</para>
+Inheritance diagram for SIIS.State:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_i_i_s_1_1_state__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for SIIS.State:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_i_i_s_1_1_state__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_class_s_i_i_s_1_1_state_1a666833f111f4ce88e93efb45833775aa">S</link> = 0</para>
+</listitem>
+            <listitem><para>int <link linkend="_class_s_i_i_s_1_1_state_1a2be4789121968cf4a23a02f58e131f0a">I1</link> = 1</para>
+</listitem>
+            <listitem><para>int <link linkend="_class_s_i_i_s_1_1_state_1a6eaebdd004d589e4a5e642400d6579b1">I2</link> = 2</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Enumeration for States. </para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_s_i_i_s_1_1_state_1a2be4789121968cf4a23a02f58e131f0a"/><section>
+    <title>I1</title>
+<indexterm><primary>I1</primary><secondary>SIIS.State</secondary></indexterm>
+<indexterm><primary>SIIS.State</primary><secondary>I1</secondary></indexterm>
+<para><computeroutput>int SIIS.State.I1 = 1<computeroutput>[static]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_s_i_i_s_1_1_state_1a6eaebdd004d589e4a5e642400d6579b1"/><section>
+    <title>I2</title>
+<indexterm><primary>I2</primary><secondary>SIIS.State</secondary></indexterm>
+<indexterm><primary>SIIS.State</primary><secondary>I2</secondary></indexterm>
+<para><computeroutput>int SIIS.State.I2 = 2<computeroutput>[static]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_s_i_i_s_1_1_state_1a666833f111f4ce88e93efb45833775aa"/><section>
+    <title>S</title>
+<indexterm><primary>S</primary><secondary>SIIS.State</secondary></indexterm>
+<indexterm><primary>SIIS.State</primary><secondary>S</secondary></indexterm>
+<para><computeroutput>int SIIS.State.S = 0<computeroutput>[static]</computeroutput></computeroutput></para></section>
+<para>
+The documentation for this class was generated from the following file:</para>
+C:/Users/Bobby the Kid&apos;s/Documents/turtledefense/TurtleDefense/PythonTrial/SIIR/<link linkend="__s_i_i_s_8py">SIIS.py</link></section>
+</section>
