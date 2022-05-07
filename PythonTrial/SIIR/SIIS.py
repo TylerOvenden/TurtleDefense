@@ -10,7 +10,6 @@
 #@date MAY 2022
 #
 ###\cite X. Wei, N. C. Valler, B. A. Prakash, I. Neamtiu, M. Faloutsos, and C. Faloutsos, “Competing memes propagation on networks: A network science perspective,” IEEE Journal on Selected Areas in Communications, vol. 31, no. 6, pp. 1049–1060, 2013. 
-"""Imports"""
 import enum
 import random 
 import simpy
@@ -341,10 +340,10 @@ def plot_res(pause,supress,spr):
         old_inf1 = time_inf1
         old_inf2 = time_inf2
     elif supress == True and pause == False:
-        plt.plot(time,old_inf1,color="red", label = "Meme 1 λ = {}".format(eigenValueMaxDegreeValue1.most_common(1)))
-        plt.plot(time,old_inf2,color="blue", label ="Meme 2 λ ={}".format(eigenValueMaxDegreeValue2.most_common(1))) 
-        plt.plot(time,time_inf1,color="green", label = "Meme 1 After {} Most common λ = {}".format(spr,eigenValueMaxDegreeValue1.most_common(1)))
-        plt.plot(time,time_inf2,color="yellow", label ="Meme 2 After {} Most common λ = {}".format(spr,eigenValueMaxDegreeValue2.most_common(1)))
+        plt.plot(time,old_inf1,color="red", label = "Meme 1 λ = {}".format(eigenValues1[0]))
+        plt.plot(time,old_inf2,color="blue", label ="Meme 2 λ ={}".format(eigenValues2[0])) 
+        plt.plot(time,time_inf1,color="green", label = "Meme 1 After {}  λ = {}".format(spr,eigenValues1[0]))
+        plt.plot(time,time_inf2,color="yellow", label ="Meme 2 After {} λ = {}".format(spr,eigenValues2[0]))
     plt.xlabel("Time,t")
     plt.ylabel("No. Total infections")
     plt.title("Total infections by meme")
