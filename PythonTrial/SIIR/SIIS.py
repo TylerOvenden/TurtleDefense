@@ -32,10 +32,10 @@ Sampling Variables
 """
 ##@var take_Sample
 #Enables Sampling 0 - Single Run, 1 - Same Matrix multiple runs , 2 - Different Matrix each run/holds eigen values
-take_sample  = 0
+take_sample  = 1
 ##@var smp_size
 #sample size
-smp_size = 10 
+smp_size = 50
  
 """ Meme Parameters"""
 ##@var theta
@@ -250,6 +250,8 @@ def set_simulation():
         else:
             remove.append(infected_meme2[i])
     for i in remove:
+        i.state = State.S
+        infected_meme1.remove(i)
         infected_meme2.remove(i)
     count()
   
@@ -418,8 +420,8 @@ for i in allNodes:
 
 ##create first list of infected nodes
 ## holds org sets to use for multiple lists
-infected_meme1 = random.sample(allNodes,10)  # choose how many nodes start infected by meme 1
-infected_meme2 = random.sample(allNodes, 10)  # choose how many nodes start infected  by meme 2
+infected_meme1 = random.sample(allNodes,random.randint(0,N))  # choose how many nodes start infected by meme 1
+infected_meme2 = random.sample(allNodes,random.randint(0,N))  # choose how many nodes start infected  by meme 2
 
 
 set_simulation()
@@ -477,20 +479,22 @@ else:
     edge = 2
 # infected_meme1 = random.sample(allNodes,random.randint(1,len(allNodes)/2))#randomly choose how many nodes start infected with no more than half being infected
 # infected_meme2 = random.sample(allNodes,random.randint(1,len(allNodes)/2))#randomly choose how many nodes start infected  by meme 2
-infected_meme1 = random.sample(allNodes,
-                               2)  # randomly choose how many nodes start infected with no more than half being infected
-infected_meme2 = random.sample(allNodes, 2)  # randomly choose how many nodes start infected  by meme 2
-
+infected_meme1 = random.sample(allNodes,random.randint(0,N))  # randomly choose how many nodes start infected by Meme 2
+infected_meme2 =random.sample(allNodes,random.randint(0,N))  # randomly choose how many nodes start infected  by meme 2
+M1_Wins = 0
+M2_Wins = 0
+No_win = 0 
 set_simulation()
-print("M1:", total_M1)
-print("M2:", total_M2)
-count()
-print("M1:", total_M1)
-print("M2:", total_M2)
 # randomNeigh(edge)
 # randomRem()
 max_degree(edge)
 run_sim()
+print("Number of Meme 1 wins:")
+print(M1_Wins)
+print("Number of Meme 2 wins:")
+print(M2_Wins)
+print("Number of  no clear winner:")
+print(No_win)
 plot_res(False, True, "Max_Degree")
 
 # Showing Plots for one run
